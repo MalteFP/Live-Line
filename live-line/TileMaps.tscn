@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://twv5gdwsqx0f"]
+
+[ext_resource type="Texture2D" uid="uid://sbokc65ppo3a" path="res://textures/tilemaps/ground/tempGround.png" id="1_0hlij"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ghha8"]
+texture = ExtResource("1_0hlij")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bgr0v"]
+sources/0 = SubResource("TileSetAtlasSource_ghha8")
+
+[node name="TileMaps" type="Node2D" unique_id=813543980]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=59384147]
+tile_set = SubResource("TileSet_bgr0v")

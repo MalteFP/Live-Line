@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dqeg3uaiqbybh"]
+
+[ext_resource type="Script" uid="uid://j0fi66ndq8c0" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://ccgn7fl6mb48j" path="res://textures/sprites/player/tempPlayer.png" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://xjylfq636s4l" path="res://fuse_controller.gd" id="3_i3pqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgr0v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgr0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" unique_id=168672461]
+script = ExtResource("1_4flbx")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=641671524]
+position = Vector2(8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1597917280]
+shape = SubResource("CircleShape2D_bgr0v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1220077435]
+sprite_frames = SubResource("SpriteFrames_bgr0v")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=723119894]
+zoom = Vector2(3, 3)
+
+[node name="FuseController" type="Node2D" parent="." unique_id=1157681337]
+script = ExtResource("3_i3pqv")
