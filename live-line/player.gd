@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 var fuseLength = 10
 @onready var fuseController = $FuseController
