@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccgn7fl6mb48j" path="res://textures/sprites/player/tempPlayer.png" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://xjylfq636s4l" path="res://fuse_controller.gd" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://hd7bvt7h8vri" path="res://textures/sprites/Fuse/itemWire.png" id="4_hqtel"]
+[ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="5_sweqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 
@@ -44,7 +45,10 @@ scale = Vector2(4, 4)
 texture = ExtResource("4_hqtel")
 
 [node name="Label" type="Label" parent="FuseController/CanvasLayer" unique_id=856258440]
-offset_left = 1038.0
-offset_top = 18.0
-offset_right = 1078.0
-offset_bottom = 41.0
+offset_left = 1048.0
+offset_top = 7.0
+offset_right = 1095.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("5_sweqy")
+theme_override_font_sizes/font_size = 48
+text = "132"
