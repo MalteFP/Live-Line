@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://j0fi66ndq8c0" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://ccgn7fl6mb48j" path="res://textures/sprites/player/tempPlayer.png" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://xjylfq636s4l" path="res://fuse_controller.gd" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://hd7bvt7h8vri" path="res://textures/sprites/Fuse/itemWire.png" id="4_hqtel"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bgr0v"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgr0v"]
 animations = [{
@@ -24,7 +25,7 @@ script = ExtResource("1_4flbx")
 position = Vector2(8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1597917280]
-shape = SubResource("CircleShape2D_bgr0v")
+shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1220077435]
 sprite_frames = SubResource("SpriteFrames_bgr0v")
@@ -35,4 +36,15 @@ zoom = Vector2(3, 3)
 [node name="FuseController" type="Node2D" parent="." unique_id=1157681337]
 script = ExtResource("3_i3pqv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="FuseController" unique_id=2112985692]
+[node name="CanvasLayer" type="CanvasLayer" parent="FuseController" unique_id=1982199486]
+
+[node name="Sprite2D" type="Sprite2D" parent="FuseController/CanvasLayer" unique_id=151824288]
+position = Vector2(1120, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("4_hqtel")
+
+[node name="Label" type="Label" parent="FuseController/CanvasLayer" unique_id=856258440]
+offset_left = 1038.0
+offset_top = 18.0
+offset_right = 1078.0
+offset_bottom = 41.0

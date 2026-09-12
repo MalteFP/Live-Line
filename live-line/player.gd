@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var fuseController = $FuseController
 @onready var body = $player
+
+var movementTween: Tween
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -12,23 +14,37 @@ func _process(delta: float) -> void:
 
 
 func movement():
+
 	var pos = body.global_position
+	var tween = get_tree().create_tween()
+	
 	if Input.is_action_just_pressed("attack"):
 		pass
 	elif Input.is_action_just_pressed("up") and not is_point_inside(pos + Vector2(0,-16)):
+		if movementTween and movementTween.is_running():
+			movementTween.custom_step(1)
 		fuseController.playerMoved("up")
-		body.position += Vector2(0,-16)
-		
+		tween.tween_property(body,"position", body.position + Vector2(0,-16), 0.1)
+		movementTween = tween
 	elif Input.is_action_just_pressed("down") and not is_point_inside(pos + Vector2(0,16)):
+		if movementTween and movementTween.is_running():
+			movementTween.custom_step(1)
 		fuseController.playerMoved("down")
-		body.position += Vector2(0,16)
+		tween.tween_property(body,"position", body.position + Vector2(0,16), 0.1)
+		movementTween = tween
 	elif Input.is_action_just_pressed("left") and not is_point_inside(pos + Vector2(-16,0)):
+		if movementTween and movementTween.is_running():
+			movementTween.custom_step(1)
 		fuseController.playerMoved("left")
-		body.position += Vector2(-16,0)
+		tween.tween_property(body,"position", body.position + Vector2(-16,0), 0.1)
+		movementTween = tween
 	elif Input.is_action_just_pressed("right") and not is_point_inside(pos + Vector2(16,0)):
+		if movementTween and movementTween.is_running():
+			movementTween.custom_step(1)
 		fuseController.playerMoved("right")
-		body.position += Vector2(16,0)
-		
+		tween.tween_property(body,"position", body.position + Vector2(16,0), 0.1)
+		movementTween = tween
+	
 
 
 func is_point_inside(point: Vector2) -> bool:
