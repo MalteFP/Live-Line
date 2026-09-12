@@ -1,8 +1,7 @@
 extends Node2D
 
-var fuseLength = 10
 @onready var fuseController = $FuseController
-@onready var body = $CharacterBody2D
+@onready var body = $player
 func _ready() -> void:
 	pass # Replace with function body.
 

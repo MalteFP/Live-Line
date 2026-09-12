@@ -34,5 +34,3 @@ zoom = Vector2(3, 3)
 
 [node name="FuseController" type="Node2D" parent="." unique_id=1157681337]
 script = ExtResource("3_i3pqv")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="FuseController" unique_id=2112985692]
