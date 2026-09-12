@@ -1,5 +1,6 @@
 extends Node2D
 
+var notLayedWire = 0
 var fuseArr = []
 var firePos: Vector2
 var lastDir := "up"
@@ -20,8 +21,10 @@ func _ready():
 func playerMoved(direction: String):
 	addNewFuse(direction)
 	for i in range(2):
-		if fuseArr.size() >= 1:
+		if fuseArr.size() >= 1 and notLayedWire == 0:
 			fuseArr.pop_front().queue_free()
+		else:
+			notLayedWire -= 1
 	
 func addNewFuse(dir: String):
 	var texture = "res://textures/sprites/Fuse/" + dir + lastDir + ".png"
