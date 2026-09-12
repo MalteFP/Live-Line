@@ -15,10 +15,6 @@ run/main_scene="uid://con3xmyd77eu3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-TurnQueueHolder="*uid://4xmeaja1n2xi"
-
 [display]
 
 window/stretch/mode="canvas_items"
@@ -58,5 +54,4 @@ attack={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
