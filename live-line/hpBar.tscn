@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://curmfi8xjtn13"]
+
+[ext_resource type="Script" uid="uid://d20y1sx3j15ql" path="res://HP.gd" id="1_mscim"]
+[ext_resource type="Texture2D" uid="uid://4eobb02q4hm5" path="res://textures/sprites/HealthBar/pixil-frame-0(1).png" id="2_2ufse"]
+[ext_resource type="Texture2D" uid="uid://b3sp4n6phhec7" path="res://textures/sprites/HealthBar/HealthBarOutline.png" id="3_2ufse"]
+
+[node name="Control" type="Control" unique_id=1343440118]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mscim")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=533298508]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1938599707]
+position = Vector2(120, 40)
+scale = Vector2(15, 5)
+texture = ExtResource("2_2ufse")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer" unique_id=857946922]
+position = Vector2(120, 40)
+scale = Vector2(5, 5)
+texture = ExtResource("3_2ufse")
+
+[node name="Health" type="Label" parent="CanvasLayer" unique_id=1993033428]
+offset_right = 240.0
+offset_bottom = 80.0
+horizontal_alignment = 1
+vertical_alignment = 1
