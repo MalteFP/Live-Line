@@ -8,15 +8,16 @@ var lastDir := "up"
 var initFuseSize = 30
 
 var rotationDic = {"up":180, "down":0, "right": 270, "left": 90}
+var offset = {"up":Vector2(0,16),"down":Vector2(0,-16),"right":Vector2(-16,0),"left":Vector2(16,0)}
+
+var fireTween: Tween
 
 @onready var label = $CanvasLayer/Label
 @onready var fire = $fire
 
-func _process(delta: float) -> void:
-	label.text = str(fuseArr.size() + notLayedWire)
-
 
 func _ready():
+	fire.play("default")
 	await get_tree().create_timer(0).timeout
 	var texture = "res://textures/sprites/Fuse/upup.png"
 	for i in range(initFuseSize):
@@ -27,25 +28,28 @@ func _ready():
 		instance.set_meta("dir","up")
 		fuseArr.append(instance)
 		add_child(instance)
+	label.text = str(fuseArr.size() + notLayedWire)
 
 func playerMoved(direction: String):
 	addNewFuse(direction)
 	for i in range(2):
 		if fuseArr.size() > 0 and notLayedWire == 0:
-			
-			fire.global_position = fuseArr[0].global_position
-			fire.rotation_degrees = rotationDic[fuseArr[0].get_meta("dir")]
-			fuseArr.pop_front().queue_free()
-			fuseArr.front().visible = false
-			fire.play("default")
+			var tween = get_tree().create_tween()
+			if fireTween and fireTween.is_running():
+				fireTween.custom_step(1)
+			tween.parallel().tween_property(fire,"global_position", fuseArr[0].global_position + offset[fuseArr[0].get_meta("dir")], 0.1)
+			tween.parallel().tween_property(fire,"rotation_degrees", shortestAngle(fire.rotation_degrees, rotationDic[fuseArr[0].get_meta("dir")]), 0.1)
+			fireTween = tween
+			await get_tree().create_timer(0.1).timeout
 			fire.visible = true
+			fuseArr.pop_front().queue_free()
 		elif fuseArr.size() == 0:
 			print("BOOM YOU DIED")
 		if notLayedWire >= 1:
 			notLayedWire -= 1
 		else:
 			notLayedWire = 0
-			
+	label.text = str(fuseArr.size() + notLayedWire)
 		
 			
 func addNewFuse(dir: String):
@@ -58,3 +62,7 @@ func addNewFuse(dir: String):
 	fuseArr.append(instance)
 	add_child(instance)
 	lastDir = dir
+	
+func shortestAngle(from: float, to: float) -> float:
+	var diff = fmod((to - from + 180), 360) - 180
+	return from + diff

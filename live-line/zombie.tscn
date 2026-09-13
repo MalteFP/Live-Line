@@ -3,6 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://c35xml0n0u884" path="res://textures/sprites/fire/tile002.png" id="1_roy8y"]
 [ext_resource type="Script" uid="uid://clrckopl44ef6" path="res://enemy.gd" id="1_uiaus"]
 
+[sub_resource type="Gradient" id="Gradient_roy8y"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.38554215, 0.78313255)
+colors = PackedColorArray(1, 1, 1, 1, 0.05421686, 0.05421686, 0.05421686, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jmu02"]
+gradient = SubResource("Gradient_roy8y")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="Zombie" type="Node2D" unique_id=788798260 groups=["enemy"]]
 script = ExtResource("1_uiaus")
 
@@ -10,3 +21,9 @@ script = ExtResource("1_uiaus")
 position = Vector2(8, 8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_roy8y")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1788500108]
+scale = Vector2(2, 2)
+color = Color(1, 1, 0.2901961, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_jmu02")

@@ -6,6 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgr0v"]
 size = Vector2(8, 8)
 
+[sub_resource type="Gradient" id="Gradient_i70ab"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.38554215, 0.78313255)
+colors = PackedColorArray(1, 1, 1, 1, 0.05421686, 0.05421686, 0.05421686, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y2bgg"]
+gradient = SubResource("Gradient_i70ab")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="itemWire" type="Node2D" unique_id=864759024]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1649146430]
@@ -18,5 +29,11 @@ script = ExtResource("2_i70ab")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1413292928]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_bgr0v")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=607493035]
+position = Vector2(8, 8)
+color = Color(1, 1, 0.2901961, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_y2bgg")
 
 [connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]

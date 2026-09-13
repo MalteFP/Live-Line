@@ -4,7 +4,7 @@ class_name Enemy
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
 var range := 10
-
+var movementTween: Tween
 
 func _ready():
 	build_grid()
@@ -66,5 +66,9 @@ func walk():
 	if path.size() < 2:
 		return
 
+	if movementTween and movementTween.is_running():
+			movementTween.custom_step(1)
 	var next_tile := path[1]
-	global_position = next_tile * 16
+	var tween = get_tree().create_tween()
+	tween.tween_property(self,"global_position",Vector2(next_tile * 16),0.2)
+	movementTween = tween

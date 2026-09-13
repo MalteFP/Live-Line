@@ -3,16 +3,16 @@ extends Node2D
 @onready var fuseController = $FuseController
 @onready var body = $player
 @onready var sprite = $player/AnimatedSprite2D
+
 var tilSize = 16
 
 var lastMove = "up"
 
 var movementTween: Tween
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	pass
+	
+	
 func _process(delta: float) -> void:
 	movement()
 	updateSprite()
@@ -76,6 +76,7 @@ func is_point_inside(point: Vector2) -> bool:
 	var paras = PhysicsPointQueryParameters2D.new()
 	paras.position = point
 	var result = space_state.intersect_point(paras)
+	
 	return result.size() > 0
 	
 func updateSprite():
@@ -92,4 +93,3 @@ func updateSprite():
 		elif lastMove == "left":
 			body.scale = Vector2(1,1)
 			sprite.play("idleSide")
-	
