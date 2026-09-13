@@ -124,7 +124,7 @@ shape = SubResource("RectangleShape2D_hqtel")
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
 animation = &"walkingFront"
-frame_progress = 0.43921757
+frame_progress = 0.5544144
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=723119894]
 zoom = Vector2(3, 3)

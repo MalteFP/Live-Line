@@ -3,7 +3,7 @@ extends Node2D
 @onready var fuseController = $FuseController
 @onready var body = $player
 @onready var sprite = $player/AnimatedSprite2D
-
+var tilSize = 16
 
 var lastMove = "up"
 
@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 func movement():
 	var actionTaked = false
 	var pos = body.global_position
-
 	
 	if Input.is_action_just_pressed("attack"):
 		actionTaked = true
