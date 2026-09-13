@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://con3xmyd77eu3"]
 
-[ext_resource type="PackedScene" uid="uid://dqeg3uaiqbybh" path="res://player.tscn" id="1_jgpco"]
-[ext_resource type="PackedScene" uid="uid://twv5gdwsqx0f" path="res://TileMaps.tscn" id="2_uc0gf"]
-[ext_resource type="PackedScene" uid="uid://wk8ot80j01gi" path="res://itemWire.tscn" id="3_uc0gf"]
-[ext_resource type="PackedScene" uid="uid://cmd1l60c80wgg" path="res://zombie.tscn" id="4_y63tp"]
+[ext_resource type="PackedScene" uid="uid://dqeg3uaiqbybh" path="res://scenes/player.tscn" id="1_jgpco"]
+[ext_resource type="PackedScene" uid="uid://twv5gdwsqx0f" path="res://scenes/TileMaps.tscn" id="2_uc0gf"]
+[ext_resource type="PackedScene" uid="uid://wk8ot80j01gi" path="res://scenes/itemWire.tscn" id="3_uc0gf"]
+[ext_resource type="PackedScene" uid="uid://cmd1l60c80wgg" path="res://scenes/zombie.tscn" id="4_y63tp"]
 
 [node name="Node2D" type="Node2D" unique_id=812723244]
 

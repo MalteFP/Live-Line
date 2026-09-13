@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wk8ot80j01gi"]
 
 [ext_resource type="Texture2D" uid="uid://hd7bvt7h8vri" path="res://textures/sprites/Fuse/itemWire.png" id="1_xfvd5"]
-[ext_resource type="Script" uid="uid://b5jw3vnrpwprh" path="res://itemWireArea.gd" id="2_i70ab"]
+[ext_resource type="Script" uid="uid://b5jw3vnrpwprh" path="res://scripts/itemWireArea.gd" id="2_i70ab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgr0v"]
 size = Vector2(8, 8)

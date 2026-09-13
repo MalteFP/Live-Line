@@ -3,7 +3,7 @@ extends Node2D
 @onready var fuseController = $FuseController
 @onready var body = $player
 @onready var sprite = $player/AnimatedSprite2D
-
+var movementBlocked = false
 var tilSize = 16
 
 var lastMove = "up"
@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 	updateSprite()
 
 func movement():
+	if movementBlocked:
+		return
 	var actionTaked = false
 	var pos = body.global_position
 	
@@ -93,3 +95,25 @@ func updateSprite():
 		elif lastMove == "left":
 			body.scale = Vector2(1,1)
 			sprite.play("idleSide")
+
+
+
+func explode():
+	movementBlocked = true
+	var particels = $player/explosionParticles
+	var cam = $player/Camera2D
+	particels.emitting = true
+	$player/ash.visible = true
+	sprite.visible = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(cam,"zoom",Vector2(10,10),1)
+	await get_tree().create_timer(1).timeout
+	particels.emitting = false
+	await get_tree().create_timer(0.5).timeout
+	$lossScene.death()
+
+	
+	
+	
+	
+	

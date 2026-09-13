@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cmd1l60c80wgg"]
 
-[ext_resource type="Texture2D" uid="uid://c35xml0n0u884" path="res://textures/sprites/fire/tile002.png" id="1_roy8y"]
-[ext_resource type="Script" uid="uid://clrckopl44ef6" path="res://enemy.gd" id="1_uiaus"]
+[ext_resource type="Script" uid="uid://clrckopl44ef6" path="res://scripts/enemy.gd" id="1_1vlb3"]
 
 [sub_resource type="Gradient" id="Gradient_roy8y"]
 interpolation_mode = 2
@@ -15,12 +14,11 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
 [node name="Zombie" type="Node2D" unique_id=788798260 groups=["enemy"]]
-script = ExtResource("1_uiaus")
+script = ExtResource("1_1vlb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=87181145]
 position = Vector2(8, 8)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_roy8y")
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1788500108]
 scale = Vector2(2, 2)

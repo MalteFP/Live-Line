@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5byk4awwq54v"
-path="res://.godot/imported/tile004.png-b20c692dac3b1985bc3aa16ba1a45195.ctex"
+uid="uid://b7v36hmbkewdf"
+path="res://.godot/imported/pixil-frame-0 (31).png-9ae730a25cdb7e18ebbdc2187c5158a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sprites/fire/tile004.png"
-dest_files=["res://.godot/imported/tile004.png-b20c692dac3b1985bc3aa16ba1a45195.ctex"]
+source_file="res://textures/sprites/fire/pixil-frame-0 (31).png"
+dest_files=["res://.godot/imported/pixil-frame-0 (31).png-9ae730a25cdb7e18ebbdc2187c5158a0.ctex"]
 
 [params]
 

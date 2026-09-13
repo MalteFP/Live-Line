@@ -1,5 +1,7 @@
 extends Node2D
 
+
+var totalFuseCollected = 30
 var notLayedWire = 0
 var fuseArr = []
 var firePos: Vector2
@@ -21,7 +23,7 @@ func _ready():
 	await get_tree().create_timer(0).timeout
 	var texture = "res://textures/sprites/Fuse/upup.png"
 	for i in range(initFuseSize):
-		var fuse = preload("res://fuse.tscn")
+		var fuse = preload("res://scenes/fuse.tscn")
 		var instance = fuse.instantiate()
 		instance.get_node("Sprite2D").texture = load(texture)
 		instance.global_position = get_parent().body.global_position + (initFuseSize - i) * Vector2(0,16)
@@ -42,9 +44,11 @@ func playerMoved(direction: String):
 			fireTween = tween
 			await get_tree().create_timer(0.1).timeout
 			fire.visible = true
-			fuseArr.pop_front().queue_free()
+			if fuseArr.front():
+				fuseArr.pop_front().queue_free()
 		elif fuseArr.size() == 0:
-			print("BOOM YOU DIED")
+			fire.visible = false
+			get_parent().explode()
 		if notLayedWire >= 1:
 			notLayedWire -= 1
 		else:
@@ -54,7 +58,7 @@ func playerMoved(direction: String):
 			
 func addNewFuse(dir: String):
 	var texture = "res://textures/sprites/Fuse/" + dir + lastDir + ".png"
-	var fuse = preload("res://fuse.tscn")
+	var fuse =  preload("res://scenes/fuse.tscn")
 	var instance = fuse.instantiate()
 	instance.global_position = get_parent().body.global_position
 	instance.get_node("Sprite2D").texture = load(texture)

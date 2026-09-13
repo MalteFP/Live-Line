@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 TurnQueueHolder="*uid://4xmeaja1n2xi"
+ScoreHolder="*uid://dcqbadm1jjw8j"
 
 [display]
 
