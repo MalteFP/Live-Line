@@ -18,13 +18,14 @@ func _process(delta: float) -> void:
 	updateSprite()
 
 func movement():
-
+	var actionTaked = false
 	var pos = body.global_position
 
 	
 	if Input.is_action_just_pressed("attack"):
-		pass
+		actionTaked = true
 	elif Input.is_action_just_pressed("up") and not is_point_inside(pos + Vector2(0,-16)):
+		actionTaked = true
 		sprite.play("walkingBack")
 		var tween = get_tree().create_tween()
 		if movementTween and movementTween.is_running():
@@ -34,6 +35,7 @@ func movement():
 		tween.tween_property(body,"position", body.position + Vector2(0,-16), 0.2)
 		movementTween = tween
 	elif Input.is_action_just_pressed("down") and not is_point_inside(pos + Vector2(0,16)):
+		actionTaked = true
 		sprite.play("walkingFront")
 		var tween = get_tree().create_tween()
 		if movementTween and movementTween.is_running():
@@ -43,7 +45,9 @@ func movement():
 		tween.tween_property(body,"position", body.position + Vector2(0,16), 0.2)
 		movementTween = tween
 	elif Input.is_action_just_pressed("left") and not is_point_inside(pos + Vector2(-16,0)):
+		actionTaked = true
 		sprite.play("walkingSide")
+		body.scale = Vector2(1,1)
 		var tween = get_tree().create_tween()
 		if movementTween and movementTween.is_running():
 			movementTween.custom_step(1)
@@ -52,6 +56,7 @@ func movement():
 		tween.tween_property(body,"position", body.position + Vector2(-16,0), 0.2)
 		movementTween = tween
 	elif Input.is_action_just_pressed("right") and not is_point_inside(pos + Vector2(16,0)):
+		actionTaked = true
 		sprite.play("walkingSide")
 		body.scale = Vector2(-1,1)
 		var tween = get_tree().create_tween()
@@ -61,7 +66,11 @@ func movement():
 		lastMove = "right"
 		tween.tween_property(body,"position", body.position + Vector2(16,0), 0.2)
 		movementTween = tween
-	
+	if actionTaked:
+		var enemies = get_tree().get_nodes_in_group("enemy")
+		for enemy in enemies:
+			print(enemy.name)
+			enemy.process()
 
 
 func is_point_inside(point: Vector2) -> bool:

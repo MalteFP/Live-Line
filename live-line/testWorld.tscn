@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dqeg3uaiqbybh" path="res://player.tscn" id="1_jgpco"]
 [ext_resource type="PackedScene" uid="uid://twv5gdwsqx0f" path="res://TileMaps.tscn" id="2_uc0gf"]
 [ext_resource type="PackedScene" uid="uid://wk8ot80j01gi" path="res://itemWire.tscn" id="3_uc0gf"]
+[ext_resource type="PackedScene" uid="uid://cmd1l60c80wgg" path="res://zombie.tscn" id="4_y63tp"]
 
 [node name="Node2D" type="Node2D" unique_id=812723244]
 
@@ -14,6 +15,9 @@ tile_map_data = PackedByteArray("AAD5//z/AAAAAAAAAAD5//3/AAAAAAAAAAD5//7/AAAAAAA
 [node name="Player" parent="." unique_id=168672461 instance=ExtResource("1_jgpco")]
 
 [node name="itemWire" parent="." unique_id=864759024 instance=ExtResource("3_uc0gf")]
-position = Vector2(31, -48)
+position = Vector2(32, -48)
+
+[node name="Zombie" parent="." unique_id=788798260 instance=ExtResource("4_y63tp")]
+position = Vector2(160, -48)
 
 [editable path="TileMaps"]

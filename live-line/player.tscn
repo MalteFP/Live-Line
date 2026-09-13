@@ -92,7 +92,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Player" type="Node2D" unique_id=168672461]
+[node name="Player" type="Node2D" unique_id=168672461 groups=["player"]]
 script = ExtResource("1_4flbx")
 
 [node name="FuseController" type="Node2D" parent="." unique_id=1157681337]
@@ -124,7 +124,7 @@ shape = SubResource("RectangleShape2D_hqtel")
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
 animation = &"walkingFront"
-frame_progress = 0.6648284
+frame_progress = 0.43921757
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=723119894]
 zoom = Vector2(3, 3)

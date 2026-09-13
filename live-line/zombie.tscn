@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cmd1l60c80wgg"]
+
+[ext_resource type="Texture2D" uid="uid://c35xml0n0u884" path="res://textures/sprites/fire/tile002.png" id="1_roy8y"]
+[ext_resource type="Script" uid="uid://clrckopl44ef6" path="res://enemy.gd" id="1_uiaus"]
+
+[node name="Zombie" type="Node2D" unique_id=788798260 groups=["enemy"]]
+script = ExtResource("1_uiaus")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=87181145]
+position = Vector2(8, 8)
+texture = ExtResource("1_roy8y")

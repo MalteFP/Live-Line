@@ -24,6 +24,11 @@ TurnQueueHolder="*uid://4xmeaja1n2xi"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+player=""
+enemy=""
+
 [input]
 
 up={
