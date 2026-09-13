@@ -25,6 +25,7 @@ func movement():
 	
 	if Input.is_action_just_pressed("attack"):
 		actionTaked = true
+		fuseController.playerAttacked()
 	elif Input.is_action_just_pressed("up") and not is_point_inside(pos + Vector2(0,-16)):
 		actionTaked = true
 		sprite.play("walkingBack")
@@ -109,7 +110,7 @@ func explode():
 	tween.tween_property(cam,"zoom",Vector2(10,10),1)
 	await get_tree().create_timer(1).timeout
 	particels.emitting = false
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1.5).timeout
 	$lossScene.death()
 
 	
