@@ -69,7 +69,6 @@ func movement():
 	if actionTaked:
 		var enemies = get_tree().get_nodes_in_group("enemy")
 		for enemy in enemies:
-			print(enemy.name)
 			enemy.process()
 
 
