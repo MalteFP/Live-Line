@@ -7,8 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://dtb4pydafvc81" path="res://textures/sprites/player/idle/idleSide.png" id="4_b26j0"]
 [ext_resource type="Texture2D" uid="uid://hd7bvt7h8vri" path="res://textures/sprites/Fuse/itemWire.png" id="4_hqtel"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="5_sweqy"]
+[ext_resource type="Texture2D" uid="uid://dt1al53f04tai" path="res://textures/sprites/player/walking/tile004.png" id="8_urp6f"]
+[ext_resource type="Texture2D" uid="uid://cgu3yyrpj66cb" path="res://textures/sprites/player/walking/tile005.png" id="9_bwjto"]
+[ext_resource type="Texture2D" uid="uid://bhae4iq4i5w4o" path="res://textures/sprites/player/walking/pixil-frame-0 (23).png" id="10_ivps1"]
+[ext_resource type="Texture2D" uid="uid://b2oulnlh7bffb" path="res://textures/sprites/player/walking/tile002.png" id="12_op7ga"]
+[ext_resource type="Texture2D" uid="uid://dit2pepu4b3g8" path="res://textures/sprites/player/walking/tile003.png" id="13_q13i1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
+atlas = ExtResource("10_ivps1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
+atlas = ExtResource("10_ivps1")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgr0v"]
 animations = [{
@@ -35,6 +48,48 @@ animations = [{
 "loop": 1,
 "name": &"idleSide",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bwjto")
+}],
+"loop": 1,
+"name": &"walkingBack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dw050")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwjto")
+}],
+"loop": 1,
+"name": &"walkingFront",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q13i1")
+}],
+"loop": 1,
+"name": &"walkingSide",
+"speed": 15.0
 }]
 
 [node name="Player" type="Node2D" unique_id=168672461]
@@ -68,7 +123,8 @@ shape = SubResource("RectangleShape2D_hqtel")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1220077435]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
-animation = &"idleSide"
+animation = &"walkingFront"
+frame_progress = 0.5025348
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=723119894]
 zoom = Vector2(3, 3)
