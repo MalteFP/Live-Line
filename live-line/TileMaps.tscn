@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://twv5gdwsqx0f"]
 
-[ext_resource type="Texture2D" uid="uid://sbokc65ppo3a" path="res://textures/tilemaps/ground/tempGround.png" id="1_0hlij"]
+[ext_resource type="Texture2D" uid="uid://bobx36t78d0u8" path="res://textures/tilemaps/ground/pixil-frame-0 (25).png" id="1_ghha8"]
 [ext_resource type="Texture2D" uid="uid://dhcwx48gnmhs2" path="res://textures/tilemaps/objects/pixil-frame-0 (24).png" id="2_ghha8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ghha8"]
-texture = ExtResource("1_0hlij")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbyse"]
+texture = ExtResource("1_ghha8")
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bgr0v"]
-sources/0 = SubResource("TileSetAtlasSource_ghha8")
+sources/1 = SubResource("TileSetAtlasSource_hbyse")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xnmi"]
 texture = ExtResource("2_ghha8")

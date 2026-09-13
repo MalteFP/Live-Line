@@ -7,7 +7,10 @@ var lastDir := "up"
 
 var initFuseSize = 30
 
+var rotationDic = {"up":180, "down":0, "right": 270, "left": 90}
+
 @onready var label = $CanvasLayer/Label
+@onready var fire = $fire
 
 func _process(delta: float) -> void:
 	label.text = str(fuseArr.size() + notLayedWire)
@@ -21,6 +24,7 @@ func _ready():
 		var instance = fuse.instantiate()
 		instance.get_node("Sprite2D").texture = load(texture)
 		instance.global_position = get_parent().body.global_position + (initFuseSize - i) * Vector2(0,16)
+		instance.set_meta("dir","up")
 		fuseArr.append(instance)
 		add_child(instance)
 
@@ -28,7 +32,13 @@ func playerMoved(direction: String):
 	addNewFuse(direction)
 	for i in range(2):
 		if fuseArr.size() > 0 and notLayedWire == 0:
+			
+			fire.global_position = fuseArr[0].global_position
+			fire.rotation_degrees = rotationDic[fuseArr[0].get_meta("dir")]
 			fuseArr.pop_front().queue_free()
+			fuseArr.front().visible = false
+			fire.play("default")
+			fire.visible = true
 		elif fuseArr.size() == 0:
 			print("BOOM YOU DIED")
 		if notLayedWire >= 1:
@@ -36,7 +46,7 @@ func playerMoved(direction: String):
 		else:
 			notLayedWire = 0
 			
-			
+		
 			
 func addNewFuse(dir: String):
 	var texture = "res://textures/sprites/Fuse/" + dir + lastDir + ".png"
@@ -44,6 +54,7 @@ func addNewFuse(dir: String):
 	var instance = fuse.instantiate()
 	instance.global_position = get_parent().body.global_position
 	instance.get_node("Sprite2D").texture = load(texture)
+	instance.set_meta("dir",dir)
 	fuseArr.append(instance)
 	add_child(instance)
 	lastDir = dir

@@ -5,8 +5,6 @@ var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
 var range := 10
 
-var blocked_cells: Array[Vector2i] = []
-var not_blocked_cells: Array[Vector2i] = []
 
 func _ready():
 	build_grid()
@@ -17,9 +15,6 @@ func process():
 
 
 func build_grid():
-	blocked_cells.clear()
-	not_blocked_cells.clear()
-
 	var center_tile := Vector2i(global_position.x / 16, global_position.y / 16)
 	grid.region = Rect2i(center_tile - Vector2i(range, range),
 						 Vector2i(range * 2 + 1, range * 2 + 1))
@@ -30,7 +25,6 @@ func build_grid():
 
 	var space_state := get_world_2d().direct_space_state
 
-	# FIX: tiny shape instead of full tile
 	var shape := RectangleShape2D.new()
 	shape.extents = Vector2(2, 2)
 
@@ -48,10 +42,6 @@ func build_grid():
 
 			grid.set_point_solid(cell, blocked)
 
-			if blocked:
-				blocked_cells.append(cell)
-			else:
-				not_blocked_cells.append(cell)
 	var player := get_tree().get_first_node_in_group("player").get_node("player")
 	var goal := Vector2i(player.global_position.x / 16, player.global_position.y / 16)
 	if grid.is_in_bounds(goal.x,goal.y):
@@ -61,18 +51,6 @@ func build_grid():
 	queue_redraw()
 
 
-
-
-func _draw():
-	for cell in blocked_cells:
-		var world_pos := Vector2(cell.x * 16, cell.y * 16)
-		var local_pos := world_pos - global_position
-		draw_rect(Rect2(local_pos, Vector2(8, 8)), Color(1, 0, 0, 0.4))
-
-	for cell in not_blocked_cells:
-		var world_pos := Vector2(cell.x * 16, cell.y * 16)
-		var local_pos := world_pos - global_position
-		draw_rect(Rect2(local_pos, Vector2(8, 8)), Color(0.108, 0.647, 0.0, 0.4))
 
 
 func walk():

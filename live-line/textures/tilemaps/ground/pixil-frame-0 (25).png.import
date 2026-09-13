@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sbokc65ppo3a"
-path="res://.godot/imported/tempGround.png-ce8f056eb133207fbe71ffe6b1a7f69f.ctex"
+uid="uid://bobx36t78d0u8"
+path="res://.godot/imported/pixil-frame-0 (25).png-9c4d10b3377fd6830ce3468a2cd45889.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/tilemaps/ground/tempGround.png"
-dest_files=["res://.godot/imported/tempGround.png-ce8f056eb133207fbe71ffe6b1a7f69f.ctex"]
+source_file="res://textures/tilemaps/ground/pixil-frame-0 (25).png"
+dest_files=["res://.godot/imported/pixil-frame-0 (25).png-9c4d10b3377fd6830ce3468a2cd45889.ctex"]
 
 [params]
 
