@@ -5,9 +5,9 @@ var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
 var range := 10
 var movementTween: Tween
+var debug = false
 
 signal finished
-signal buildGrindDone
 var blocks = []
 var notblocks = []
 var pathWay = []
@@ -19,7 +19,7 @@ func process():
 	
 	build_grid()
 	queue_redraw()
-
+	
 	
 	
 
@@ -63,7 +63,7 @@ func build_grid():
 			grid.set_point_solid(cell, blocked)
 
 	var player := get_tree().get_first_node_in_group("player").get_node("player")
-	var goal = Vector2i(ceil(player.global_position.x / 16) - 1, ceil(player.global_position.y / 16) - 1)
+	var goal := Vector2i(ceil(player.global_position.x / 16) - 1, ceil(player.global_position.y / 16) - 1)
 	if grid.is_in_bounds(goal.x,goal.y):
 		grid.set_point_solid(goal, false)
 	grid.update()
@@ -72,6 +72,8 @@ func build_grid():
 
 
 func _draw() -> void:
+	if not debug:
+		return
 	for block in blocks:
 		draw_rect(Rect2(block - global_position,Vector2(8,8)),Color(1.0, 0.0, 0.0, 1.0))
 	for block in notblocks:
@@ -87,12 +89,14 @@ func walk():
 	var start := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
 	var goal := Vector2i(ceil(player.global_position.x / 16) - 1, ceil(player.global_position.y / 16) - 1)
 	if not grid.region.has_point(goal):
+		finished.emit()
 		return
 
 	var path := grid.get_id_path(start, goal)
 	for p in path: 
 		pathWay.append(p)
 	if path.size() < 3:
+		finished.emit()
 		return
 
 	if movementTween and movementTween.is_running():
@@ -101,5 +105,5 @@ func walk():
 	var tween = get_tree().create_tween()
 	tween.tween_property(body,"global_position",Vector2(next_tile * 16),0.2)
 	movementTween = tween
-	
-	emit_signal("finished")
+	print("emit")
+	finished.emit()
