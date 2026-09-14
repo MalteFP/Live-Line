@@ -91,7 +91,8 @@ animations = [{
 [node name="Sword" type="Node2D" unique_id=51907742]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1613749823]
-visible = false
+position = Vector2(0, -8)
+rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_l0bqs")
 autoplay = "default"
 frame = 10

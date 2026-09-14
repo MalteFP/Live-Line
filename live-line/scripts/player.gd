@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if Input.is_action_just_pressed("attack"):
-		pass
+		attack()
 
 	elif Input.is_action_just_pressed("up"):
 		if not is_point_inside(body.global_position + Vector2(0, -16)):
@@ -84,26 +84,13 @@ func explode():
 	await get_tree().create_timer(1.5).timeout
 	$lossScene.death()
 
-func attack(delta):
-	get_node("Sword/Sprite2D").global_position = get_node("player").global_position
-	if lastMove == "up":
-		get_node("Sword/Sprite2D").rotation = 0
-		get_node("Sword/Sprite2D").global_position += Vector2(0,-8)
-	elif lastMove == "down":
-		get_node("Sword/Sprite2D").rotation = PI
-		get_node("Sword/Sprite2D").global_position += Vector2(0,8)
-	elif lastMove == "right":
-		get_node("Sword/Sprite2D").rotation = 0.5*PI
-		get_node("Sword/Sprite2D").global_position += Vector2(8,0)
-	elif lastMove == "left":
-		get_node("Sword/Sprite2D").rotation = 1.5*PI
-		get_node("Sword/Sprite2D").global_position += Vector2(-8,0)
-	
+func attack():
+	get_node("Sword/Sprite2D").timeInAttack = 0
+	get_node("Sword/Sprite2D").isAttacking = true
 	get_node("Sword/Sprite2D").visible = true
-	get_node("Sword/Sprite2D").play("default")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer((0.625)).timeout
 	get_node("Sword/Sprite2D").visible = false
-
+	get_node("Sword/Sprite2D").isAttacking = false
 	
 func do_move(vector: Vector2, dir: String):
 	var tween = get_tree().create_tween()
