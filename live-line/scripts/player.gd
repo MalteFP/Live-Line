@@ -97,7 +97,10 @@ func attack(delta):
 		get_node("Sword/Sprite2D").global_position += Vector2(-8,0)
 	
 	get_node("Sword/Sprite2D").visible = true
-	
+	get_node("Sword/Sprite2D").play("default")
+	await get_tree().create_timer(0.5).timeout
+	get_node("Sword/Sprite2D").visible = false
+
 	
 func do_move(vector: Vector2, dir: String):
 	isMoveReady = false
