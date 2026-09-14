@@ -1,5 +1,5 @@
 extends Node2D
-class_name Enemy
+
 
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
