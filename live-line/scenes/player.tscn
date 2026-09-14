@@ -13,10 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://cgu3yyrpj66cb" path="res://textures/sprites/player/walking/tile005.png" id="9_bwjto"]
 [ext_resource type="Texture2D" uid="uid://b2oulnlh7bffb" path="res://textures/sprites/player/walking/tile002.png" id="12_op7ga"]
 [ext_resource type="Texture2D" uid="uid://dit2pepu4b3g8" path="res://textures/sprites/player/walking/tile003.png" id="13_q13i1"]
+[ext_resource type="Texture2D" uid="uid://fo5w5bajwdx3" path="res://textures/sprites/player/walking/tile000.png" id="14_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://b7v36hmbkewdf" path="res://textures/sprites/fire/pixil-frame-0 (31).png" id="14_bwjto"]
+[ext_resource type="Texture2D" uid="uid://dwjqib2xo52fl" path="res://textures/sprites/player/walking/tile001.png" id="15_60mlk"]
 [ext_resource type="PackedScene" uid="uid://bk6x3si0lxcdc" path="res://scenes/lossScene.tscn" id="16_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://svk426jex0x5" path="res://scenes/playerWeapon.tscn" id="17_fulsm"]
-[ext_resource type="PackedScene" uid="uid://curmfi8xjtn13" path="res://scenes/hpBar.tscn" id="17_qfm1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("5_urp6f")
@@ -75,17 +76,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0.05421686, 0.05421686, 0.05421686, 1, 0, 
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bgr0v"]
 gradient = SubResource("Gradient_urp6f")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
-[sub_resource type="Gradient" id="Gradient_bwjto"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.5903614, 0.78313255)
-colors = PackedColorArray(1, 1, 1, 1, 0.05421686, 0.05421686, 0.05421686, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_606se"]
-gradient = SubResource("Gradient_bwjto")
+width = 32
+height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
@@ -110,17 +102,6 @@ scale_min = 0.5
 scale_max = 3.0
 anim_speed_min = 1.0
 anim_speed_max = 1.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oprun"]
-load_path = "res://.godot/imported/pixil-frame-0 (23).png-84f1618e1d24a06acd60bd347c9470db.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
-atlas = SubResource("CompressedTexture2D_oprun")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
-atlas = SubResource("CompressedTexture2D_oprun")
-region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgr0v"]
 animations = [{
@@ -164,13 +145,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_urp6f")
+"texture": ExtResource("14_4r5pv")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_dw050")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bwjto")
+"texture": ExtResource("15_60mlk")
 }],
 "loop": 1,
 "name": &"walkingFront",
@@ -190,6 +171,19 @@ animations = [{
 "name": &"walkingSide",
 "speed": 15.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_bwjto"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5903614, 0.78313255)
+colors = PackedColorArray(1, 1, 1, 1, 0.05421686, 0.05421686, 0.05421686, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_606se"]
+gradient = SubResource("Gradient_bwjto")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="Player" type="Node2D" unique_id=168672461 groups=["player"]]
 script = ExtResource("1_4flbx")
@@ -225,7 +219,7 @@ position = Vector2(0, -5)
 color = Color(1, 0.5372549, 0.2901961, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_bgr0v")
-texture_scale = 2.0
+texture_scale = 6.0
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=641671524]
 position = Vector2(8, 8)
@@ -235,11 +229,6 @@ collision_layer = 3
 self_modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
-
-[node name="PointLight2D" type="PointLight2D" parent="player" unique_id=1050533885]
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_606se")
-texture_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1597917280]
 shape = SubResource("RectangleShape2D_hqtel")
@@ -261,8 +250,12 @@ process_material = SubResource("ParticleProcessMaterial_tw8ou")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1220077435]
 position = Vector2(8, 3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
-animation = &"idleBack"
+animation = &"walkingFront"
 
-[node name="Control" parent="." unique_id=1343440118 instance=ExtResource("17_qfm1y")]
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1050533885]
+position = Vector2(0, 5)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_606se")
+texture_scale = 6.0
 
 [node name="Sword" parent="." unique_id=51907742 instance=ExtResource("17_fulsm")]

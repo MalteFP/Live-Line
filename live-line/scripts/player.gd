@@ -14,84 +14,31 @@ func _ready() -> void:
 	pass
 	
 	
-func _process(delta: float) -> void:
-	movement(delta)
-	updateSprite()
-
-func movement(delta):
+func _process(delta):
 	if movementBlocked or not isMoveReady:
 		return
-	
-	var actionTaked = false
-	var pos = body.global_position
-	
+
 	if Input.is_action_just_pressed("attack"):
-		isMoveReady = false
-		actionTaked = true
-		fuseController.playerAttacked()
-		attack(delta)
-	elif Input.is_action_just_pressed("up") and not is_point_inside(pos + Vector2(0,-16)):
-		isMoveReady = false
-		actionTaked = true
-		sprite.play("walkingBack")
-		var tween = get_tree().create_tween()
-		if movementTween and movementTween.is_running():
-			movementTween.custom_step(1)
-		fuseController.playerMoved("up")
-		lastMove = "up"
-		tween.tween_property(sprite,"global_position", body.position + Vector2(0,-16), 0.2)
-		body.global_position += Vector2(0,-16)
-		movementTween = tween
-		
-	elif Input.is_action_just_pressed("down") and not is_point_inside(pos + Vector2(0,16)):
-		isMoveReady = false
-		actionTaked = true
-		sprite.play("walkingFront")
-		var tween = get_tree().create_tween()
-		if movementTween and movementTween.is_running():
-			movementTween.custom_step(1)
-		fuseController.playerMoved("down")
-		lastMove = "down"
-		tween.tween_property(sprite,"global_position", body.position + Vector2(0,16), 0.2)
-		body.global_position += Vector2(0,16)
-		movementTween = tween
-		
-	elif Input.is_action_just_pressed("left") and not is_point_inside(pos + Vector2(-16,0)):
-		isMoveReady = false
-		actionTaked = true
-		sprite.play("walkingSide")
-		sprite.scale = Vector2(1,1)
-		var tween = get_tree().create_tween()
-		if movementTween and movementTween.is_running():
-			movementTween.custom_step(1)
-		fuseController.playerMoved("left")
-		lastMove = "left"
-		tween.tween_property(sprite,"global_position", body.position + Vector2(-16,0), 0.2)
-		body.global_position += Vector2(-16,0)
-		movementTween = tween
-		
-	elif Input.is_action_just_pressed("right") and not is_point_inside(pos + Vector2(16,0)):
-		isMoveReady = false
-		actionTaked = true
-		sprite.play("walkingSide")
-		sprite.scale = Vector2(-1,1)
-		var tween = get_tree().create_tween()
-		if movementTween and movementTween.is_running():
-			movementTween.custom_step(1)
-		fuseController.playerMoved("right")
-		lastMove = "right"
-		tween.tween_property(sprite,"global_position", body.position + Vector2(16,0), 0.2)
-		body.global_position += Vector2(16,0)
-		movementTween = tween
-		
-	await $FuseController.finished
-	if actionTaked:
-		var enemies = get_tree().get_nodes_in_group("enemy")
-		for enemy in enemies:
-			enemy.process()
-			await enemy.finished
-			print("done")
-	isMoveReady = true
+		pass
+
+	elif Input.is_action_just_pressed("up"):
+		if not is_point_inside(body.global_position + Vector2(0, -16)):
+			do_move(Vector2(0, -16), "up")
+
+	elif Input.is_action_just_pressed("down"):
+		if not is_point_inside(body.global_position + Vector2(0, 16)):
+			do_move(Vector2(0, 16), "down")
+
+	elif Input.is_action_just_pressed("left"):
+		if not is_point_inside(body.global_position + Vector2(-16, 0)):
+			do_move(Vector2(-16, 0), "left")
+
+	elif Input.is_action_just_pressed("right"):
+		if not is_point_inside(body.global_position + Vector2(16, 0)):
+			do_move(Vector2(16, 0), "right")
+
+
+	
 
 
 func is_point_inside(point: Vector2) -> bool:
@@ -150,5 +97,27 @@ func attack(delta):
 		get_node("Sword/Sprite2D").global_position += Vector2(-8,0)
 	
 	get_node("Sword/Sprite2D").visible = true
+	
+	
+func do_move(vector: Vector2, dir: String):
+	isMoveReady = false
+	var tween = get_tree().create_tween()
+	if movementTween and movementTween.is_running():
+		movementTween.custom_step(1)
+	fuseController.playerMoved(dir)
+	lastMove = dir
+	tween.tween_property(sprite,"global_position", body.position + vector, 0.2)
+	body.global_position += vector
+	movementTween = tween
+	
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	for enemy in enemies:
+		var finishSignal = enemy.finished
+		enemy.process()
+		await finishSignal
+		print("done")
+	
+	
+	isMoveReady = true
 	
 	

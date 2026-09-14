@@ -17,7 +17,7 @@ func process():
 	
 	build_grid()
 	queue_redraw()
-
+	finished.emit()
 	
 	
 
@@ -101,4 +101,3 @@ func walk():
 	tween.tween_property(body,"global_position",Vector2(next_tile * 16),0.2)
 	movementTween = tween
 	
-	emit_signal("finished")
