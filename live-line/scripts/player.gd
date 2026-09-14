@@ -14,7 +14,7 @@ func _ready() -> void:
 	pass
 	
 	
-func _process(delta):
+func _unhandled_input(event: InputEvent) -> void:
 	if movementBlocked or not isMoveReady:
 		return
 
@@ -110,13 +110,23 @@ func do_move(vector: Vector2, dir: String):
 	body.global_position += vector
 	movementTween = tween
 	
-	var enemies = get_tree().get_nodes_in_group("enemy")
-	for enemy in enemies:
-		var finishSignal = enemy.finished
-		enemy.process()
-		await finishSignal
-		print("done")
 	
+	if dir == "up":
+		sprite.scale = Vector2(1,1)
+		sprite.play("walkingBack")
+	elif dir == "down":
+		sprite.scale = Vector2(1,1)
+		sprite.play("walkingFront")
+	elif dir == "right":
+		sprite.scale = Vector2(-1,1)
+		sprite.play("walkingSide")
+	elif dir == "left":
+		sprite.scale = Vector2(1,1)
+		sprite.play("walkingSide")
+	
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.process()
+		await get_tree().create_timer(0.2).timeout
 	
 	isMoveReady = true
 	

@@ -139,7 +139,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_bwjto")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"walkingBack",
 "speed": 15.0
 }, {
@@ -153,7 +153,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_60mlk")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"walkingFront",
 "speed": 15.0
 }, {
@@ -167,7 +167,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_q13i1")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"walkingSide",
 "speed": 15.0
 }]
@@ -250,7 +250,7 @@ process_material = SubResource("ParticleProcessMaterial_tw8ou")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1220077435]
 position = Vector2(8, 3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
-animation = &"walkingSide"
+animation = &"walkingFront"
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1050533885]
 position = Vector2(0, 5)
