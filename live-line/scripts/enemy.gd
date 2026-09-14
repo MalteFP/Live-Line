@@ -14,6 +14,7 @@ var pathWay = []
 var playerblock: Vector2
 
 @onready var body = $Node2D
+@onready var sprite = $Node2D/Sprite2D
 func process():
 	
 	
@@ -102,8 +103,23 @@ func walk():
 	if movementTween and movementTween.is_running():
 			movementTween.custom_step(1)
 	var next_tile := path[1]
+	updateAnimation((body.global_position - Vector2(next_tile * 16)).normalized())
 	var tween = get_tree().create_tween()
 	tween.tween_property(body,"global_position",Vector2(next_tile * 16),0.2)
 	movementTween = tween
-	print("emit")
 	finished.emit()
+
+
+func updateAnimation(vector: Vector2):
+	if vector == Vector2(1.0, 0.0):
+		sprite.play("walkingSide")
+		sprite.scale = Vector2(1,1)
+	elif vector == Vector2(-1.0, 0.0):
+		sprite.play("walkingSide")
+		sprite.scale = Vector2(-1,1)
+	elif vector == Vector2(0.0, -1.0):
+		sprite.play("walkingFront")
+		sprite.scale = Vector2(1,1)
+	elif vector == Vector2(0.0, 1.0):
+		sprite.play("walkingBack")
+		sprite.scale = Vector2(1,1)

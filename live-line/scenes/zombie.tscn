@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7pfmu")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"walkingBack",
 "speed": 5.0
 }, {
@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aetfh")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"walkingFront",
 "speed": 5.0
 }, {
@@ -94,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iblsu")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"walkingSide",
 "speed": 5.0
 }]
