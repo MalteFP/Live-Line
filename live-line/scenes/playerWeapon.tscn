@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://svk426jex0x5"]
+
+[ext_resource type="Texture2D" uid="uid://chgg5mhjugteb" path="res://textures/sprites/player/pixil-frame-0(4).png" id="1_4c5b6"]
+
+[node name="Sword" type="Node2D" unique_id=51907742]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=163244703]
+visible = false
+texture = ExtResource("1_4c5b6")
