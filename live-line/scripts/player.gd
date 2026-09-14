@@ -19,17 +19,19 @@ func _process(delta: float) -> void:
 	updateSprite()
 
 func movement(delta):
-	if movementBlocked and not isMoveReady:
+	if movementBlocked or not isMoveReady:
 		return
-	isMoveReady = false
+	
 	var actionTaked = false
 	var pos = body.global_position
 	
 	if Input.is_action_just_pressed("attack"):
+		isMoveReady = false
 		actionTaked = true
 		fuseController.playerAttacked()
 		attack(delta)
 	elif Input.is_action_just_pressed("up") and not is_point_inside(pos + Vector2(0,-16)):
+		isMoveReady = false
 		actionTaked = true
 		sprite.play("walkingBack")
 		var tween = get_tree().create_tween()
@@ -42,6 +44,7 @@ func movement(delta):
 		movementTween = tween
 		
 	elif Input.is_action_just_pressed("down") and not is_point_inside(pos + Vector2(0,16)):
+		isMoveReady = false
 		actionTaked = true
 		sprite.play("walkingFront")
 		var tween = get_tree().create_tween()
@@ -54,6 +57,7 @@ func movement(delta):
 		movementTween = tween
 		
 	elif Input.is_action_just_pressed("left") and not is_point_inside(pos + Vector2(-16,0)):
+		isMoveReady = false
 		actionTaked = true
 		sprite.play("walkingSide")
 		sprite.scale = Vector2(1,1)
@@ -67,6 +71,7 @@ func movement(delta):
 		movementTween = tween
 		
 	elif Input.is_action_just_pressed("right") and not is_point_inside(pos + Vector2(16,0)):
+		isMoveReady = false
 		actionTaked = true
 		sprite.play("walkingSide")
 		sprite.scale = Vector2(-1,1)
@@ -85,6 +90,7 @@ func movement(delta):
 		for enemy in enemies:
 			enemy.process()
 			await enemy.finished
+			print("done")
 	isMoveReady = true
 
 

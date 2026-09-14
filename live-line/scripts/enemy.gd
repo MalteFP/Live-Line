@@ -6,7 +6,6 @@ var range := 10
 var movementTween: Tween
 
 signal finished
-signal buildGrindDone
 var blocks = []
 var notblocks = []
 var pathWay = []
