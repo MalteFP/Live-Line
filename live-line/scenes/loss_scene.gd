@@ -18,4 +18,3 @@ func death() -> void:
 		$CanvasLayer/VBoxContainer/Time.text = "total time: " + minutes + " minutes and " + seconds + " seconds"
 	else :
 		$CanvasLayer/VBoxContainer/Time.text = "total time: " + seconds + " seconds"
-
