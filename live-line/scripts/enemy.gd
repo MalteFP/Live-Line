@@ -14,13 +14,14 @@ var pathWay = []
 var playerblock: Vector2
 
 @onready var body = $Node2D
-@onready var sprite = $Node2D/Sprite2D
+@onready var sprite = $Sprite2D
 func process():
 	
 	
 	build_grid()
 	queue_redraw()
-	
+	await finished
+	print("done")
 	
 	
 
@@ -105,9 +106,10 @@ func walk():
 	var next_tile := path[1]
 	updateAnimation((body.global_position - Vector2(next_tile * 16)).normalized())
 	var tween = get_tree().create_tween()
-	tween.tween_property(body,"global_position",Vector2(next_tile * 16),0.2)
+	tween.tween_property(sprite,"global_position",Vector2(next_tile * 16) + Vector2(8,8),0.2)
+	body.global_position = Vector2(next_tile * 16)
 	movementTween = tween
-	finished.emit()
+	
 
 
 func updateAnimation(vector: Vector2):

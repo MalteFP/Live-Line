@@ -17,24 +17,28 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if movementBlocked or not isMoveReady:
 		return
-
+	
 	if Input.is_action_just_pressed("attack"):
 		pass
 
 	elif Input.is_action_just_pressed("up"):
 		if not is_point_inside(body.global_position + Vector2(0, -16)):
+			isMoveReady = false
 			do_move(Vector2(0, -16), "up")
 
 	elif Input.is_action_just_pressed("down"):
 		if not is_point_inside(body.global_position + Vector2(0, 16)):
+			isMoveReady = false
 			do_move(Vector2(0, 16), "down")
 
 	elif Input.is_action_just_pressed("left"):
 		if not is_point_inside(body.global_position + Vector2(-16, 0)):
+			isMoveReady = false
 			do_move(Vector2(-16, 0), "left")
 
 	elif Input.is_action_just_pressed("right"):
 		if not is_point_inside(body.global_position + Vector2(16, 0)):
+			isMoveReady = false
 			do_move(Vector2(16, 0), "right")
 
 
@@ -102,7 +106,6 @@ func attack(delta):
 
 	
 func do_move(vector: Vector2, dir: String):
-	isMoveReady = false
 	var tween = get_tree().create_tween()
 	if movementTween and movementTween.is_running():
 		movementTween.custom_step(1)
@@ -128,8 +131,6 @@ func do_move(vector: Vector2, dir: String):
 	
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.process()
-		await get_tree().create_timer(0.2).timeout
-	
 	isMoveReady = true
 	
 	
