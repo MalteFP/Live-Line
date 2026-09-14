@@ -1,6 +1,7 @@
 extends Node2D
 
-
+var speed = 1
+var drop = Vector2(25, 50)
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
 var range := 10
@@ -19,7 +20,6 @@ func process():
 	
 	build_grid()
 	queue_redraw()
-
 
 func build_grid():
 	grid = AStarGrid2D.new()
@@ -89,15 +89,20 @@ func walk():
 	if not grid.region.has_point(goal):
 		return
 
-	var path := grid.get_id_path(start, goal)
+	var path = grid.get_id_path(start, goal)
 	for p in path: 
 		pathWay.append(p)
 	if path.size() < 3:
 		return
-
+	path.pop_front()
+	path.pop_back()
 	if movementTween and movementTween.is_running():
 			movementTween.custom_step(1)
-	var next_tile := path[1]
+	var next_tile
+	if path.size() < speed:
+		next_tile = path.front()
+	else:
+		next_tile = path[speed - 1]
 	updateAnimation((body.global_position - Vector2(next_tile * 16)).normalized())
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite,"global_position",Vector2(next_tile * 16) + Vector2(8,8),0.2)
@@ -119,3 +124,16 @@ func updateAnimation(vector: Vector2):
 	elif vector == Vector2(0.0, 1.0):
 		sprite.play("walkingBack")
 		sprite.scale = Vector2(1,1)
+
+func death():
+	$Node2D/explosionParticles.emitting = true
+	var drop = preload("res://scenes/itemWire.tscn")
+	var fuse = drop.instantiate()
+	fuse.amount = randi_range(drop.x, drop.y)
+	fuse.global_position = body.global_position
+	get_parent().add_child(fuse)
+	await get_tree().create_timer(0.1).timeout
+	$Node2D/explosionParticles.emitting = false
+	sprite.visible = false
+	await get_tree().create_timer(1).timeout
+	queue_free()
