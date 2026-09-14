@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bk6x3si0lxcdc"]
 
-[ext_resource type="Script" uid="uid://werwrfmpv02p" path="res://textures/shaders/loss_scene.gd" id="1_6aqur"]
+[ext_resource type="Script" uid="uid://werwrfmpv02p" path="res://scenes/loss_scene.gd" id="1_6aqur"]
 [ext_resource type="Texture2D" uid="uid://c4elr0p2q5jj7" path="res://textures/sprites/UI/Outline.png" id="1_8ee38"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="2_n3yp7"]
 
