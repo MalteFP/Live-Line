@@ -1,5 +1,4 @@
 extends Node2D
-class_name Enemy
 
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
@@ -12,7 +11,7 @@ var blocks = []
 var notblocks = []
 var pathWay = []
 var playerblock: Vector2
-
+var debug = false
 @onready var body = $Node2D
 func process():
 	
@@ -72,14 +71,15 @@ func build_grid():
 
 
 func _draw() -> void:
-	for block in blocks:
-		draw_rect(Rect2(block - global_position,Vector2(8,8)),Color(1.0, 0.0, 0.0, 1.0))
-	for block in notblocks:
-		draw_rect(Rect2(block - global_position,Vector2(8,8)),Color(0.0, 1.0, 0.0, 1.0))
-	for block in pathWay:
-		draw_rect(Rect2(Vector2(block) * 16 - global_position,Vector2(8,8)),Color(1.0, 1.0, 0.0, 1.0))
-	pathWay = []
-	draw_rect(Rect2(Vector2(playerblock) - global_position,Vector2(8,8)),Color(0.0, 0.0, 1.0, 1.0))
+	if debug == true:
+		for block in blocks:
+			draw_rect(Rect2(block - global_position,Vector2(8,8)),Color(1.0, 0.0, 0.0, 1.0))
+		for block in notblocks:
+			draw_rect(Rect2(block - global_position,Vector2(8,8)),Color(0.0, 1.0, 0.0, 1.0))
+		for block in pathWay:
+			draw_rect(Rect2(Vector2(block) * 16 - global_position,Vector2(8,8)),Color(1.0, 1.0, 0.0, 1.0))
+		pathWay = []
+		draw_rect(Rect2(Vector2(playerblock) - global_position,Vector2(8,8)),Color(0.0, 0.0, 1.0, 1.0))
 
 func walk():
 	var player := get_tree().get_first_node_in_group("player").get_node("player")

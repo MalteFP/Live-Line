@@ -237,10 +237,9 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=1050533885]
-energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_606se")
-texture_scale = 2.0
+texture_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1597917280]
 shape = SubResource("RectangleShape2D_hqtel")
