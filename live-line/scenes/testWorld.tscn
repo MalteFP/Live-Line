@@ -21,6 +21,7 @@ tile_map_data = PackedByteArray("AADn//D/AAAAAAAAAADo//D/AAAAAAAAAADp//D/AAAAAAA
 
 [node name="itemWire" parent="." unique_id=864759024 instance=ExtResource("3_uc0gf")]
 position = Vector2(32, -48)
+script = null
 
 [node name="Zombie" parent="." unique_id=1404341794 instance=ExtResource("4_y63tp")]
 position = Vector2(128, -48)
@@ -32,3 +33,4 @@ color = Color(0, 0, 0, 0.9647059)
 position = Vector2(48, 64)
 
 [editable path="TileMaps"]
+[editable path="Player"]

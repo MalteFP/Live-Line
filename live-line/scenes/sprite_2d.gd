@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if isAttacking:
-		global_position = $"../..".global_position + Vector2(sin(timeInAttack*10),cos(timeInAttack*10))*16+Vector2(8,8)
+		global_position = $"../../player".global_position + Vector2(sin(timeInAttack*10),cos(timeInAttack*10))*16
 		timeInAttack += delta
-		rotate(get_angle_to($"../..".global_position + Vector2(8,8))-PI)
+		rotate(get_angle_to($"../../player".global_position)-PI)
 		

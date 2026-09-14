@@ -88,7 +88,7 @@ func attack():
 	get_node("Sword/Sprite2D").timeInAttack = 0
 	get_node("Sword/Sprite2D").isAttacking = true
 	get_node("Sword/Sprite2D").visible = true
-	await get_tree().create_timer((0.625)).timeout
+	await get_tree().create_timer((0.65)).timeout
 	get_node("Sword/Sprite2D").visible = false
 	get_node("Sword/Sprite2D").isAttacking = false
 	
