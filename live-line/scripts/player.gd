@@ -131,6 +131,7 @@ func do_move(vector: Vector2, dir: String):
 	
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.process()
+	get_parent().spawnZombie()
 	isMoveReady = true
 	
 	

@@ -1,8 +1,10 @@
-extends Area2D
+extends Node2D
+var amount = 10
 
 
-func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		body.get_parent().get_node("FuseController").notLayedWire += 10
-		ScoreHolder.totalFuse += 10
-		get_parent().queue_free()
+		body.get_parent().get_node("FuseController").notLayedWire += amount
+		ScoreHolder.totalFuse += amount
+		queue_free()
+	

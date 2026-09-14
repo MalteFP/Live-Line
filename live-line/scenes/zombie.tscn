@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clrckopl44ef6" path="res://scripts/enemy.gd" id="1_1vlb3"]
 [ext_resource type="Texture2D" uid="uid://lmaaw7dljx1r" path="res://textures/sprites/enemies/zombie/zombieTextures.png" id="2_httt1"]
+[ext_resource type="Texture2D" uid="uid://b7v36hmbkewdf" path="res://textures/sprites/fire/pixil-frame-0 (31).png" id="3_xepks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xepks"]
 atlas = ExtResource("2_httt1")
@@ -110,6 +111,23 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4gx57"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 6
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ycv6i"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_httt1"]
 size = Vector2(16, 16)
 
@@ -129,6 +147,15 @@ texture = SubResource("GradientTexture2D_jmu02")
 texture_scale = 0.5
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1112548907]
+
+[node name="explosionParticles" type="GPUParticles2D" parent="Node2D" unique_id=2112497052]
+z_index = 1
+material = SubResource("CanvasItemMaterial_4gx57")
+position = Vector2(8, 8)
+emitting = false
+amount = 100
+texture = ExtResource("3_xepks")
+process_material = SubResource("ParticleProcessMaterial_ycv6i")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=754138612]
 position = Vector2(-8, -8)

@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://con3xmyd77eu3"]
 
 [ext_resource type="PackedScene" uid="uid://dqeg3uaiqbybh" path="res://scenes/player.tscn" id="1_jgpco"]
+[ext_resource type="Script" uid="uid://bn7gt8c4s08vd" path="res://scenes/zombieSpawn.gd" id="1_myy55"]
 [ext_resource type="PackedScene" uid="uid://twv5gdwsqx0f" path="res://scenes/TileMaps.tscn" id="2_uc0gf"]
 [ext_resource type="PackedScene" uid="uid://wk8ot80j01gi" path="res://scenes/itemWire.tscn" id="3_uc0gf"]
 [ext_resource type="PackedScene" uid="uid://cmd1l60c80wgg" path="res://scenes/zombie.tscn" id="4_y63tp"]
 
 [node name="Node2D" type="Node2D" unique_id=812723244]
+script = ExtResource("1_myy55")
 
 [node name="TileMaps" parent="." unique_id=813543980 instance=ExtResource("2_uc0gf")]
 
@@ -27,6 +29,6 @@ position = Vector2(128, -48)
 color = Color(0, 0, 0, 0.9647059)
 
 [node name="Zombie2" parent="." unique_id=788798260 instance=ExtResource("4_y63tp")]
-position = Vector2(92, 63)
+position = Vector2(48, 64)
 
 [editable path="TileMaps"]
