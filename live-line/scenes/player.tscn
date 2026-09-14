@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bkx1a882rpp51" path="res://textures/sprites/fire/ash.png" id="6_606se"]
 [ext_resource type="Texture2D" uid="uid://dt1al53f04tai" path="res://textures/sprites/player/walking/tile004.png" id="8_urp6f"]
 [ext_resource type="Texture2D" uid="uid://cgu3yyrpj66cb" path="res://textures/sprites/player/walking/tile005.png" id="9_bwjto"]
-[ext_resource type="Texture2D" uid="uid://bhae4iq4i5w4o" path="res://textures/sprites/player/walking/pixil-frame-0 (23).png" id="10_ivps1"]
 [ext_resource type="Texture2D" uid="uid://b2oulnlh7bffb" path="res://textures/sprites/player/walking/tile002.png" id="12_op7ga"]
 [ext_resource type="Texture2D" uid="uid://dit2pepu4b3g8" path="res://textures/sprites/player/walking/tile003.png" id="13_q13i1"]
 [ext_resource type="Texture2D" uid="uid://b7v36hmbkewdf" path="res://textures/sprites/fire/pixil-frame-0 (31).png" id="14_bwjto"]
@@ -109,12 +108,15 @@ scale_max = 3.0
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oprun"]
+load_path = "res://.godot/imported/pixil-frame-0 (23).png-84f1618e1d24a06acd60bd347c9470db.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
-atlas = ExtResource("10_ivps1")
+atlas = SubResource("CompressedTexture2D_oprun")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
-atlas = ExtResource("10_ivps1")
+atlas = SubResource("CompressedTexture2D_oprun")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgr0v"]
