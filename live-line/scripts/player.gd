@@ -14,10 +14,10 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	movement()
+	movement(delta)
 	updateSprite()
 
-func movement():
+func movement(delta):
 	if movementBlocked:
 		return
 	var actionTaked = false
@@ -26,6 +26,7 @@ func movement():
 	if Input.is_action_just_pressed("attack"):
 		actionTaked = true
 		fuseController.playerAttacked()
+		attack(delta)
 	elif Input.is_action_just_pressed("up") and not is_point_inside(pos + Vector2(0,-16)):
 		actionTaked = true
 		sprite.play("walkingBack")
@@ -117,8 +118,21 @@ func explode():
 	await get_tree().create_timer(1.5).timeout
 	$lossScene.death()
 
+func attack(delta):
+	get_node("Sword/Sprite2D").global_position = get_node("player").global_position
+	if lastMove == "up":
+		get_node("Sword/Sprite2D").rotation = 0
+		get_node("Sword/Sprite2D").global_position += Vector2(0,-8)
+	elif lastMove == "down":
+		get_node("Sword/Sprite2D").rotation = PI
+		get_node("Sword/Sprite2D").global_position += Vector2(0,8)
+	elif lastMove == "right":
+		get_node("Sword/Sprite2D").rotation = 0.5*PI
+		get_node("Sword/Sprite2D").global_position += Vector2(8,0)
+	elif lastMove == "left":
+		get_node("Sword/Sprite2D").rotation = 1.5*PI
+		get_node("Sword/Sprite2D").global_position += Vector2(-8,0)
 	
-	
-	
+	get_node("Sword/Sprite2D").visible = true
 	
 	
