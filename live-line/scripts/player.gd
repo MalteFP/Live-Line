@@ -37,6 +37,7 @@ func movement():
 		tween.tween_property(sprite,"global_position", body.position + Vector2(0,-16), 0.2)
 		body.global_position += Vector2(0,-16)
 		movementTween = tween
+		
 	elif Input.is_action_just_pressed("down") and not is_point_inside(pos + Vector2(0,16)):
 		actionTaked = true
 		sprite.play("walkingFront")
@@ -48,6 +49,7 @@ func movement():
 		tween.tween_property(sprite,"global_position", body.position + Vector2(0,16), 0.2)
 		body.global_position += Vector2(0,16)
 		movementTween = tween
+		
 	elif Input.is_action_just_pressed("left") and not is_point_inside(pos + Vector2(-16,0)):
 		actionTaked = true
 		sprite.play("walkingSide")
@@ -60,6 +62,7 @@ func movement():
 		tween.tween_property(sprite,"global_position", body.position + Vector2(-16,0), 0.2)
 		body.global_position += Vector2(-16,0)
 		movementTween = tween
+		
 	elif Input.is_action_just_pressed("right") and not is_point_inside(pos + Vector2(16,0)):
 		actionTaked = true
 		sprite.play("walkingSide")
@@ -72,6 +75,8 @@ func movement():
 		tween.tween_property(sprite,"global_position", body.position + Vector2(16,0), 0.2)
 		body.global_position += Vector2(16,0)
 		movementTween = tween
+		
+	await $FuseController.finished
 	if actionTaked:
 		var enemies = get_tree().get_nodes_in_group("enemy")
 		for enemy in enemies:
@@ -81,7 +86,8 @@ func movement():
 func is_point_inside(point: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var paras = PhysicsPointQueryParameters2D.new()
-	paras.position = point
+	paras.position = point + Vector2(0,-4)
+	paras.collision_mask = 1
 	var result = space_state.intersect_point(paras)
 	
 	return result.size() > 0

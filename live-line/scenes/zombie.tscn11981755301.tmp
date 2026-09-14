@@ -110,29 +110,26 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_httt1"]
-size = Vector2(16, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgquh"]
+size = Vector2(8, 8)
 
 [node name="Zombie" type="Node2D" unique_id=788798260 groups=["enemy"]]
 script = ExtResource("1_1vlb3")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1112548907]
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=1225124997]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1225124997]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_q2j6n")
 animation = &"walkingSide"
 
-[node name="PointLight2D" type="PointLight2D" parent="Node2D/Sprite2D" unique_id=1788500108]
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1788500108]
 scale = Vector2(2, 2)
 color = Color(1, 1, 0.2901961, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_jmu02")
-texture_scale = 0.5
+texture_scale = 50.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=754138612]
-position = Vector2(-8, -8)
+[node name="Area2D" type="Area2D" parent="." unique_id=2102756390]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D" unique_id=649678691]
-position = Vector2(16, 12)
-shape = SubResource("RectangleShape2D_httt1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1078247529]
+position = Vector2(7, 8)
+shape = SubResource("RectangleShape2D_dgquh")

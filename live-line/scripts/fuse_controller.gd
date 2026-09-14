@@ -7,12 +7,13 @@ var fuseArr = []
 var firePos: Vector2
 var lastDir := "up"
 
-var initFuseSize = 30
+var initFuseSize = 300
 
 var rotationDic = {"up":180, "down":0, "right": 270, "left": 90}
 var offset = {"up":Vector2(0,16),"down":Vector2(0,-16),"right":Vector2(-16,0),"left":Vector2(16,0)}
 
 var fireTween: Tween
+signal finished
 
 @onready var label = $CanvasLayer/Label
 @onready var fire = $fire
@@ -55,7 +56,7 @@ func playerMoved(direction: String):
 		else:
 			notLayedWire = 0
 	label.text = str(fuseArr.size() + notLayedWire)
-		
+	emit_signal("finished")
 			
 func addNewFuse(dir: String):
 	var texture = "res://textures/sprites/Fuse/" + dir + lastDir + ".png"
