@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b2oulnlh7bffb" path="res://textures/sprites/player/walking/tile002.png" id="12_op7ga"]
 [ext_resource type="Texture2D" uid="uid://dit2pepu4b3g8" path="res://textures/sprites/player/walking/tile003.png" id="13_q13i1"]
 [ext_resource type="Texture2D" uid="uid://b7v36hmbkewdf" path="res://textures/sprites/fire/pixil-frame-0 (31).png" id="14_bwjto"]
-[ext_resource type="PackedScene" uid="uid://bk6x3si0lxcdc" path="res://textures/shaders/lossScene.tscn" id="16_a8ls1"]
+[ext_resource type="PackedScene" uid="uid://bk6x3si0lxcdc" path="res://scenes/lossScene.tscn" id="16_a8ls1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("5_urp6f")
