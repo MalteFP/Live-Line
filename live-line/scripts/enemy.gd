@@ -7,7 +7,6 @@ var range := 10
 var movementTween: Tween
 var debug = false
 
-signal finished
 var blocks = []
 var notblocks = []
 var pathWay = []
@@ -88,14 +87,12 @@ func walk():
 	var start := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
 	var goal := Vector2i(ceil(player.global_position.x / 16) - 1, ceil(player.global_position.y / 16) - 1)
 	if not grid.region.has_point(goal):
-		finished.emit()
 		return
 
 	var path := grid.get_id_path(start, goal)
 	for p in path: 
 		pathWay.append(p)
 	if path.size() < 3:
-		finished.emit()
 		return
 
 	if movementTween and movementTween.is_running():

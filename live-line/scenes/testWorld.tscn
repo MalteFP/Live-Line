@@ -24,7 +24,7 @@ position = Vector2(32, -48)
 position = Vector2(128, -48)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1834684355]
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.9647059)
 
 [node name="Zombie2" parent="." unique_id=788798260 instance=ExtResource("4_y63tp")]
 position = Vector2(92, 63)
