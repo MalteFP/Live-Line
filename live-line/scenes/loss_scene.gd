@@ -19,4 +19,3 @@ func death() -> void:
 	else :
 		$CanvasLayer/VBoxContainer/Time.text = "total time: " + seconds + " seconds"
 
-	$CanvasLayer/VBoxContainer/Score.text = "Score: " + str((ScoreHolder.totalFuse / ScoreHolder.timeSpent) * 1000)
