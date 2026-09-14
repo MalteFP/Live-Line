@@ -7,8 +7,9 @@ var movementBlocked = false
 var tilSize = 16
 
 var lastMove = "up"
-
 var movementTween: Tween
+
+var isMoveReady = true
 func _ready() -> void:
 	pass
 	
@@ -18,8 +19,9 @@ func _process(delta: float) -> void:
 	updateSprite()
 
 func movement(delta):
-	if movementBlocked:
+	if movementBlocked and not isMoveReady:
 		return
+	isMoveReady = false
 	var actionTaked = false
 	var pos = body.global_position
 	
@@ -82,6 +84,8 @@ func movement(delta):
 		var enemies = get_tree().get_nodes_in_group("enemy")
 		for enemy in enemies:
 			enemy.process()
+			await enemy.finished
+	isMoveReady = true
 
 
 func is_point_inside(point: Vector2) -> bool:
