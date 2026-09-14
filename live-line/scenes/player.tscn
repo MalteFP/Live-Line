@@ -107,6 +107,14 @@ anim_speed_max = 1.0
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_606se")
+}],
+"loop": 1,
+"name": &"ash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_1jxqw")
 }],
 "loop": 1,
@@ -233,10 +241,6 @@ position_smoothing_enabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1597917280]
 shape = SubResource("RectangleShape2D_hqtel")
 
-[node name="ash" type="Sprite2D" parent="player" unique_id=905279784]
-visible = false
-texture = ExtResource("6_606se")
-
 [node name="explosionParticles" type="GPUParticles2D" parent="player" unique_id=1930578588]
 z_index = 1
 material = SubResource("CanvasItemMaterial_ygbnx")
@@ -250,7 +254,7 @@ process_material = SubResource("ParticleProcessMaterial_tw8ou")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1220077435]
 position = Vector2(8, 3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
-animation = &"walkingSide"
+animation = &"ash"
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1050533885]
 position = Vector2(0, 5)

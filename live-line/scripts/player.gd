@@ -72,8 +72,7 @@ func explode():
 	var particels = $player/explosionParticles
 	var cam = $player/Camera2D
 	particels.emitting = true
-	$player/ash.visible = true
-	sprite.visible = false
+	sprite.play("ash")
 	var tween = get_tree().create_tween()
 	tween.tween_property(cam,"zoom",Vector2(10,10),1)
 	await get_tree().create_timer(1).timeout
