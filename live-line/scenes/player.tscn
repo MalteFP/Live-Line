@@ -91,6 +91,24 @@ metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ygbnx"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 6
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tw8ou"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 74.26
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 3.0
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
 atlas = ExtResource("10_ivps1")
 region = Rect2(0, 0, 32, 32)
@@ -168,24 +186,6 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ygbnx"]
-particles_animation = true
-particles_anim_h_frames = 6
-particles_anim_v_frames = 6
-particles_anim_loop = false
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tw8ou"]
-particle_flag_disable_z = true
-angle_min = -720.0
-angle_max = 720.0
-spread = 180.0
-initial_velocity_max = 74.26
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 3.0
-anim_speed_min = 1.0
-anim_speed_max = 1.0
-
 [node name="Player" type="Node2D" unique_id=168672461 groups=["player"]]
 script = ExtResource("1_4flbx")
 
@@ -239,16 +239,12 @@ texture_scale = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1597917280]
 shape = SubResource("RectangleShape2D_hqtel")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1220077435]
-position = Vector2(0, -3)
-sprite_frames = SubResource("SpriteFrames_bgr0v")
-animation = &"idleBack"
-
 [node name="ash" type="Sprite2D" parent="player" unique_id=905279784]
 visible = false
 texture = ExtResource("6_606se")
 
 [node name="explosionParticles" type="GPUParticles2D" parent="player" unique_id=1930578588]
+z_index = 1
 material = SubResource("CanvasItemMaterial_ygbnx")
 emitting = false
 amount = 100
@@ -256,3 +252,8 @@ texture = ExtResource("14_bwjto")
 process_material = SubResource("ParticleProcessMaterial_tw8ou")
 
 [node name="lossScene" parent="." unique_id=1262105243 instance=ExtResource("16_a8ls1")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1220077435]
+position = Vector2(8, 3)
+sprite_frames = SubResource("SpriteFrames_bgr0v")
+animation = &"idleBack"

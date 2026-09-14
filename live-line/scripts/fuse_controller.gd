@@ -48,6 +48,7 @@ func playerMoved(direction: String):
 				fuseArr.pop_front().queue_free()
 		elif fuseArr.size() == 0:
 			fire.visible = false
+			print("Explode")
 			get_parent().explode()
 		if notLayedWire >= 1:
 			notLayedWire -= 1
