@@ -20,10 +20,6 @@ func process():
 	
 	build_grid()
 	queue_redraw()
-	await finished
-	print("done")
-	
-	
 
 
 func build_grid():
@@ -53,7 +49,8 @@ func build_grid():
 			query.shape = shape
 			query.transform = Transform2D(0, world_pos + Vector2(0,6))
 			query.collision_mask = 0b10
-			
+			query.exclude = [$Node2D/StaticBody2D]
+	
 
 			var result := space_state.intersect_shape(query)
 			var blocked := result.size() > 0
