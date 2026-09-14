@@ -15,11 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://dit2pepu4b3g8" path="res://textures/sprites/player/walking/tile003.png" id="13_q13i1"]
 [ext_resource type="Texture2D" uid="uid://b7v36hmbkewdf" path="res://textures/sprites/fire/pixil-frame-0 (31).png" id="14_bwjto"]
 [ext_resource type="PackedScene" uid="uid://bk6x3si0lxcdc" path="res://scenes/lossScene.tscn" id="16_a8ls1"]
-<<<<<<< HEAD
-=======
+
 [ext_resource type="PackedScene" uid="uid://svk426jex0x5" path="res://scenes/playerWeapon.tscn" id="17_fulsm"]
 [ext_resource type="PackedScene" uid="uid://curmfi8xjtn13" path="res://scenes/hpBar.tscn" id="17_qfm1y"]
->>>>>>> c55a906f4a7729b16d5c8627e1cc347818b8828b
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("5_urp6f")
@@ -265,10 +264,9 @@ process_material = SubResource("ParticleProcessMaterial_tw8ou")
 position = Vector2(8, 3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
 animation = &"idleBack"
-<<<<<<< HEAD
-=======
+
 
 [node name="Control" parent="." unique_id=1343440118 instance=ExtResource("17_qfm1y")]
 
 [node name="Sword" parent="." unique_id=51907742 instance=ExtResource("17_fulsm")]
->>>>>>> c55a906f4a7729b16d5c8627e1cc347818b8828b
+
