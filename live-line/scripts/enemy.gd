@@ -6,22 +6,26 @@ var cell_size := Vector2i(16, 16)
 var range := 10
 var movementTween: Tween
 
+signal finished
+signal buildGrindDone
 var blocks = []
 var notblocks = []
 var pathWay = []
 var playerblock: Vector2
 
 @onready var body = $Node2D
-func _ready():
-	build_grid()
-
 func process():
 	
-	walk()
+	
+	build_grid()
 	queue_redraw()
+
+	
+	
 
 
 func build_grid():
+	grid = AStarGrid2D.new()
 	blocks = []
 	notblocks = []
 	
@@ -46,8 +50,8 @@ func build_grid():
 			var query := PhysicsShapeQueryParameters2D.new()
 			query.shape = shape
 			query.transform = Transform2D(0, world_pos + Vector2(0,6))
+			query.collision_mask = 0b10
 			
-			query.exclude.append($Node2D/StaticBody2D.get_rid())
 
 			var result := space_state.intersect_shape(query)
 			var blocked := result.size() > 0
@@ -59,11 +63,11 @@ func build_grid():
 			grid.set_point_solid(cell, blocked)
 
 	var player := get_tree().get_first_node_in_group("player").get_node("player")
-	var goal := Vector2i((player.global_position.x / 16) + 16, (player.global_position.y / 16) + 16)
+	var goal = Vector2i(ceil(player.global_position.x / 16) - 1, ceil(player.global_position.y / 16) - 1)
 	if grid.is_in_bounds(goal.x,goal.y):
 		grid.set_point_solid(goal, false)
 	grid.update()
-	
+	walk()
 
 
 
@@ -97,4 +101,5 @@ func walk():
 	var tween = get_tree().create_tween()
 	tween.tween_property(body,"global_position",Vector2(next_tile * 16),0.2)
 	movementTween = tween
-	build_grid()
+	
+	emit_signal("finished")
