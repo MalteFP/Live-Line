@@ -1,12 +1,13 @@
 extends Node2D
 
 var speed = 1
-var drop = Vector2(25, 50)
+var drop = Vector2(5, 7)
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
 var range := 10
 var movementTween: Tween
 var debug = false
+
 
 var blocks = []
 var notblocks = []
@@ -127,8 +128,8 @@ func updateAnimation(vector: Vector2):
 
 func death():
 	$Node2D/explosionParticles.emitting = true
-	var drop = preload("res://scenes/itemWire.tscn")
-	var fuse = drop.instantiate()
+	var fuseScene = preload("res://scenes/itemWire.tscn")
+	var fuse = fuseScene.instantiate()
 	fuse.amount = randi_range(drop.x, drop.y)
 	fuse.global_position = body.global_position
 	get_parent().add_child(fuse)

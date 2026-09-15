@@ -157,7 +157,7 @@ amount = 100
 texture = ExtResource("3_xepks")
 process_material = SubResource("ParticleProcessMaterial_ycv6i")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=754138612]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=754138612 groups=["enemyhitbox"]]
 position = Vector2(-8, -8)
 collision_layer = 3
 

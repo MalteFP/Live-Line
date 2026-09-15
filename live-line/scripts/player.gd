@@ -91,30 +91,33 @@ func attack():
 	await get_tree().create_timer((0.65)).timeout
 	get_node("Sword/Sprite2D").visible = false
 	get_node("Sword/Sprite2D").isAttacking = false
+	do_move(Vector2(0,0),"none")
+	fuseController.playerAttacked()
 	
 func do_move(vector: Vector2, dir: String):
-	var tween = get_tree().create_tween()
-	if movementTween and movementTween.is_running():
-		movementTween.custom_step(1)
-	fuseController.playerMoved(dir)
-	lastMove = dir
-	tween.tween_property(sprite,"global_position", body.position + vector, 0.2)
-	body.global_position += vector
-	movementTween = tween
-	
-	
-	if dir == "up":
-		sprite.scale = Vector2(1,1)
-		sprite.play("walkingBack")
-	elif dir == "down":
-		sprite.scale = Vector2(1,1)
-		sprite.play("walkingFront")
-	elif dir == "right":
-		sprite.scale = Vector2(-1,1)
-		sprite.play("walkingSide")
-	elif dir == "left":
-		sprite.scale = Vector2(1,1)
-		sprite.play("walkingSide")
+	if dir != "none":
+		var tween = get_tree().create_tween()
+		if movementTween and movementTween.is_running():
+			movementTween.custom_step(1)
+		fuseController.playerMoved(dir)
+		lastMove = dir
+		tween.tween_property(sprite,"global_position", body.position + vector, 0.2)
+		body.global_position += vector
+		movementTween = tween
+		
+		
+		if dir == "up":
+			sprite.scale = Vector2(1,1)
+			sprite.play("walkingBack")
+		elif dir == "down":
+			sprite.scale = Vector2(1,1)
+			sprite.play("walkingFront")
+		elif dir == "right":
+			sprite.scale = Vector2(-1,1)
+			sprite.play("walkingSide")
+		elif dir == "left":
+			sprite.scale = Vector2(1,1)
+			sprite.play("walkingSide")
 	
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.process()
