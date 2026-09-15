@@ -8,7 +8,7 @@ var range := 10
 var movementTween: Tween
 var debug = false
 var damage = 2
-
+var dead = false
 
 var blocks = []
 var notblocks = []
@@ -84,10 +84,15 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2(playerblock) - global_position,Vector2(8,8)),Color(0.0, 0.0, 1.0, 1.0))
 
 func walk():
+	if dead:
+		return
 	var player := get_tree().get_first_node_in_group("player").get_node("player")
 	playerblock = player.global_position
 	var start := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
 	var goal := Vector2i(ceil(player.global_position.x / 16) - 1, ceil(player.global_position.y / 16) - 1)
+	var center_tile := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
+	if (goal-center_tile).length() <= 1.5:
+			$"../Player/FuseController".takeDamage(damage)
 	if not grid.region.has_point(goal):
 		return
 
@@ -110,9 +115,7 @@ func walk():
 	tween.tween_property(sprite,"global_position",Vector2(next_tile * 16) + Vector2(8,8),0.2)
 	body.global_position = Vector2(next_tile * 16)
 	movementTween = tween
-	var center_tile := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
-	if (goal-center_tile).length() <= 1:
-			$"../Player/FuseController".takeDamage(damage)
+	
 
 	
 
@@ -132,6 +135,7 @@ func updateAnimation(vector: Vector2):
 		sprite.scale = Vector2(1,1)
 
 func death():
+	dead = true
 	$Node2D/explosionParticles.emitting = true
 	var drops = preload("res://scenes/itemWire.tscn")
 	var fuse = drops.instantiate()

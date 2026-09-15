@@ -16,7 +16,6 @@ position = Vector2(-2048, -2048)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1834684355]
 modulate = Color(0.5137255, 0, 0, 0)
 self_modulate = Color(0.46607313, 0, 0, 0)
-color = Color(0, 0, 0, 0.9647059)
 
 [node name="Control" parent="." unique_id=431396173 instance=ExtResource("4_myy55")]
 
