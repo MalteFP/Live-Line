@@ -2,13 +2,13 @@ extends Node2D
 
 var mapWidth = 256
 var mapHeight = 256
-var noiseScale = 0.1
+var noiseScale = 0.03
 
 var deepwaterThreshold = 0.3
 var waterThreshold = 0.4
-var beachThreshold = 0.45
-var grondThreshold = 0.7
-var snowThreshold = 0.9
+var beachThreshold = 0.5
+var grondThreshold = 0.95
+var snowThreshold = 0.95
 
 
 @onready var tilemap = $TileMaps/Ground
@@ -26,19 +26,33 @@ func generateMap():
 	
 	for x in range(mapWidth):
 		for y in range(mapHeight):
+			var nx = float(x) / mapWidth * 2.0 - 1.0
+			var ny = float(y) / mapHeight * 2.0 - 1.0
+
+			# Distance from center (0 = center, 1 = edge)
+			var distance = sqrt(nx * nx + ny * ny)
+
+			# Falloff curve (controls island shape)
+			var falloff = clamp(1.0 - distance, 0.0, 1.0) * 3
+
+			# Noise
 			var noiseValue = noise.get_noise_2d(x, y)
-			noiseValue = (noiseValue + 1) / 2
+			noiseValue = (noiseValue + 1.0) / 2.0
+
+			# Combine noise + falloff
+			var height = noiseValue * falloff
+
 			
 			var tilePos = Vector2i(x,y)
 			var atlasCoords = Vector2i(0,0)
 			
-			if noiseValue < deepwaterThreshold:
+			if height < deepwaterThreshold:
 				atlasCoords = Vector2i(3,0)
-			elif noiseValue < waterThreshold:
+			elif height < waterThreshold:
 				atlasCoords = Vector2i(2,0)
-			elif noiseValue < beachThreshold:
+			elif height < beachThreshold:
 				atlasCoords = Vector2i(5,0)
-			elif noiseValue < grondThreshold:
+			elif height < grondThreshold:
 				atlasCoords = Vector2i(1,0)
 			else:
 				atlasCoords = Vector2i(0,0)
