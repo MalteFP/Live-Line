@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://dvve2clv3cv14"]
 
 [ext_resource type="Script" uid="uid://br3gin50ce5wn" path="res://scenes/level_up_screen.gd" id="1_qv302"]
-[ext_resource type="Script" uid="uid://lq4n3x4ovfev" path="res://scenes/rigid_body_2d.gd" id="2_1bbjc"]
 [ext_resource type="Texture2D" uid="uid://df2wfxecfcfqs" path="res://textures/sprites/UI/pixil-frame-0(5).png" id="2_i0opf"]
 [ext_resource type="Texture2D" uid="uid://dlaeg1pt55ruu" path="res://textures/sprites/UI/pixil-frame-0(6).png" id="4_1bbjc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l0bqs"]
 radius = 60.033325
+
+[sub_resource type="Gradient" id="Gradient_1bbjc"]
+offsets = PackedFloat32Array(0.06626506, 0.6566265)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0bqs"]
+gradient = SubResource("Gradient_1bbjc")
+fill = 1
+fill_from = Vector2(0.5043478, 0.5521739)
 
 [node name="Control" type="Control" unique_id=431396173]
 layout_mode = 3
@@ -18,18 +26,26 @@ grow_vertical = 2
 script = ExtResource("1_qv302")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1801467810]
+scale = Vector2(2, 2)
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 0.0
 angular_damp_mode = 1
-script = ExtResource("2_1bbjc")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=475040511]
+scale = Vector2(2, 2)
 texture = ExtResource("2_i0opf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=437757119]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_l0bqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1083847848]
-position = Vector2(1, 55)
+position = Vector2(4, 228)
+scale = Vector2(3, 3)
 texture = ExtResource("4_1bbjc")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=719647778]
+scale = Vector2(2.8297527, 2.8297527)
+texture = SubResource("GradientTexture2D_l0bqs")
+texture_scale = 2.4

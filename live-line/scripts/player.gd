@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 	if xpTowardsLevel >= xpForLevel:
 		xpTowardsLevel -= xpForLevel
 		level += 1
+		$"../CanvasLayer/Control".levelUp()
 		xpForLevel *=1.5
 		print("Level up: " + str(level))
 func _unhandled_input(event: InputEvent) -> void:

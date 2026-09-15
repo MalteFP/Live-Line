@@ -13,11 +13,20 @@ position = Vector2(-2048, -2048)
 
 [node name="Player" parent="." unique_id=168672461 instance=ExtResource("1_jgpco")]
 
+[node name="lossScene" parent="Player" index="2" unique_id=1262105243]
+metadata/_edit_use_anchors_ = true
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1834684355]
 modulate = Color(0.5137255, 0, 0, 0)
 self_modulate = Color(0.46607313, 0, 0, 0)
 color = Color(0, 0, 0, 0.9647059)
 
-[node name="Control" parent="." unique_id=431396173 instance=ExtResource("4_myy55")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1265957942]
+
+[node name="Control" parent="CanvasLayer" unique_id=431396173 instance=ExtResource("4_myy55")]
+offset_left = 613.0
+offset_top = 314.0
+offset_right = 613.0
+offset_bottom = 314.0
 
 [editable path="Player"]

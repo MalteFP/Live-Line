@@ -1,17 +1,25 @@
 extends Control
 var rng = RandomNumberGenerator.new()
 var rollQuality
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	global_position = Vector2(576,-400)
 	get_node("RigidBody2D").angular_damp = 2
-	levelUp()
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func levelUp():
+	var tween = get_tree().create_tween()
 	show()
+	tween.tween_property($".", "position", Vector2(576,16), 1.0)
+	
+
+	
+	
 	var levelUpRoll = rng.randf_range(0,1)
 	if levelUpRoll <= 0.125:
 		get_node("RigidBody2D").angular_velocity = 153.6
@@ -39,4 +47,6 @@ func levelUp():
 		rollQuality = "dgreen"
 	print(str(rollQuality))
 	await get_tree().create_timer(10).timeout
+	tween.tween_property($".", "position", Vector2(576,-150), 1.0)
 	hide()
+	
