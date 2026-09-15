@@ -9,6 +9,7 @@ var movementTween: Tween
 var debug = false
 var damage = 2
 
+
 var blocks = []
 var notblocks = []
 var pathWay = []
@@ -109,7 +110,8 @@ func walk():
 	tween.tween_property(sprite,"global_position",Vector2(next_tile * 16) + Vector2(8,8),0.2)
 	body.global_position = Vector2(next_tile * 16)
 	movementTween = tween
-	if (body.global_position-$"../Player/player".global_position).length() <= 16:
+	var center_tile := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
+	if (goal-center_tile).length() <= 1:
 			$"../Player/FuseController".takeDamage(damage)
 
 	

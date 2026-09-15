@@ -8,12 +8,19 @@ var tilSize = 16
 
 var lastMove = "up"
 var movementTween: Tween
-
+var level = 0
+var xpTowardsLevel = 0
+var xpForLevel = 100
 var isMoveReady = true
 func _ready() -> void:
 	pass
 	
-	
+func _process(delta: float) -> void:
+	if xpTowardsLevel >= xpForLevel:
+		xpTowardsLevel -= xpForLevel
+		level += 1
+		xpForLevel *=1.5
+		print("Level up: " + str(level))
 func _unhandled_input(event: InputEvent) -> void:
 	if movementBlocked or not isMoveReady:
 		return

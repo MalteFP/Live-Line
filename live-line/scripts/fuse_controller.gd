@@ -96,6 +96,10 @@ func playerAttacked():
 	label.text = str(fuseArr.size() + notLayedWire)
 
 func takeDamage(damage):
+	var tweenHue = $"../../CanvasModulate".create_tween().set_parallel(true)
+	tweenHue.tween_property($"../../CanvasModulate", "color", Color.RED, 0.3,)
+	tweenHue.chain().tween_property($"../../CanvasModulate", "color", Color.BLACK, 0.3)
+	
 	for i in damage:
 		if fuseArr.size() > 0 and notLayedWire == 0:
 			var tween = get_tree().create_tween()
