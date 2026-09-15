@@ -1,13 +1,13 @@
 extends Node2D
 
 var speed = 1
-var drop = Vector2(5, 7)
+var drop = Vector2(25, 50)
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
 var range := 10
 var movementTween: Tween
 var debug = false
-
+var damage = 2
 
 var blocks = []
 var notblocks = []
@@ -98,7 +98,7 @@ func walk():
 	path.pop_front()
 	path.pop_back()
 	if movementTween and movementTween.is_running():
-			movementTween.custom_step(1)
+		movementTween.custom_step(1)
 	var next_tile
 	if path.size() < speed:
 		next_tile = path.front()
@@ -109,6 +109,9 @@ func walk():
 	tween.tween_property(sprite,"global_position",Vector2(next_tile * 16) + Vector2(8,8),0.2)
 	body.global_position = Vector2(next_tile * 16)
 	movementTween = tween
+	if (body.global_position-$"../Player/player".global_position).length() <= 16:
+			$"../Player/FuseController".takeDamage(damage)
+
 	
 
 
@@ -128,8 +131,8 @@ func updateAnimation(vector: Vector2):
 
 func death():
 	$Node2D/explosionParticles.emitting = true
-	var fuseScene = preload("res://scenes/itemWire.tscn")
-	var fuse = fuseScene.instantiate()
+	var drops = preload("res://scenes/itemWire.tscn")
+	var fuse = drops.instantiate()
 	fuse.amount = randi_range(drop.x, drop.y)
 	fuse.global_position = body.global_position
 	get_parent().add_child(fuse)

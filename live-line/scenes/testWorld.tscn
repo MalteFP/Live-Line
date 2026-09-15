@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://twv5gdwsqx0f" path="res://scenes/TileMaps.tscn" id="2_uc0gf"]
 [ext_resource type="PackedScene" uid="uid://cmd1l60c80wgg" path="res://scenes/zombie.tscn" id="4_y63tp"]
 
-[node name="Node2D" type="Node2D" unique_id=812723244]
+[node name="Node2D2" type="Node2D" unique_id=812723244]
 script = ExtResource("1_myy55")
 
 [node name="TileMaps" parent="." unique_id=813543980 instance=ExtResource("2_uc0gf")]

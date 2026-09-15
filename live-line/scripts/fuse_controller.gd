@@ -94,4 +94,25 @@ func playerAttacked():
 	else:
 		notLayedWire = 0
 	label.text = str(fuseArr.size() + notLayedWire)
-	
+
+func takeDamage(damage):
+	for i in damage:
+		if fuseArr.size() > 0 and notLayedWire == 0:
+			var tween = get_tree().create_tween()
+			if fireTween and fireTween.is_running():
+				fireTween.custom_step(1)
+			tween.parallel().tween_property(fire,"global_position", fuseArr[0].global_position + offset[fuseArr[0].get_meta("dir")], 0.1)
+			tween.parallel().tween_property(fire,"rotation_degrees", shortestAngle(fire.rotation_degrees, rotationDic[fuseArr[0].get_meta("dir")]), 0.1)
+			fireTween = tween
+			await get_tree().create_timer(0.1).timeout
+			fire.visible = true
+			if fuseArr.front():
+				fuseArr.pop_front().queue_free()
+		elif fuseArr.size() == 0:
+			fire.visible = false
+			get_parent().explode()
+		if notLayedWire >= 1:
+			notLayedWire -= 1
+		else:
+			notLayedWire = 0
+	label.text = str(fuseArr.size() + notLayedWire)
