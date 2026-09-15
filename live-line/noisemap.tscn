@@ -8,8 +8,4 @@ script = ExtResource("1_1fhkq")
 
 [node name="TileMaps" parent="." unique_id=813543980 instance=ExtResource("2_1fhkq")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1510679661]
-position = Vector2(2519, 1906)
-zoom = Vector2(0.15, 0.15)
-
 [editable path="TileMaps"]

@@ -1,10 +1,12 @@
 extends Node2D
-
+var maxEnemeies = 10
 var zombie = preload("res://scenes/zombie.tscn")
 var movesSinceSpawn = 0
 @onready var player = get_tree().get_first_node_in_group("player").get_node("player")
 
 func spawnZombie():
+	if get_tree().get_node_count_in_group("enemy") >= maxEnemeies:
+		return
 	if randf() >= 5/(movesSinceSpawn + 1): 
 		movesSinceSpawn = 0
 		var z = zombie.instantiate()
