@@ -1,52 +1,20 @@
-extends Control
-var rng = RandomNumberGenerator.new()
-var rollQuality
+extends Node2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	global_position = Vector2(576,-400)
-	get_node("RigidBody2D").angular_damp = 2
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var degreePerSlice = 360/8
+var colors = ["yellow", "green", "red", "dark green", "yellow", "green", "red", "green"]
+
+func _ready():
+	levelUp()
 
 func levelUp():
+	var spin = randf_range(0, 360)
+	var color = colors[floori(spin/degreePerSlice)]
 	var tween = get_tree().create_tween()
-	show()
-	tween.tween_property($".", "position", Vector2(576,16), 1.0)
+	tween.tween_property($CanvasLayer/Node2D, "global_position",Vector2(1152/2,-50),1)
+	tween.chain().tween_property($CanvasLayer/Node2D/wheel, "rotation", deg_to_rad(3600 + spin), 10).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.chain().tween_property($CanvasLayer/Node2D, "global_position",Vector2(1152/2,-300),1)
 	
 
 	
 	
-	var levelUpRoll = rng.randf_range(0,1)
-	if levelUpRoll <= 0.125:
-		get_node("RigidBody2D").angular_velocity = 153.6
-		rollQuality = "red"
-	elif levelUpRoll <= 0.250:
-		get_node("RigidBody2D").angular_velocity = 160.08
-		rollQuality = "red"
-	elif levelUpRoll <= 0.375:
-		get_node("RigidBody2D").angular_velocity = 150.25
-		rollQuality = "yellow"
-	elif levelUpRoll <= 0.500:
-		get_node("RigidBody2D").angular_velocity = 156.8
-		rollQuality = "yellow"
-	elif levelUpRoll <= 0.625:
-		get_node("RigidBody2D").angular_velocity = 151.9
-		rollQuality = "lgreen"
-	elif levelUpRoll <= 0.750:
-		get_node("RigidBody2D").angular_velocity = 155.15
-		rollQuality = "lgreen"
-	elif levelUpRoll <= 0.875:
-		get_node("RigidBody2D").angular_velocity = 158.4
-		rollQuality = "lgreen"
-	elif levelUpRoll <= 1:
-		get_node("RigidBody2D").angular_velocity = 161.67
-		rollQuality = "dgreen"
-	print(str(rollQuality))
-	await get_tree().create_timer(10).timeout
-	tween.tween_property($".", "position", Vector2(576,-150), 1.0)
-	hide()
 	

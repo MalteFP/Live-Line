@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://df2wfxecfcfqs" path="res://textures/sprites/UI/pixil-frame-0(5).png" id="2_i0opf"]
 [ext_resource type="Texture2D" uid="uid://dlaeg1pt55ruu" path="res://textures/sprites/UI/pixil-frame-0(6).png" id="4_1bbjc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l0bqs"]
-radius = 60.033325
-
 [sub_resource type="Gradient" id="Gradient_1bbjc"]
 offsets = PackedFloat32Array(0.06626506, 0.6566265)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -16,36 +13,24 @@ gradient = SubResource("Gradient_1bbjc")
 fill = 1
 fill_from = Vector2(0.5043478, 0.5521739)
 
-[node name="Control" type="Control" unique_id=431396173]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Control" type="Node2D" unique_id=2001080130]
 script = ExtResource("1_qv302")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1801467810]
-scale = Vector2(2, 2)
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
-angular_damp_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=629608998]
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=475040511]
-scale = Vector2(2, 2)
-texture = ExtResource("2_i0opf")
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1525566017]
+position = Vector2(576, -300)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=437757119]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_l0bqs")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1083847848]
-position = Vector2(4, 228)
-scale = Vector2(3, 3)
-texture = ExtResource("4_1bbjc")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=719647778]
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/Node2D" unique_id=719647778]
 scale = Vector2(2.8297527, 2.8297527)
 texture = SubResource("GradientTexture2D_l0bqs")
 texture_scale = 2.4
+
+[node name="wheel" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=475040511]
+scale = Vector2(4, 4)
+texture = ExtResource("2_i0opf")
+
+[node name="arrow" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1083847848]
+position = Vector2(4, 228)
+scale = Vector2(3, 3)
+texture = ExtResource("4_1bbjc")
