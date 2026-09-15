@@ -24,9 +24,5 @@ color = Color(0, 0, 0, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1265957942]
 
 [node name="Control" parent="CanvasLayer" unique_id=431396173 instance=ExtResource("4_myy55")]
-offset_left = 613.0
-offset_top = 314.0
-offset_right = 613.0
-offset_bottom = 314.0
 
 [editable path="Player"]

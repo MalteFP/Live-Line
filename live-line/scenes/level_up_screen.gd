@@ -3,8 +3,6 @@ extends Node2D
 var degreePerSlice = 360/8
 var colors = ["yellow", "green", "red", "dark green", "yellow", "green", "red", "green"]
 
-func _ready():
-	levelUp()
 
 func levelUp():
 	var spin = randf_range(0, 360)

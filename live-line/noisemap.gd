@@ -1,7 +1,7 @@
 extends Node2D
 
-var mapWidth = 256
-var mapHeight = 256
+var mapWidth = 512
+var mapHeight = 512
 var noiseScale = 0.03
 
 var deepwaterThreshold = 0.3

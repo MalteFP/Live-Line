@@ -13,7 +13,6 @@ func spawnZombie():
 		while true:
 			var point = Vector2(randi_range(-10, 10) * 16 + 8, randi_range(-10, 10) * 16 + 8) + player.global_position
 			if is_point_inside(point):
-				print("new")
 				continue
 			z.global_position = point
 			add_child(z)
