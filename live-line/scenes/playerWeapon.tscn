@@ -97,7 +97,7 @@ script = ExtResource("1_r6ao4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1613749823]
 visible = false
-position = Vector2(0, -8)
+position = Vector2(0, -6)
 rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_l0bqs")
 autoplay = "default"

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bmty08oq61a1y"]
+
+[ext_resource type="Script" uid="uid://ifhklmyb2kfl" path="res://noisemap.gd" id="1_1fhkq"]
+[ext_resource type="PackedScene" uid="uid://twv5gdwsqx0f" path="res://scenes/TileMaps.tscn" id="2_1fhkq"]
+
+[node name="Noisemap" type="Node2D" unique_id=1594300032]
+script = ExtResource("1_1fhkq")
+
+[node name="TileMaps" parent="." unique_id=813543980 instance=ExtResource("2_1fhkq")]
+
+[editable path="TileMaps"]

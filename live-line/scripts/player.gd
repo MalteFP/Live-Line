@@ -88,7 +88,7 @@ func attack():
 	get_node("Sword/Sprite2D").timeInAttack = 0
 	get_node("Sword/Sprite2D").isAttacking = true
 	get_node("Sword/Sprite2D").visible = true
-	await get_tree().create_timer((0.65)).timeout
+	await get_tree().create_timer((0.65/2)).timeout
 	get_node("Sword/Sprite2D").visible = false
 	get_node("Sword/Sprite2D").isAttacking = false
 	do_move(Vector2(0,0),"none")
@@ -123,5 +123,4 @@ func do_move(vector: Vector2, dir: String):
 		enemy.process()
 	get_parent().spawnZombie()
 	isMoveReady = true
-	
 	
