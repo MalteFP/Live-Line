@@ -1,7 +1,10 @@
 extends Node2D
 
 var degreePerSlice = 360/8
-@onready var powerupObject = Powerup.new()
+
+@onready var p = preload("res://scenes/powerup.tscn")
+@onready var powerupObject = p.instantiate()
+
 @onready var darkGreen = [
 	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false),
 	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false),
@@ -23,6 +26,8 @@ var degreePerSlice = 360/8
 	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 0.1, false)
 	]
 @onready var colors = [yellow, green, red, darkGreen, yellow, green, red, green]
+func _ready() -> void:
+	add_child(powerupObject)
 
 func levelUp():
 	$CanvasLayer/Node2D/wheel.rotation = 0
