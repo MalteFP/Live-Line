@@ -6,12 +6,12 @@ var degreePerSlice = 360/8
 @onready var powerupObject = p.instantiate()
 
 @onready var darkGreen = [
-	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false),
-	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false),
-	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 1.5*get_tree().get_first_node_in_group("player").fuseMult, true)
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 5, false, "Incresed damaged by 5", load("res://textures/sprites/powerUps/Swordupgrade.png")),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false, "Incresed sword size by 1", load("res://textures/sprites/powerUps/Swordupgrade.png")),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 1.5*get_tree().get_first_node_in_group("player").fuseMult, true, "Incresed amount of fuse collected", load("res://icon.svg"))
 	]
 @onready var green = [
-	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false, "Incresed damaged by 3", load("res://textures/sprites/powerUps/Swordupgrade.png")),
 	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false),
 	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 0.5, false)
 	]
