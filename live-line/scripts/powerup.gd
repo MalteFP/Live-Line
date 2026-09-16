@@ -12,9 +12,8 @@ func apply(object: Object, property: String, value, absolute: bool, description:
 	print (str(property) + " " + str(value))
 
 	var power = icon.instantiate()
-	await get_tree().create_timer(14).timeout
 	add_child(power)
 	power.setVisuals(description, Icon)
+	power.moveTo(Vector2((collectedPowerups.size() % 8) * 48 + 32,floori(collectedPowerups.size() / 8) * 48 + 32))
 	collectedPowerups.append(power)
-	power.moveTo(Vector2(collectedPowerups.size() * 48, 32))
 	

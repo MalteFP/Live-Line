@@ -50,9 +50,10 @@ func levelUp():
 	var color = colors[floori(spin/degreePerSlice)]
 	var tween = get_tree().create_tween()
 	tween.tween_property($CanvasLayer/Node2D, "global_position",Vector2(1152/2,-50),1)
-	tween.chain().tween_property($CanvasLayer/Node2D/wheel, "rotation", deg_to_rad(3600 + spin), 10).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.chain().tween_property($CanvasLayer/Node2D/wheel, "rotation", deg_to_rad(3600 + spin), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	
+	await get_tree().create_timer(10).timeout
 	powerup(color)
-	await get_tree().create_timer(15).timeout
 	var tweenBack = get_tree().create_tween()
 	tweenBack.tween_property($CanvasLayer/Node2D, "global_position",Vector2(1152/2,-300),1)
 

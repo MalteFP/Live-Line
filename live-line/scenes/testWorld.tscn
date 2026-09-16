@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://con3xmyd77eu3"]
 
 [ext_resource type="PackedScene" uid="uid://dqeg3uaiqbybh" path="res://scenes/player.tscn" id="1_jgpco"]
-[ext_resource type="Script" uid="uid://bn7gt8c4s08vd" path="res://scenes/zombieSpawn.gd" id="1_myy55"]
-[ext_resource type="PackedScene" uid="uid://bmty08oq61a1y" path="res://noisemap.tscn" id="4_fxuqr"]
+[ext_resource type="Script" uid="uid://bn7gt8c4s08vd" path="res://scripts/zombieSpawn.gd" id="1_myy55"]
+[ext_resource type="PackedScene" uid="uid://bmty08oq61a1y" path="res://scenes/noisemap.tscn" id="4_fxuqr"]
 [ext_resource type="PackedScene" uid="uid://dvve2clv3cv14" path="res://scenes/LevelUpScreen.tscn" id="4_myy55"]
 
 [node name="Node2D2" type="Node2D" unique_id=812723244]

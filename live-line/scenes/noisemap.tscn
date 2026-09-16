@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmty08oq61a1y"]
 
-[ext_resource type="Script" uid="uid://ifhklmyb2kfl" path="res://noisemap.gd" id="1_1fhkq"]
+[ext_resource type="Script" uid="uid://ifhklmyb2kfl" path="res://scripts/noisemap.gd" id="1_1fhkq"]
 [ext_resource type="PackedScene" uid="uid://twv5gdwsqx0f" path="res://scenes/TileMaps.tscn" id="2_1fhkq"]
 
 [node name="Noisemap" type="Node2D" unique_id=1594300032]

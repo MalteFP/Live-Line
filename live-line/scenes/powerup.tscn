@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clvkduatccdxn"]
 
-[ext_resource type="Script" uid="uid://bokyanxc6c4gh" path="res://scripts/powerupScripts/powerup.gd" id="1_8vsy1"]
+[ext_resource type="Script" uid="uid://bokyanxc6c4gh" path="res://scripts/powerup.gd" id="1_8vsy1"]
 
 [node name="powerup" type="Node2D" unique_id=893870083]
 script = ExtResource("1_8vsy1")

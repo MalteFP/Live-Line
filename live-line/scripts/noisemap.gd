@@ -26,6 +26,7 @@ func generateMap():
 	
 	for x in range(mapWidth):
 		for y in range(mapHeight):
+			
 			var nx = float(x) / mapWidth * 2.0 - 1.0
 			var ny = float(y) / mapHeight * 2.0 - 1.0
 

@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://cypae83p64ipl"]
+
+[ext_resource type="Texture2D" uid="uid://bm8b84hq45576" path="res://textures/menu/Picture1.png" id="1_83s16"]
+[ext_resource type="Script" uid="uid://i2h61mtathkt" path="res://main_menu.gd" id="1_wc2lj"]
+[ext_resource type="Texture2D" uid="uid://bfmfsuhjnbylg" path="res://textures/menu/logoNoflame.png" id="2_w7d22"]
+[ext_resource type="Texture2D" uid="uid://c72dljfa0gipc" path="res://textures/sprites/fire/pixil-frame-0 (29).png" id="3_wc2lj"]
+[ext_resource type="Texture2D" uid="uid://kln3bl68chag" path="res://textures/menu/pixil-frame-0 (37).png" id="5_wked4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
+atlas = ExtResource("3_wc2lj")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1c27"]
+atlas = ExtResource("3_wc2lj")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op7ga"]
+atlas = ExtResource("3_wc2lj")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q13i1"]
+atlas = ExtResource("3_wc2lj")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pylmc"]
+atlas = ExtResource("3_wc2lj")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbfsw"]
+atlas = ExtResource("3_wc2lj")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wked4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_606se")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1c27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op7ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q13i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pylmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbfsw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3jr6"]
+atlas = ExtResource("5_wked4")
+region = Rect2(0, 0, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvu0j"]
+atlas = ExtResource("5_wked4")
+region = Rect2(122, 0, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ei6b"]
+atlas = ExtResource("5_wked4")
+region = Rect2(244, 0, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdsan"]
+atlas = ExtResource("5_wked4")
+region = Rect2(0, 122, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy5us"]
+atlas = ExtResource("5_wked4")
+region = Rect2(122, 122, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0ref"]
+atlas = ExtResource("5_wked4")
+region = Rect2(244, 122, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyr6b"]
+atlas = ExtResource("5_wked4")
+region = Rect2(0, 244, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efmur"]
+atlas = ExtResource("5_wked4")
+region = Rect2(122, 244, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltgao"]
+atlas = ExtResource("5_wked4")
+region = Rect2(244, 244, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7le7c"]
+atlas = ExtResource("5_wked4")
+region = Rect2(0, 366, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfslc"]
+atlas = ExtResource("5_wked4")
+region = Rect2(122, 366, 122, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d23al"]
+atlas = ExtResource("5_wked4")
+region = Rect2(244, 366, 122, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvj6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3jr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvu0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ei6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdsan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy5us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0ref")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyr6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efmur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltgao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7le7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfslc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d23al")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="mainMenu" type="Control" unique_id=1305603707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wc2lj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=14469847]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1535711609]
+offset_right = 1157.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bg" type="Sprite2D" parent="CanvasLayer" unique_id=1608699908]
+position = Vector2(175, 333)
+texture = ExtResource("1_83s16")
+
+[node name="Logo" type="Sprite2D" parent="CanvasLayer" unique_id=636964997]
+position = Vector2(239.00002, 340)
+scale = Vector2(3, 3)
+texture = ExtResource("2_w7d22")
+
+[node name="flame" type="AnimatedSprite2D" parent="CanvasLayer/Logo" unique_id=1993778968]
+position = Vector2(-21.666668, -16.333334)
+sprite_frames = SubResource("SpriteFrames_wked4")
+autoplay = "default"
+
+[node name="start game" type="Button" parent="CanvasLayer" unique_id=1400152927]
+custom_minimum_size = Vector2(200, 100)
+custom_maximum_size = Vector2(200, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 636.0
+offset_top = 170.0
+offset_right = -316.0
+offset_bottom = -378.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start game"
+icon_alignment = 1
+
+[node name="quit" type="Button" parent="CanvasLayer" unique_id=286022892]
+custom_minimum_size = Vector2(200, 100)
+custom_maximum_size = Vector2(200, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 636.0
+offset_top = 410.0
+offset_right = -316.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit"
+icon_alignment = 1
+
+[node name="acheivments" type="Button" parent="CanvasLayer" unique_id=2036763545]
+custom_minimum_size = Vector2(200, 100)
+custom_maximum_size = Vector2(200, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 636.0
+offset_top = 290.0
+offset_right = -316.0
+offset_bottom = -258.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Acheivments"
+icon_alignment = 1
+
+[node name="loading" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=981868107]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_fvj6w")
+autoplay = "default"
+frame_progress = 0.20217563
+
+[connection signal="button_down" from="CanvasLayer/start game" to="." method="_on_start_game_button_down"]
+[connection signal="button_down" from="CanvasLayer/quit" to="." method="_on_quit_button_down"]

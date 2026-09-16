@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dm3g64yuefssr"]
 
-[ext_resource type="Script" uid="uid://bu38liulh7mt0" path="res://scenes/powerup_icon.gd" id="1_feuux"]
-[ext_resource type="Texture2D" path="res://textures/sprites/powerUps/Swordupgrade.png" id="2_r0pis"]
+[ext_resource type="Script" uid="uid://bu38liulh7mt0" path="res://scripts/powerup_icon.gd" id="1_feuux"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="3_c6vbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2j6n"]
@@ -15,27 +14,30 @@ script = ExtResource("1_feuux")
 [node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=365938520]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=522158178]
+z_index = -1
 position = Vector2(32, 32)
 scale = Vector2(3, 3)
-texture = ExtResource("2_r0pis")
 
 [node name="Area2D" type="Area2D" parent="CanvasLayer/Node2D/Sprite2D" unique_id=1148649922]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/Sprite2D/Area2D" unique_id=1270602523]
 shape = SubResource("RectangleShape2D_q2j6n")
 
-[node name="Label" type="Label" parent="CanvasLayer/Node2D" unique_id=1444114847]
-custom_minimum_size = Vector2(100, 100)
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=952651945]
+layer = 2
+
+[node name="Label" type="Label" parent="CanvasLayer2" unique_id=1444114847]
+z_index = 10
+z_as_relative = false
 custom_maximum_size = Vector2(100, 100)
-offset_left = -16.0
-offset_top = 58.0
-offset_right = 84.0
-offset_bottom = 158.0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 5.0
+offset_bottom = 29.0
 mouse_filter = 1
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_c6vbs")
-text = "sword upgrade"
-horizontal_alignment = 1
+text = "wfafawf"
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 

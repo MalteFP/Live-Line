@@ -1,9 +1,9 @@
 extends Node2D
-@onready var label = $CanvasLayer/Node2D/Label
+@onready var label = $CanvasLayer2/Label
 @onready var sprite = $CanvasLayer/Node2D/Sprite2D
 func _ready():
-	sprite.global_position = Vector2(1152/2, 150)
-	label.global_position = Vector2(1152/2, 150)
+	sprite.global_position = Vector2(1152/2, 250)
+	label.global_position = Vector2(1152/2, 250)
 	label.visible = true
 
 
@@ -20,7 +20,7 @@ func moveTo(position: Vector2):
 	label.visible = false
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "global_position", position,1)
-	label.global_position = position + Vector2(0,20)
+	label.global_position = position + Vector2(0,30)
 	
 func setVisuals(text: String, image: CompressedTexture2D):
 	sprite.texture = image
