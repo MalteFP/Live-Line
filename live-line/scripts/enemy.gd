@@ -6,7 +6,7 @@ var speed = 1
 var drop = Vector2(1000, 1000)
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
-var range := 10
+var range := 30
 var movementTween: Tween
 var debug = false
 var damage = 2
@@ -114,6 +114,8 @@ func walk():
 	if (goal-center_tile).length() <= 1.5:
 			$"../Player/FuseController".takeDamage(damage)
 	if not grid.region.has_point(goal):
+		print("respawn")
+		queue_free()
 		return
 
 	var path = grid.get_id_path(start, goal)

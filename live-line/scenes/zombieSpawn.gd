@@ -24,7 +24,7 @@ func spawnZombie():
 			randomBoost,
 			randomBoost,
 			Vector2(7,10),
-			 10,
+			 15,
 			load("res://textures/sprites/enemies/zombie/zombieSpriteFrames.tres"))
 			break
 	else:
