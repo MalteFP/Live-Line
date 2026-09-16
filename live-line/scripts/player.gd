@@ -13,6 +13,7 @@ var level = 1
 var xpTowardsLevel = 0
 var xpForLevel = 10
 var isMoveReady = true
+var fuseMult = 1
 func _ready() -> void:
 	pass
 	

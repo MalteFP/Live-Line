@@ -3,11 +3,25 @@ extends Node2D
 var degreePerSlice = 360/8
 @onready var powerupObject = Powerup.new()
 @onready var darkGreen = [
-	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 1000, false)
-]
-@onready var green = [Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 100, false)]
-@onready var yellow = [Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 10, false)]
-@onready var red = [Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 1, false)]
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 1.5*get_tree().get_first_node_in_group("player").fuseMult, true)
+	]
+@onready var green = [
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 0.5, false)
+	]
+@onready var yellow = [
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 0.25, false)
+	]
+@onready var red = [
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "damage", 3, false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player").get_node("Sword"), "scale", Vector2(1,1), false),
+	Callable(powerupObject, "apply").bind(get_tree().get_first_node_in_group("player"), "fuseMult", 0.1, false)
+	]
 @onready var colors = [yellow, green, red, darkGreen, yellow, green, red, green]
 
 func levelUp():

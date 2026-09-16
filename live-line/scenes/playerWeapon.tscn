@@ -90,7 +90,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2j6n"]
-size = Vector2(6, 11)
+size = Vector2(6, 16)
 
 [node name="Sword" type="Node2D" unique_id=51907742]
 script = ExtResource("1_r6ao4")
@@ -110,7 +110,7 @@ position = Vector2(-8, -3.496911e-07)
 rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1145028680]
-position = Vector2(0, -10.5)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_q2j6n")
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
