@@ -2,7 +2,7 @@ extends Node2D
 var enemy = preload("res://scenes/enemy.tscn")
 var maxEnemeies = 10
 var movesSinceSpawn = 0
-
+var bonusScalingMult = 1
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
@@ -16,7 +16,7 @@ func spawnZombie():
 			var point = Vector2(randi_range(-10, 10) * 16 + 8, randi_range(-10, 10) * 16 + 8) + player.global_position
 			if is_point_inside(point):
 				continue
-			var randomBoost = randf_range(1,player.level)
+			var randomBoost = randf_range(1,player.level) * bonusScalingMult
 			var e = enemy.instantiate()
 			add_child(e)
 			e.global_position = point - Vector2(8,8)

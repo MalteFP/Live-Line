@@ -3,7 +3,7 @@ extends Node2D
 var icon = preload("res://scenes/powerup_icon.tscn")
 var collectedPowerups = []
 
-func apply(object: Object, property: String, value, absolute: bool, description: String, Icon: Image):
+func apply(object: Object, property: String, value, absolute: bool, description: String, Icon: CompressedTexture2D):
 	if absolute:
 		object.set(property, value)
 	else:
