@@ -1,21 +1,31 @@
 extends Node2D
+var enemy = preload("res://scenes/enemy.tscn")
 var maxEnemeies = 10
-var zombie = preload("res://scenes/zombie.tscn")
 var movesSinceSpawn = 0
-@onready var player = get_tree().get_first_node_in_group("player").get_node("player")
+
+
+@onready var player = get_tree().get_first_node_in_group("player")
 
 func spawnZombie():
 	if get_tree().get_node_count_in_group("enemy") >= maxEnemeies:
 		return
 	if randf() >= 5/(movesSinceSpawn + 1): 
 		movesSinceSpawn = 0
-		var z = zombie.instantiate()
+		
 		while true:
 			var point = Vector2(randi_range(-10, 10) * 16 + 8, randi_range(-10, 10) * 16 + 8) + player.global_position
 			if is_point_inside(point):
 				continue
-			z.global_position = point
-			add_child(z)
+			var randomBoost = randf_range(1,player.level)
+			var e = enemy.instantiate()
+			add_child(e)
+			e.global_position = point - Vector2(8,8)
+			e.setup(1 * randomBoost,
+			1 * randomBoost,
+			1 * randomBoost,
+			Vector2(7,10),
+			 10,
+			load("res://textures/sprites/enemies/zombie/zombieSpriteFrames.tres"))
 			break
 	else:
 		movesSinceSpawn += 1

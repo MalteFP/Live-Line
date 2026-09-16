@@ -1,0 +1,99 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c5jxy4j8yokh7"]
+
+[ext_resource type="Texture2D" uid="uid://lmaaw7dljx1r" path="res://textures/sprites/enemies/zombie/zombieTextures.png" id="1_mb4rt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xepks"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gx57"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycv6i"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjjxt"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pfmu"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fthk"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aetfh"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjlcg"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iblsu"]
+atlas = ExtResource("1_mb4rt")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xepks")
+}],
+"loop": 1,
+"name": &"idleBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gx57")
+}],
+"loop": 1,
+"name": &"idleFront",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycv6i")
+}],
+"loop": 1,
+"name": &"idleSide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjjxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pfmu")
+}],
+"loop": 0,
+"name": &"walkingBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fthk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aetfh")
+}],
+"loop": 0,
+"name": &"walkingFront",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjlcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iblsu")
+}],
+"loop": 0,
+"name": &"walkingSide",
+"speed": 5.0
+}]

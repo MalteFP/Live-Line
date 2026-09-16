@@ -6,9 +6,10 @@ extends Node2D
 var movementBlocked = false
 var tilSize = 16
 
+var damage = 1
 var lastMove = "up"
 var movementTween: Tween
-var level = 0
+var level = 1
 var xpTowardsLevel = 0
 var xpForLevel = 100
 var isMoveReady = true

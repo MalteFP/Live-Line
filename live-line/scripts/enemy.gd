@@ -1,7 +1,9 @@
 extends Node2D
 
+class_name Enemy
+
 var speed = 1
-var drop = Vector2(25, 50)
+var drop = Vector2(1000, 1000)
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
 var range := 10
@@ -9,20 +11,38 @@ var movementTween: Tween
 var debug = false
 var damage = 2
 var dead = false
+var health = 0
+var hitThisTurn = false
 
 var blocks = []
 var notblocks = []
 var pathWay = []
 var playerblock: Vector2
-
 @onready var body = $Node2D
-@onready var sprite = $Sprite2D
+@onready var sprite = $sprite
+func _ready() -> void:
+	pass
+
+func setup(speed: int, health: float, damage: float, dropRange: Vector2, range: int, spriteFrames: SpriteFrames) -> void:
+	self.speed = speed
+	self.health = health
+	self.drop = dropRange
+	self.range = range
+	self.damage = damage
+	self.sprite.set_sprite_frames(spriteFrames)
+
+
 func process():
-	
-	
+	checkHealth()
 	build_grid()
 	queue_redraw()
+	hitThisTurn = true
 
+
+func checkHealth():
+	if health > 0:
+		return
+	death()
 func build_grid():
 	grid = AStarGrid2D.new()
 	blocks = []
