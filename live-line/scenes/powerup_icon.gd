@@ -22,3 +22,6 @@ func moveTo(position: Vector2):
 	tween.tween_property(sprite, "global_position", position,1)
 	label.global_position = position + Vector2(0,20)
 	
+func setVisuals(text: String, image: Image):
+	sprite.texture = image
+	label.text = text

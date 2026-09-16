@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwh6bs6ostn65"
-path="res://.godot/imported/Swordupgrade.png-f79a025700638c9ab62cc6153d8c06c9.ctex"
+uid="uid://de1xk06i2ohku"
+path="res://.godot/imported/lightRed.png-2ef1022f8172cb2c1047838c25247108.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/sprites/powerUps/Swordupgrade.png"
-dest_files=["res://.godot/imported/Swordupgrade.png-f79a025700638c9ab62cc6153d8c06c9.ctex"]
+source_file="res://textures/sprites/powerUps/lightRed.png"
+dest_files=["res://.godot/imported/lightRed.png-2ef1022f8172cb2c1047838c25247108.ctex"]
 
 [params]
 
