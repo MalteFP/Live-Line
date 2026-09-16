@@ -11,7 +11,7 @@ var lastMove = "up"
 var movementTween: Tween
 var level = 1
 var xpTowardsLevel = 0
-var xpForLevel = 100
+var xpForLevel = 10
 var isMoveReady = true
 func _ready() -> void:
 	pass
@@ -28,8 +28,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if Input.is_action_just_pressed("attack"):
+		isMoveReady = false
 		attack()
-
+		
 	elif Input.is_action_just_pressed("up"):
 		if not is_point_inside(body.global_position + Vector2(0, -16)):
 			isMoveReady = false

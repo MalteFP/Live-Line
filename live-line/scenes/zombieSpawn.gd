@@ -20,9 +20,9 @@ func spawnZombie():
 			var e = enemy.instantiate()
 			add_child(e)
 			e.global_position = point - Vector2(8,8)
-			e.setup(1 * randomBoost,
-			1 * randomBoost,
-			1 * randomBoost,
+			e.setup(randomBoost,
+			randomBoost,
+			randomBoost,
 			Vector2(7,10),
 			 10,
 			load("res://textures/sprites/enemies/zombie/zombieSpriteFrames.tres"))

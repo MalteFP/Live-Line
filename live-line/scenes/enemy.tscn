@@ -42,7 +42,7 @@ position = Vector2(8, 8)
 
 [node name="PointLight2D" type="PointLight2D" parent="sprite" unique_id=1788500108]
 scale = Vector2(2, 2)
-color = Color(1, 1, 0.2901961, 1)
+energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_jmu02")
 texture_scale = 0.5
