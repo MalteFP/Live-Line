@@ -14,5 +14,7 @@ func apply(object: Object, property: String, value, absolute: bool, description:
 	var power = icon.instantiate()
 	await get_tree().create_timer(14).timeout
 	add_child(power)
+	power.setVisuals(description, Icon)
 	collectedPowerups.append(power)
 	power.moveTo(Vector2(collectedPowerups.size() * 48, 32))
+	

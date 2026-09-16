@@ -9,7 +9,7 @@ var bonusScalingMult = 1
 func spawnZombie():
 	if get_tree().get_node_count_in_group("enemy") >= maxEnemeies:
 		return
-	if randf() >= 5/(movesSinceSpawn + 1): 
+	if randf() >= 3/(movesSinceSpawn + 1): 
 		movesSinceSpawn = 0
 		
 		while true:

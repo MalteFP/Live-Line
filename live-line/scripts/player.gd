@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 		$"../CanvasLayer/Control".levelUp()
 		xpForLevel *=1.5
 		print("Level up: " + str(level))
+	if damage < 1:
+		damage = 1
 func _unhandled_input(event: InputEvent) -> void:
 	if movementBlocked or not isMoveReady:
 		return
