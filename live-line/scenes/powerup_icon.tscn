@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dm3g64yuefssr"]
 
 [ext_resource type="Script" uid="uid://bu38liulh7mt0" path="res://scenes/powerup_icon.gd" id="1_feuux"]
-[ext_resource type="Texture2D" uid="uid://bwh6bs6ostn65" path="res://textures/sprites/powerUps/Swordupgrade.png" id="2_r0pis"]
+[ext_resource type="Texture2D" uid="uid://bwh6bs6ostn65" path="res://textures/sprites/powerUps/SwordupgradeDarkGreen.png" id="2_r0pis"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="3_c6vbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2j6n"]
