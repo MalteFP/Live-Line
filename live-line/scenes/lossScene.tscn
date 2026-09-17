@@ -32,7 +32,7 @@ script = ExtResource("1_6aqur")
 visible = false
 
 [node name="bg" type="Sprite2D" parent="CanvasLayer" unique_id=462582335]
-position = Vector2(574.25, 326.24997)
+position = Vector2(576, 326.25)
 scale = Vector2(9.61875, 9.549999)
 texture = SubResource("NoiseTexture2D_bgr0v")
 
@@ -69,3 +69,14 @@ theme_override_font_sizes/font_size = 48
 text = "Score: 306"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer" unique_id=602764239]
+offset_left = 480.0
+offset_top = 420.0
+offset_right = 672.0
+offset_bottom = 506.0
+theme_override_fonts/font = ExtResource("2_n3yp7")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

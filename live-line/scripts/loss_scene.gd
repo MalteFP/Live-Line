@@ -12,10 +12,19 @@ func death() -> void:
 	
 	$CanvasLayer.visible = true
 	$CanvasLayer/VBoxContainer/Fuse.text = "total fuse: " + str(int(ScoreHolder.totalFuse))
+	if ScoreHolder.totalFuse > Saver.highScore:
+		Saver.highScore = ScoreHolder.totalFuse
 	if !minutes == "0": 
 		if seconds.length() == 1:
 			seconds = "0" + seconds
 		$CanvasLayer/VBoxContainer/Time.text = "total time: " + minutes + " minutes and " + seconds + " seconds"
 	else :
 		$CanvasLayer/VBoxContainer/Time.text = "total time: " + seconds + " seconds"
-	$CanvasLayer/VBoxContainer/Score.text = "Score: " + str(int(ScoreHolder.totalFuse/ScoreHolder.timeSpent*1000))
+	
+
+
+
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://mainMenu.tscn")
