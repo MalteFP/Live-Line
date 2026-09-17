@@ -2,11 +2,16 @@ extends Control
 
 var loadID = 0
 
+func _ready() -> void:
+	Saver.loadGame()
+
 func _on_quit_button_down() -> void:
+	Saver.saveGame()
 	get_tree().quit()
 
 
 func _on_start_game_button_down() -> void:
+	
 	$CanvasLayer/loading.visible = true
 	ResourceLoader.load_threaded_request("res://scenes/testWorld.tscn")
 	while true:
@@ -22,4 +27,5 @@ func _on_start_game_button_down() -> void:
 
 
 func _on_acheivments_pressed() -> void:
+	Saver.loadGame()
 	get_tree().change_scene_to_file("res://scenes/Achievements.tscn") # Replace with function body.

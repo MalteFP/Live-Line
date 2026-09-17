@@ -1,22 +1,21 @@
 extends Node2D
 
 const save_location = "user://Savefile.json"
-
-var completedAchievements = []
-var collectableCollected = []
 var highScore = 0
+var completedAchievements = []
 var contentToSave = {}
 
 
 
 func saveGame():
-	contentToSave = {"completedAchivements": completedAchievements, "highScore": highScore}
+	contentToSave = {"highScore": highScore}
 	var file = FileAccess.open(save_location, FileAccess.WRITE)
 	file.store_var(contentToSave.duplicate())
 	file.close()
 
 
 func loadGame():
+	print("test")
 	if FileAccess.file_exists(save_location):
 		var file = FileAccess.open(save_location, FileAccess.READ)
 		contentToSave = file.get_var()
@@ -25,15 +24,14 @@ func loadGame():
 
 
 func unPackSave():
-	completedAchievements = contentToSave["completedAchievements"]
+	print("highscore:"+str(contentToSave["highScore"]))
 	highScore = contentToSave["highScore"]
 	
 
 
 func deleteSave():
-	contentToSave = {"completedAchievements": [-1], "highScore": [-1]}
+	contentToSave = {"highScore": 0}
 	var file = FileAccess.open(save_location, FileAccess.WRITE)
 	file.store_var(contentToSave.duplicate())
 	file.close()
-	completedAchievements = [-1]
-	highScore = [-1]
+	highScore = 0

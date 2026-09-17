@@ -9,11 +9,14 @@ func death() -> void:
 	var seconds = str(int(ScoreHolder.timeSpent)%60)
 	
 	
-	
 	$CanvasLayer.visible = true
 	$CanvasLayer/VBoxContainer/Fuse.text = "total fuse: " + str(int(ScoreHolder.totalFuse))
+	if Saver.highScore == null:
+		Saver.highScore = 0
 	if ScoreHolder.totalFuse > Saver.highScore:
 		Saver.highScore = ScoreHolder.totalFuse
+	Saver.saveGame()
+
 	if !minutes == "0": 
 		if seconds.length() == 1:
 			seconds = "0" + seconds

@@ -90,7 +90,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2j6n"]
-size = Vector2(6, 16)
+size = Vector2(2, 16)
 
 [node name="Sword" type="Node2D" unique_id=51907742]
 script = ExtResource("1_r6ao4")

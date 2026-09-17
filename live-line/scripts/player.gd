@@ -24,12 +24,13 @@ func _ready() -> void:
 	$AnimatedSprite2D/PointLight2D.texture_scale = 6
 	$"..".bonusScalingMult = 1
 	ScoreHolder.totalFuse = 0
+	ScoreHolder.timeSpent = 0
 func _process(delta: float) -> void:
 	if xpTowardsLevel >= xpForLevel:
 		xpTowardsLevel -= xpForLevel
 		level += 1
 		$"../CanvasLayer/Control".levelUp()
-		xpForLevel *=1.5
+		xpForLevel += 10
 		print("Level up: " + str(level))
 	if damage < 1:
 		damage = 1
