@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dquwn5giyy26j"]
+
+[ext_resource type="Script" uid="uid://bkogghxiq7gp1" path="res://scenes/achievements.gd" id="1_83ncu"]
+[ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="2_n7c2d"]
+
+[node name="Node2D" type="Node2D" unique_id=2016033427]
+script = ExtResource("1_83ncu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1887341168]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1868904427]
+offset_right = 1157.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1143784023]
+offset_left = 440.0
+offset_top = 134.0
+offset_right = 740.0
+offset_bottom = 269.0
+theme_override_fonts/font = ExtResource("2_n7c2d")
+theme_override_font_sizes/font_size = 48
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer" unique_id=1858993044]
+offset_left = 480.0
+offset_top = 420.0
+offset_right = 672.0
+offset_bottom = 506.0
+theme_override_fonts/font = ExtResource("2_n7c2d")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -9,14 +9,21 @@ var tilSize = 16
 var damage = 1
 var lastMove = "up"
 var movementTween: Tween
-var level = 1
-var xpTowardsLevel = 0
-var xpForLevel = 10
+var level
+var xpTowardsLevel
+var xpForLevel
 var isMoveReady = true
-var fuseMult = 1
+var fuseMult 
+
 func _ready() -> void:
-	pass
-	
+	level = 0
+	xpForLevel = 10
+	xpTowardsLevel = 0
+	fuseMult = 1
+	$Sword.scale = Vector2(1,1)
+	$AnimatedSprite2D/PointLight2D.texture_scale = 6
+	$"..".bonusScalingMult = 1
+	ScoreHolder.totalFuse = 0
 func _process(delta: float) -> void:
 	if xpTowardsLevel >= xpForLevel:
 		xpTowardsLevel -= xpForLevel
