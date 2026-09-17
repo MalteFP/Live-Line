@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://0n6rqty0p7br"]
+
+[ext_resource type="Script" uid="uid://loip6ugh12gw" path="res://item.gd" id="1_ttk8k"]
+[ext_resource type="Texture2D" uid="uid://ch7x16e8tpo6v" path="res://textures/sprites/powerUps/dmgDarkGreen.png" id="2_kg5e7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2j6n"]
+size = Vector2(48, 48)
+
+[node name="item" type="Area2D" unique_id=186682096]
+script = ExtResource("1_ttk8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=669940747]
+shape = SubResource("RectangleShape2D_q2j6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=190458042]
+scale = Vector2(3, 3)
+texture = ExtResource("2_kg5e7")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

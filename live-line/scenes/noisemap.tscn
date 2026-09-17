@@ -10,6 +10,7 @@ script = ExtResource("1_1fhkq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1966651024]
 position = Vector2(5680, 4072)
+enabled = false
 zoom = Vector2(0.1, 0.1)
 
 [editable path="TileMaps"]

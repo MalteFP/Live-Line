@@ -19,6 +19,7 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1834684355]
 modulate = Color(0.5137255, 0, 0, 0)
 self_modulate = Color(0.46607313, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1265957942]
 
