@@ -165,7 +165,7 @@ offset_bottom = 651.0
 color = Color(0, 0, 0, 1)
 
 [node name="Bg" type="Sprite2D" parent="CanvasLayer" unique_id=1608699908]
-position = Vector2(178, 303)
+position = Vector2(178, 315)
 texture = ExtResource("1_83s16")
 
 [node name="Logo" type="Sprite2D" parent="CanvasLayer" unique_id=636964997]
