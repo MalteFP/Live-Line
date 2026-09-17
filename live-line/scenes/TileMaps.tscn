@@ -1,16 +1,7 @@
 [gd_scene format=3 uid="uid://twv5gdwsqx0f"]
 
+[ext_resource type="Texture2D" uid="uid://dr66dsfuq45ne" path="res://textures/tilemaps/objects/pixil-frame-0 (21).png" id="1_eo3iw"]
 [ext_resource type="Texture2D" uid="uid://6vtlx64271mu" path="res://textures/tilemaps/ground/pixil-frame-0 (12).png" id="2_eo3iw"]
-[ext_resource type="Texture2D" uid="uid://dhcwx48gnmhs2" path="res://textures/tilemaps/objects/pixil-frame-0 (24).png" id="2_ghha8"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xnmi"]
-texture = ExtResource("2_ghha8")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_fvj6w"]
-physics_layer_0/collision_layer = 3
-sources/0 = SubResource("TileSetAtlasSource_0xnmi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82dii"]
 texture = ExtResource("2_eo3iw")
@@ -29,10 +20,27 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_82dii")
 
-[node name="TileMaps" type="Node2D" unique_id=813543980]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6nh7"]
+texture = ExtResource("1_eo3iw")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
 
-[node name="Collision" type="TileMapLayer" parent="." unique_id=835781285]
-tile_set = SubResource("TileSet_fvj6w")
+[sub_resource type="TileSet" id="TileSet_fvj6w"]
+physics_layer_0/collision_layer = 3
+sources/1 = SubResource("TileSetAtlasSource_r6nh7")
+
+[node name="TileMaps" type="Node2D" unique_id=813543980]
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1537262408]
 tile_set = SubResource("TileSet_q2j6n")
+
+[node name="Collision" type="TileMapLayer" parent="." unique_id=835781285]
+tile_set = SubResource("TileSet_fvj6w")
