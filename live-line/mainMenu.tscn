@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bm8b84hq45576" path="res://textures/menu/Picture1.png" id="1_83s16"]
 [ext_resource type="Script" uid="uid://i2h61mtathkt" path="res://main_menu.gd" id="1_wc2lj"]
-[ext_resource type="Texture2D" uid="uid://bfmfsuhjnbylg" path="res://textures/menu/logoNoflame.png" id="2_w7d22"]
 [ext_resource type="Texture2D" uid="uid://c72dljfa0gipc" path="res://textures/sprites/fire/pixil-frame-0 (29).png" id="3_wc2lj"]
-[ext_resource type="Texture2D" uid="uid://kln3bl68chag" path="res://textures/menu/pixil-frame-0 (37).png" id="5_wked4"]
+[ext_resource type="Texture2D" uid="uid://dyuw4y87dwci4" path="res://textures/menu/pixil-frame-0 (20).png" id="3_wked4"]
+[ext_resource type="Texture2D" uid="uid://kln3bl68chag" path="res://textures/menu/loading.png" id="5_wked4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("3_wc2lj")
@@ -165,16 +165,16 @@ offset_bottom = 651.0
 color = Color(0, 0, 0, 1)
 
 [node name="Bg" type="Sprite2D" parent="CanvasLayer" unique_id=1608699908]
-position = Vector2(175, 333)
+position = Vector2(178, 303)
 texture = ExtResource("1_83s16")
 
 [node name="Logo" type="Sprite2D" parent="CanvasLayer" unique_id=636964997]
-position = Vector2(239.00002, 340)
+position = Vector2(288, 328)
 scale = Vector2(3, 3)
-texture = ExtResource("2_w7d22")
+texture = ExtResource("3_wked4")
 
 [node name="flame" type="AnimatedSprite2D" parent="CanvasLayer/Logo" unique_id=1993778968]
-position = Vector2(-21.666668, -16.333334)
+position = Vector2(-36.66667, -33.33333)
 sprite_frames = SubResource("SpriteFrames_wked4")
 autoplay = "default"
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfmfsuhjnbylg"
-path="res://.godot/imported/logoNoflame.png-f4a16103949b2a3d29e048d1e1d00197.ctex"
+uid="uid://kln3bl68chag"
+path="res://.godot/imported/loading.png-e22d23b41b60514e0e8cd768a184c595.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/menu/logoNoflame.png"
-dest_files=["res://.godot/imported/logoNoflame.png-f4a16103949b2a3d29e048d1e1d00197.ctex"]
+source_file="res://textures/menu/loading.png"
+dest_files=["res://.godot/imported/loading.png-e22d23b41b60514e0e8cd768a184c595.ctex"]
 
 [params]
 
