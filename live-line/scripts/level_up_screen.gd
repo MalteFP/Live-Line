@@ -42,7 +42,7 @@ var spinsLeft = 0
 
 
 	]
-@onready var colors = [yellow, green, red, darkGreen, yellow, green, red, green]
+var colors = [yellow, green, red, darkGreen, yellow, green, red, green]
 func _ready() -> void:
 	add_child(powerupObject)
 

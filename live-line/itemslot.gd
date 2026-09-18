@@ -8,6 +8,7 @@ var heldItem: item
 @export var refill: bool = false
 @export var itemType: itemTypes
 @export var bin: bool = false
+@export var wheelPos: int = -1
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and not event.pressed and not refill:
@@ -24,7 +25,6 @@ func _ready():
 		call_deferred("setItem", item)
 		item.setItemType(itemType)
 		permItem = item.duplicate()
-		print(permItem)
 	if bin:
 		$Area2D/Sprite2D.texture = load("res://textures/menu/trash.png")
 	else:
@@ -38,14 +38,15 @@ func setItem(i: item):
 	i.storedIn = self
 	i.global_position = global_position
 	i.global_rotation = global_rotation
+	heldItem.reloadTexture()
 
 func removeItem():
 	heldItem = null
 	if refill and heldItem == null:
 		var newItem = permItem.duplicate()
+		newItem.setItemType(itemType)
 		get_parent().get_parent().add_child(newItem)
 		setItem(newItem)
-		print(heldItem)
 		
 	
 func resetPosition():

@@ -21,6 +21,7 @@ position = Vector2(32, 32)
 refill = true
 
 [node name="itemslot4" parent="menu" unique_id=395159366 instance=ExtResource("2_lsvbm")]
+visible = false
 position = Vector2(62, 400)
 bin = true
 
@@ -55,34 +56,43 @@ texture = ExtResource("3_ogn28")
 position = Vector2(65, 150)
 rotation = 2.7488935
 scale = Vector2(0.99999994, 0.99999994)
-
-[node name="itemslot2" parent="Wheel holder" unique_id=1092155883 instance=ExtResource("2_lsvbm")]
-position = Vector2(-65, 150)
-rotation = 3.5342917
+wheelPos = 0
 
 [node name="itemslot3" parent="Wheel holder" unique_id=59769294 instance=ExtResource("2_lsvbm")]
 position = Vector2(150, 65)
 rotation = 1.9634954
+wheelPos = 1
 
 [node name="itemslot4" parent="Wheel holder" unique_id=1780545747 instance=ExtResource("2_lsvbm")]
 position = Vector2(150, -65)
 rotation = 1.1780972
-
-[node name="itemslot5" parent="Wheel holder" unique_id=2086108717 instance=ExtResource("2_lsvbm")]
-position = Vector2(-150, -65)
-rotation = 5.105088
-
-[node name="itemslot6" parent="Wheel holder" unique_id=1494815266 instance=ExtResource("2_lsvbm")]
-position = Vector2(-150, 65)
-rotation = 4.3196898
-
-[node name="itemslot7" parent="Wheel holder" unique_id=1405151457 instance=ExtResource("2_lsvbm")]
-position = Vector2(-65, -150)
-rotation = 5.8904862
+scale = Vector2(0.99999994, 0.99999994)
+wheelPos = 2
 
 [node name="itemslot8" parent="Wheel holder" unique_id=1312966444 instance=ExtResource("2_lsvbm")]
 position = Vector2(65, -150)
-rotation = 0.3926991
+rotation = 0.39269912
+wheelPos = 3
+
+[node name="itemslot7" parent="Wheel holder" unique_id=1405151457 instance=ExtResource("2_lsvbm")]
+position = Vector2(-65, -150)
+rotation = -0.39269906
+wheelPos = 4
+
+[node name="itemslot5" parent="Wheel holder" unique_id=2086108717 instance=ExtResource("2_lsvbm")]
+position = Vector2(-150, -65)
+rotation = -1.178097
+wheelPos = 5
+
+[node name="itemslot6" parent="Wheel holder" unique_id=1494815266 instance=ExtResource("2_lsvbm")]
+position = Vector2(-150, 65)
+rotation = -1.9634955
+wheelPos = 6
+
+[node name="itemslot2" parent="Wheel holder" unique_id=1092155883 instance=ExtResource("2_lsvbm")]
+position = Vector2(-65, 150)
+rotation = 3.5342917
+wheelPos = 7
 
 [node name="Button" type="Button" parent="." unique_id=1602502472]
 custom_minimum_size = Vector2(128, 128)

@@ -38,7 +38,7 @@ func close():
 	await tween.finished
 	if not isOpen:
 		loading = false
-
+	makeWheelArr()
 
 
 
@@ -47,3 +47,15 @@ func _on_button_button_down() -> void:
 		close()
 	else:
 		open()
+
+func makeWheelArr():
+	var arr = []
+	var slots = $"Wheel holder".get_children()
+	for slot in slots:
+		if slot is Sprite2D or slot.wheelPos == -1:
+			continue
+		if slot.heldItem:
+			arr.append(slot.heldItem.itemTypes.keys()[slot.heldItem.itemType])
+		else:
+			arr.append(null)
+	print(arr)
