@@ -39,6 +39,10 @@ tutorialLabel=""
 world=""
 blockInputMenu=""
 
+[gui]
+
+timers/tooltip_delay_sec=0.1
+
 [input]
 
 up={

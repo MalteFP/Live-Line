@@ -16,6 +16,8 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 
 func _process(_delta: float):
 	resetPosition()
+	if refill and heldItem == null:
+		removeItem()
 
 func _ready():
 	if refill:

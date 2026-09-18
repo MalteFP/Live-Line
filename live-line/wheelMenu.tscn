@@ -20,11 +20,6 @@ color = Color(0.20751238, 0.20751238, 0.20751238, 1)
 position = Vector2(32, 32)
 refill = true
 
-[node name="itemslot4" parent="menu" unique_id=395159366 instance=ExtResource("2_lsvbm")]
-visible = false
-position = Vector2(62, 400)
-bin = true
-
 [node name="itemslot5" parent="menu" unique_id=582194590 instance=ExtResource("2_lsvbm")]
 position = Vector2(96, 32)
 refill = true

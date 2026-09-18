@@ -36,7 +36,7 @@ func _ready():
 
 func playerMoved(direction: String):
 	addNewFuse(direction)
-	for i in range(get_tree().get_first_node_in_group("player").level + 1):
+	for i in range(get_tree().get_first_node_in_group("player").level/2 + 2):
 		removeFuse()
 	label.text = str(fuseArr.size() + notLayedWire)
 	emit_signal("finished")
@@ -56,9 +56,9 @@ func shortestAngle(from: float, to: float) -> float:
 	var diff = fmod((to - from + 180), 360) - 180
 	return from + diff
 
-
 func playerAttacked():
-	for i in range(get_tree().get_first_node_in_group("player").level):
+	for i in range(get_tree().get_first_node_in_group("player").level/2 + 1):
+		
 		removeFuse()
 	label.text = str(fuseArr.size() + notLayedWire)
 
@@ -84,8 +84,9 @@ func removeFuse():
 		notLayedWire -= 1
 	elif fuseArr.size() > 0:
 		fuseArr.pop_front().queue_free()
-	else:
-		fire.visible = false
-		get_parent().explode()
-	fuseArr.front().visible = false
-	updateFire()
+		if fuseArr.size() > 0:
+			fuseArr.front().visible = false
+			updateFire()
+		else:
+			fire.visible = false
+			get_parent().explode()

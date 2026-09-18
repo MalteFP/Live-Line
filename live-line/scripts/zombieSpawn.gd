@@ -30,18 +30,18 @@ func spawnZombie():
 		
 		while true:
 			var point = player.get_node("player").global_position + Vector2(
-	randi_range(-5, 5) * 16,
-	randi_range(-5, 5) * 16
+	randi_range(-10, 10) * 16,
+	randi_range(-10, 10) * 16
 )
 
 			if is_point_inside(point):
 				continue
-			var randomBoost = randf_range(1,player.level) * bonusScalingMult
+			var randomBoost = (player.level + 1) * bonusScalingMult
 			var e = enemy.instantiate()
 			add_child(e)
 			e.body.global_position = point - Vector2(8,8)
 			e.sprite.global_position = point
-			e.setup(randomBoost,
+			e.setup(1,
 			randomBoost,
 			randomBoost,
 			Vector2(7,10),

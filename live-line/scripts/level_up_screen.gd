@@ -25,15 +25,15 @@ var propDic = {
 var colorMulti = {
 "Red": -1,
 "Yellow": 1,
-"Green": 1.5,
-"DarkGreen": 3
+"Green": 2,
+"DarkGreen": 4
 }
 
 var typeMulti = {
 0: 1,
 1: -0.1,
-2: 0.125,
-3: 0.25,
+2: 0.4,
+3: 1,
 4: Vector2(0.25, 0.25)
 }
 
