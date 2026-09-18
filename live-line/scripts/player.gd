@@ -15,7 +15,7 @@ var xpForLevel
 var isMoveReady = true
 var fuseMult 
 var hasMoved = false
-
+var paused = false
 
 func _ready() -> void:
 	level = 0
@@ -47,7 +47,14 @@ func _process(_delta: float) -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	if get_tree().get_first_node_in_group("blockInputMenu").isOpen:
 		return
-	if movementBlocked or not isMoveReady:
+		
+	if Input.is_action_just_pressed("pause"):
+		paused = !paused
+		$pauseMenu.visible = !$pauseMenu.visible
+	
+	
+	
+	if movementBlocked or not isMoveReady or paused:
 		return
 	
 	if Input.is_action_just_pressed("attack"):

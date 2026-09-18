@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dwjqib2xo52fl" path="res://textures/sprites/player/walking/tile001.png" id="15_60mlk"]
 [ext_resource type="PackedScene" uid="uid://bk6x3si0lxcdc" path="res://scenes/lossScene.tscn" id="16_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://svk426jex0x5" path="res://scenes/playerWeapon.tscn" id="17_fulsm"]
+[ext_resource type="PackedScene" uid="uid://gsxmvum5oh0x" path="res://scenes/pause_menu.tscn" id="19_4r5pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("5_urp6f")
@@ -264,3 +265,6 @@ texture = SubResource("GradientTexture2D_606se")
 texture_scale = 6.0
 
 [node name="Sword" parent="." unique_id=51907742 instance=ExtResource("17_fulsm")]
+
+[node name="pauseMenu" parent="." unique_id=306940651 instance=ExtResource("19_4r5pv")]
+visible = false

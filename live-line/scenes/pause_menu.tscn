@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://gsxmvum5oh0x"]
+
+[ext_resource type="Script" uid="uid://l6gvv785miuj" path="res://scenes/pause_menu.gd" id="1_kukqi"]
+[ext_resource type="Texture2D" uid="uid://c4elr0p2q5jj7" path="res://textures/sprites/UI/Outline.png" id="2_5d2l8"]
+[ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="3_7l7mv"]
+
+[sub_resource type="Gradient" id="Gradient_ngdut"]
+offsets = PackedFloat32Array(0, 0.3908228, 0.9398734)
+colors = PackedColorArray(0.015686275, 0.007843138, 0.050980393, 1, 0.03529412, 0.03137255, 0.043137256, 1, 0.06879827, 0.06879828, 0.06879828, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fvj6w"]
+noise_type = 5
+seed = 2
+frequency = 0.0435
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v4r4p"]
+width = 80
+height = 50
+noise = SubResource("FastNoiseLite_fvj6w")
+color_ramp = SubResource("Gradient_ngdut")
+
+[node name="pauseMenu" type="CanvasLayer" unique_id=1233159880]
+script = ExtResource("1_kukqi")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=821953564]
+position = Vector2(576, 326.25)
+scale = Vector2(9.61875, 9.549999)
+texture = SubResource("NoiseTexture2D_v4r4p")
+
+[node name="border" type="Sprite2D" parent="." unique_id=1090721637]
+texture = ExtResource("2_5d2l8")
+centered = false
+offset = Vector2(176, 74)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=901333992]
+offset_left = 177.0
+offset_top = 75.0
+offset_right = 977.0
+offset_bottom = 573.0
+
+[node name="FlowContainer" type="FlowContainer" parent="CenterContainer" unique_id=421133844]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="CenterContainer/FlowContainer" unique_id=611113046]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
+[node name="Giveup" type="Button" parent="CenterContainer/FlowContainer" unique_id=23651391]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 32
+text = "Give up"
+
+[node name="Quit Game" type="Button" parent="CenterContainer/FlowContainer" unique_id=1865877943]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_7l7mv")
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+
+[connection signal="pressed" from="CenterContainer/FlowContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CenterContainer/FlowContainer/Giveup" to="." method="_on_giveup_pressed"]
+[connection signal="pressed" from="CenterContainer/FlowContainer/Quit Game" to="." method="_on_quit_game_pressed"]

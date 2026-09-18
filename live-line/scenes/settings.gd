@@ -43,8 +43,6 @@ func _input(event: InputEvent) -> void:
 		
 		InputMap.action_add_event(waitingForAction, event)
 		
-		print("New binding for" + str(waitingForAction) + "is" + str(event))
-		
 		$VBoxContainer.get_node(waitingForAction).get_node("Button").text = str(event.as_text())
 	
 		waitingForAction = null
@@ -58,9 +56,7 @@ func exportSettings() -> Dictionary:
 
 	for action in ["up", "down", "right", "left", "attack"]:
 		var event = InputMap.action_get_events(action)[0]
-		dic["controls"][action] = event.physical_keycode
 
-	print(dic)
 	return dic
 
 
