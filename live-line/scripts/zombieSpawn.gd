@@ -12,6 +12,7 @@ var tutorial: bool = false
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
+	print("Test1324")
 	$tutorial/tutorialRect.global_position = Vector2(426,648)
 	if tutorial:
 		$Node2D/Button.visible = false
@@ -46,7 +47,10 @@ func spawnZombie():
 			randomBoost,
 			Vector2(7,10),
 			 15,
-			load("res://textures/sprites/enemies/zombie/zombieSpriteFrames.tres"))
+			load("res://textures/sprites/enemies/zombie/zombieSpriteFrames.tres"),
+			load("res://Audio/freesound_community-zombie-6851.mp3"),
+			load("res://Audio/freesound_community-zombie-bite-96528.mp3")
+			)
 			break
 	else:
 		movesSinceSpawn += 1

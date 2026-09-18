@@ -20,17 +20,20 @@ var pathWay = []
 var playerblock: Vector2
 @onready var body = $Node2D
 @onready var sprite = $sprite
+@onready var passiveSounds = $EnemyPassiveSound
+@onready var attackSounds = $EnemyAttackSound
 func _ready() -> void:
 	pass
 
-func setup(speed: int, health: float, damage: float, dropRange: Vector2, range: int, spriteFrames: SpriteFrames) -> void:
+func setup(speed: int, health: float, damage: float, dropRange: Vector2, range: int, spriteFrames: SpriteFrames, passiveSoundEffect: AudioStreamMP3, attackSoundEffect: AudioStreamMP3) -> void:
 	self.speed = speed
 	self.health = health
 	self.drop = dropRange
 	self.range = range
 	self.damage = damage
 	self.sprite.set_sprite_frames(spriteFrames)
-
+	self.passiveSounds.stream = passiveSoundEffect
+	self.attackSounds.stream = attackSoundEffect
 
 func process():
 	checkHealth()
@@ -106,6 +109,9 @@ func _draw() -> void:
 func walk():
 	if dead:
 		return
+	var doSoundEffect = randf_range(0,1)
+	if doSoundEffect > 0.8:
+		$EnemyPassiveSound.play()
 	var player := get_tree().get_first_node_in_group("player").get_node("player")
 	playerblock = player.global_position
 	var start := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
@@ -113,6 +119,7 @@ func walk():
 	var center_tile := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
 	if (goal-center_tile).length() <= 1.5:
 			$"../Player/FuseController".takeDamage(damage)
+			$EnemyAttackSound.play()
 	if not grid.region.has_point(goal):
 		print("respawn")
 		queue_free()

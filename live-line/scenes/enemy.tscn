@@ -34,6 +34,10 @@ anim_speed_max = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_httt1"]
 size = Vector2(16, 16)
 
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_rmvbg"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_l0bqs"]
+
 [node name="Enemy" type="Node2D" unique_id=788798260 groups=["enemy"]]
 script = ExtResource("1_4ra3w")
 
@@ -65,3 +69,10 @@ collision_layer = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D" unique_id=649678691]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_httt1")
+
+[node name="EnemyPassiveSound" type="AudioStreamPlayer2D" parent="." unique_id=818727385]
+stream = SubResource("AudioStreamMP3_rmvbg")
+volume_db = -5.0
+
+[node name="EnemyAttackSound" type="AudioStreamPlayer2D" parent="." unique_id=1162148305]
+stream = SubResource("AudioStreamMP3_l0bqs")
