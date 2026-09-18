@@ -34,6 +34,9 @@ func _process(delta: float) -> void:
 		print("Level up: " + str(level))
 	if damage < 1:
 		damage = 1
+	if $player/BackgroundMusic.playing == false:
+		$player/BackgroundMusic.play()
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if movementBlocked or not isMoveReady:
 		return
@@ -126,6 +129,7 @@ func do_move(vector: Vector2, dir: String):
 		fuseController.playerMoved(dir)
 		lastMove = dir
 		tween.tween_property(sprite,"global_position", body.position + vector, 0.2)
+		$player/Footsteps.play()
 		body.global_position += vector
 		movementTween = tween
 		

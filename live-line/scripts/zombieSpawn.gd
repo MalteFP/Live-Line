@@ -32,7 +32,10 @@ func spawnZombie():
 			randomBoost,
 			Vector2(7,10),
 			 15,
-			load("res://textures/sprites/enemies/zombie/zombieSpriteFrames.tres"))
+			load("res://textures/sprites/enemies/zombie/zombieSpriteFrames.tres"),
+			load("res://Audio/freesound_community-zombie-6851.mp3"),
+			load("res://Audio/freesound_community-zombie-bite-96528.mp3")
+			)
 			break
 	else:
 		movesSinceSpawn += 1
