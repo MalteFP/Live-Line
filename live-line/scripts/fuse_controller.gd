@@ -32,30 +32,12 @@ func _ready():
 		fuseArr.append(instance)
 		add_child(instance)
 	label.text = str(fuseArr.size() + notLayedWire)
+	removeFuse()
 
 func playerMoved(direction: String):
 	addNewFuse(direction)
-	for i in range(2):
-		if fuseArr.size() > 0 and notLayedWire == 0:
-			var tween = get_tree().create_tween()
-			if fireTween and fireTween.is_running():
-				fireTween.custom_step(1)
-			tween.parallel().tween_property(fire,"global_position", fuseArr[0].global_position + offset[fuseArr[0].get_meta("dir")], 0.1)
-			tween.parallel().tween_property(fire,"rotation_degrees", shortestAngle(fire.rotation_degrees, rotationDic[fuseArr[0].get_meta("dir")]), 0.1)
-			fireTween = tween
-			await get_tree().create_timer(0.1).timeout
-			fire.visible = true
-			if fuseArr.size() > 0:
-				if fuseArr.front():
-					fuseArr.pop_front().queue_free()
-		elif fuseArr.size() == 0:
-			fire.visible = false
-			print("Explode")
-			get_parent().explode()
-		if notLayedWire >= 1:
-			notLayedWire -= 1
-		else:
-			notLayedWire = 0
+	for i in range(get_tree().get_first_node_in_group("player").level + 1):
+		removeFuse()
 	label.text = str(fuseArr.size() + notLayedWire)
 	emit_signal("finished")
 			
@@ -76,24 +58,8 @@ func shortestAngle(from: float, to: float) -> float:
 
 
 func playerAttacked():
-	if fuseArr.size() > 0 and notLayedWire == 0:
-		var tween = get_tree().create_tween()
-		if fireTween and fireTween.is_running():
-			fireTween.custom_step(1)
-		tween.parallel().tween_property(fire,"global_position", fuseArr[0].global_position + offset[fuseArr[0].get_meta("dir")], 0.1)
-		tween.parallel().tween_property(fire,"rotation_degrees", shortestAngle(fire.rotation_degrees, rotationDic[fuseArr[0].get_meta("dir")]), 0.1)
-		fireTween = tween
-		await get_tree().create_timer(0.1).timeout
-		fire.visible = true
-		if fuseArr.front():
-			fuseArr.pop_front().queue_free()
-	elif fuseArr.size() == 0:
-		fire.visible = false
-		get_parent().explode()
-	if notLayedWire >= 1:
-		notLayedWire -= 1
-	else:
-		notLayedWire = 0
+	for i in range(get_tree().get_first_node_in_group("player").level):
+		removeFuse()
 	label.text = str(fuseArr.size() + notLayedWire)
 
 func takeDamage(damage):
@@ -101,24 +67,25 @@ func takeDamage(damage):
 	tweenHue.tween_property($"../../CanvasModulate", "color", Color.RED, 0.3,)
 	tweenHue.chain().tween_property($"../../CanvasModulate", "color", Color.BLACK, 0.3)
 	
-	for i in damage:
-		if fuseArr.size() > 0 and notLayedWire == 0:
-			var tween = get_tree().create_tween()
-			if fireTween and fireTween.is_running():
-				fireTween.custom_step(1)
-			tween.parallel().tween_property(fire,"global_position", fuseArr[0].global_position + offset[fuseArr[0].get_meta("dir")], 0.1)
-			tween.parallel().tween_property(fire,"rotation_degrees", shortestAngle(fire.rotation_degrees, rotationDic[fuseArr[0].get_meta("dir")]), 0.1)
-			fireTween = tween
-			await get_tree().create_timer(0.1).timeout
-			fire.visible = true
-			if fuseArr.size() > 0:
-				if fuseArr.front():
-					fuseArr.pop_front().queue_free()
-		elif fuseArr.size() == 0:
-			fire.visible = false
-			get_parent().explode()
-		if notLayedWire >= 1:
-			notLayedWire -= 1
-		else:
-			notLayedWire = 0
+	for i in range(damage):
+		removeFuse()
 	label.text = str(fuseArr.size() + notLayedWire)
+
+func updateFire():
+	var tween = get_tree().create_tween()
+	if fireTween and fireTween.is_running():
+		fireTween.custom_step(1)
+	tween.parallel().tween_property(fire,"global_position", fuseArr[0].global_position + offset[fuseArr[0].get_meta("dir")], 0.1)
+	tween.parallel().tween_property(fire,"rotation_degrees", shortestAngle(fire.rotation_degrees, rotationDic[fuseArr[0].get_meta("dir")]), 0.1)
+	fireTween = tween
+func removeFuse():
+	fire.visible = true
+	if notLayedWire > 0:
+		notLayedWire -= 1
+	elif fuseArr.size() > 0:
+		fuseArr.pop_front().queue_free()
+	else:
+		fire.visible = false
+		get_parent().explode()
+	fuseArr.front().visible = false
+	updateFire()

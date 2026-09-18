@@ -31,8 +31,8 @@ var colorMulti = {
 
 var typeMulti = {
 0: 1,
-1: 0.1,
-2: 0.25,
+1: -0.1,
+2: 0.125,
 3: 0.25,
 4: Vector2(0.25, 0.25)
 }
@@ -78,7 +78,7 @@ func powerup(slice):
 		propDic[type], 
 		colorMulti[colors[slice]] * typeMulti[type],
 		false, 
-		discDict[type] + str(colorMulti[colors[slice]] * typeMulti[type] * 100) + "%", 
+		discDict[type] + str(colorMulti[colors[slice]] * typeMulti[type]), 
 		load("res://textures/sprites/powerUps/" + str(itemTypes.keys()[type]) + colors[slice] + ".png"))
 	power.call()
 	if not everLeveledUp:

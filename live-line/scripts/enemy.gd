@@ -26,7 +26,7 @@ func _ready() -> void:
 	pass
 
 func setup(spd: int, hp: float, dmg: float, dropRange: Vector2, sightRange: int, spriteFrames: SpriteFrames, passiveSoundEffect: AudioStreamMP3, attackSoundEffect: AudioStreamMP3) -> void:
-	self.speed = spd
+	self.speed = 1
 	self.health = hp
 	self.drop = dropRange
 	self.detectRange = sightRange
