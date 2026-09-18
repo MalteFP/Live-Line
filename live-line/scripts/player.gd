@@ -93,12 +93,14 @@ func updateSprite():
 
 
 func explode():
+	var tween = get_tree().create_tween()
+	tween.tween_property($player/BackgroundMusic, "volume_db", -60, 1)
+	$player/Explosion.play()
 	movementBlocked = true
 	var particels = $player/explosionParticles
 	var cam = $player/Camera2D
 	particels.emitting = true
 	sprite.play("ash")
-	var tween = get_tree().create_tween()
 	tween.tween_property(cam,"zoom",Vector2(10,10),1)
 	await get_tree().create_timer(1).timeout
 	particels.emitting = false
@@ -106,6 +108,7 @@ func explode():
 	$lossScene.death()
 
 func attack():
+	$player/SwordSwing.play()
 	get_node("Sword/Sprite2D").timeInAttack = 0
 	get_node("Sword/Sprite2D").isAttacking = true
 	get_node("Sword/Sprite2D").visible = true

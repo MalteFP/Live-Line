@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkogghxiq7gp1" path="res://scenes/achievements.gd" id="1_83ncu"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="2_n7c2d"]
+[ext_resource type="AudioStream" uid="uid://yysvp510d2k6" path="res://Audio/leberch-dark-spooky-309318.mp3" id="3_n7c2d"]
 
 [node name="Node2D" type="Node2D" unique_id=2016033427]
 script = ExtResource("1_83ncu")
@@ -29,5 +30,8 @@ offset_bottom = 506.0
 theme_override_fonts/font = ExtResource("2_n7c2d")
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=1774413249]
+stream = ExtResource("3_n7c2d")
 
 [connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

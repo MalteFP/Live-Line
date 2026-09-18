@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dyuw4y87dwci4" path="res://textures/menu/pixil-frame-0 (20).png" id="3_wked4"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="5_c3jr6"]
 [ext_resource type="Texture2D" uid="uid://kln3bl68chag" path="res://textures/menu/loading.png" id="5_wked4"]
+[ext_resource type="AudioStream" uid="uid://c2smtlwdx0n3x" path="res://Audio/leberch-spooky-horror-piano-251201.mp3" id="7_hvu0j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("3_wc2lj")
@@ -237,6 +238,9 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_fvj6w")
 autoplay = "default"
 frame_progress = 0.20217563
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=279213180]
+stream = ExtResource("7_hvu0j")
 
 [connection signal="button_down" from="CanvasLayer/start game" to="." method="_on_start_game_button_down"]
 [connection signal="button_down" from="CanvasLayer/quit" to="." method="_on_quit_button_down"]

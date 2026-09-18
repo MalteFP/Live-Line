@@ -4,6 +4,7 @@ var loadID = 0
 
 func _ready() -> void:
 	Saver.loadGame()
+	$CanvasLayer/MenuMusic.play()
 
 func _on_quit_button_down() -> void:
 	Saver.saveGame()

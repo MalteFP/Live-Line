@@ -4,7 +4,7 @@ func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
 	
 func death() -> void:
-		
+	$CanvasLayer/GameOver.play()
 	var minutes = str(round_to_dec(int(ScoreHolder.timeSpent/60),0)).split(".")[0]
 	var seconds = str(int(ScoreHolder.timeSpent)%60)
 	
