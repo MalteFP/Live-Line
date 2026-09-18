@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="4_ueqx8"]
 [ext_resource type="PackedScene" uid="uid://dvve2clv3cv14" path="res://scenes/LevelUpScreen.tscn" id="5_lsvbm"]
 
-[node name="wheelMenu" type="CanvasLayer" unique_id=1796563416]
+[node name="wheelMenu" type="CanvasLayer" unique_id=1796563416 groups=["blockInputMenu"]]
 script = ExtResource("1_au5ci")
 
 [node name="menu" type="ColorRect" parent="." unique_id=1521298724]

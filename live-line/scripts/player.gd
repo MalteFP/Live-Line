@@ -45,6 +45,8 @@ func _process(_delta: float) -> void:
 		$player/BackgroundMusic.play()
 	
 func _unhandled_input(_event: InputEvent) -> void:
+	if get_tree().get_first_node_in_group("blockInputMenu").isOpen:
+		return
 	if movementBlocked or not isMoveReady:
 		return
 	

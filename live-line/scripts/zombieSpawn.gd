@@ -12,7 +12,6 @@ var tutorial: bool = false
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
-	print("Test1324")
 	$tutorial/tutorialRect.global_position = Vector2(426,648)
 	if tutorial:
 		$Node2D/Button.visible = false
@@ -26,7 +25,7 @@ func _ready():
 func spawnZombie():
 	if get_tree().get_node_count_in_group("enemy") >= maxEnemeies:
 		return
-	if randf() >= 3/(movesSinceSpawn + 1): 
+	if randf() >= int(3/(movesSinceSpawn + 1)): 
 		movesSinceSpawn = 0
 		
 		while true:
@@ -41,7 +40,7 @@ func spawnZombie():
 			var e = enemy.instantiate()
 			add_child(e)
 			e.body.global_position = point - Vector2(8,8)
-			e.sprite.global_position = point - Vector2(8,8)
+			e.sprite.global_position = point
 			e.setup(randomBoost,
 			randomBoost,
 			randomBoost,
