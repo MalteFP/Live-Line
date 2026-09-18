@@ -4,6 +4,8 @@ var degreePerSlice = 360/8
 enum itemTypes { dmg, enemy, fuse, light, size}
 var spinsLeft = 0
 
+var everLeveledUp = false
+
 @onready var objectDic = {
 0: get_tree().get_first_node_in_group("player"),
 1: $"../..", 
@@ -79,7 +81,14 @@ func powerup(slice):
 		discDict[type] + str(colorMulti[colors[slice]] * typeMulti[type] * 100) + "%", 
 		load("res://textures/sprites/powerUps/" + str(itemTypes.keys()[type]) + colors[slice] + ".png"))
 	power.call()
-
+	if not everLeveledUp:
+		everLeveledUp = true
+		var label = get_tree().get_first_node_in_group("tutorialLabel")
+		var settings = LabelSettings.new()
+		settings.font_size = 24
+		label.label_settings = settings
+		label.text = "You have now unlocked the power\nto control your own future"
+		$"../Button".visible = true
 
 
 

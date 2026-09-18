@@ -14,6 +14,8 @@ var xpTowardsLevel
 var xpForLevel
 var isMoveReady = true
 var fuseMult 
+var hasMoved = false
+
 
 func _ready() -> void:
 	level = 0
@@ -27,6 +29,11 @@ func _ready() -> void:
 	ScoreHolder.timeSpent = 0
 func _process(delta: float) -> void:
 	if xpTowardsLevel >= xpForLevel:
+		var label = get_tree().get_first_node_in_group("tutorialLabel")
+		var settings = LabelSettings.new()
+		settings.font_size = 20
+		label.label_settings = settings
+		label.text = "When you level up you get to spin the wheel,\n click spin and get a random power up"
 		xpTowardsLevel -= xpForLevel
 		level += 1
 		$"../Node2D/levelUpScreen".levelUp()
@@ -119,6 +126,12 @@ func attack():
 	fuseController.playerAttacked()
 	
 func do_move(vector: Vector2, dir: String):
+	if hasMoved == false:
+		hasMoved = true
+		var settings = LabelSettings.new()
+		settings.font_size = 24
+		$"../tutorial/tutorialRect/Label".label_settings = settings
+		$"../tutorial/tutorialRect/Label".text = "But watch out, each time \n you move your fuse burns \n and mosters attack"
 	if dir != "none":
 		var tween = get_tree().create_tween()
 		if movementTween and movementTween.is_running():

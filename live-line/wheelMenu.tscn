@@ -104,7 +104,7 @@ offset_bottom = 648.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("4_ueqx8")
 theme_override_font_sizes/font_size = 25
-text = "Open Wheel 
+text = "Open wheel
 Customization"
 
 [node name="Control" parent="." unique_id=2001080130 instance=ExtResource("5_lsvbm")]

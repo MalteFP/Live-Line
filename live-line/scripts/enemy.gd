@@ -157,6 +157,13 @@ func updateAnimation(vector: Vector2):
 		sprite.scale = Vector2(1,1)
 
 func death():
+	var world = get_tree().get_first_node_in_group("world")
+	if world.hasAnyEnemyDied == false:
+		world.hasAnyEnemyDied = true
+		var settings = LabelSettings.new()
+		settings.font_size = 30
+		get_tree().get_first_node_in_group("tutorialLabel").label_settings = settings
+		get_tree().get_first_node_in_group("tutorialLabel").text = "Killing enemies drops fuse, \n walk over them to pick it up."
 	dead = true
 	$Node2D/explosionParticles.emitting = true
 	var drops = preload("res://scenes/itemWire.tscn")

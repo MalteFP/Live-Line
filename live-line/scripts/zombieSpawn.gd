@@ -4,15 +4,23 @@ var maxEnemeies = 10
 var movesSinceSpawn = 0
 var bonusScalingMult = 1
 
+var anyFusePickedUp = false
+var hasAnyEnemyDied = false
 var tutorial: bool = false
 
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
+	$tutorial/tutorialRect.global_position = Vector2(426,648)
 	if tutorial:
 		$Node2D/Button.visible = false
-	
+		var tween = get_tree().create_tween()
+		tween.tween_property($tutorial/tutorialRect,"global_position",Vector2(426,548),2)
+		var settings = LabelSettings.new()
+		settings.font_size = 24
+		$tutorial/tutorialRect/Label.label_settings = settings
+		$tutorial/tutorialRect/Label.text = "A bomb is strapped to your back \n Use WASD to move \n and SPACE to attack"
 
 func spawnZombie():
 	if get_tree().get_node_count_in_group("enemy") >= maxEnemeies:

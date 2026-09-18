@@ -3,6 +3,8 @@ extends CanvasLayer
 signal droppedInSlot(which: itemSlot)
 var loading = false
 var isOpen: bool = false
+
+var everOpened = false
 @onready var menu = $menu
 @onready var wheel = $"Wheel holder"
 func _ready() -> void:
@@ -12,6 +14,15 @@ func _ready() -> void:
 	
 	
 func open():
+	if everOpened == false:
+		everOpened = true
+		var label = get_tree().get_first_node_in_group("tutorialLabel")
+		var settings = LabelSettings.new()
+		settings.font_size = 24
+		label.label_settings = settings
+		label.text = "Drag and drop the powerups\nto the wheel, to control which\npowerups you are able to get."
+		$"Button".visible = true
+	
 	isOpen = true
 	loading = true
 	var tween = get_tree().create_tween()
@@ -26,6 +37,8 @@ func open():
 
 
 func close():
+	var ttween = get_tree().create_tween()
+	ttween.tween_property(get_tree().get_first_node_in_group("tutorialLabel").get_parent(),"global_position",Vector2(426,648),2)
 	$levelUpScreen.buildWheel()
 	isOpen = false
 	loading = true
