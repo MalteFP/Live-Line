@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://werwrfmpv02p" path="res://scripts/loss_scene.gd" id="1_6aqur"]
 [ext_resource type="Texture2D" uid="uid://c4elr0p2q5jj7" path="res://textures/sprites/UI/Outline.png" id="1_8ee38"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="2_n3yp7"]
+[ext_resource type="AudioStream" uid="uid://b5oqh675n23w1" path="res://Audio/sonic289-game_defeat-_-game-over-373827.mp3" id="4_fonpy"]
 
 [sub_resource type="Gradient" id="Gradient_ngdut"]
 offsets = PackedFloat32Array(0, 0.3908228, 0.9398734)
@@ -78,5 +79,8 @@ offset_bottom = 506.0
 theme_override_fonts/font = ExtResource("2_n3yp7")
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=2124832998]
+stream = ExtResource("4_fonpy")
 
 [connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
