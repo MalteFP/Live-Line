@@ -21,6 +21,10 @@ TurnQueueHolder="*uid://4xmeaja1n2xi"
 ScoreHolder="*uid://dcqbadm1jjw8j"
 Saver="*uid://yq7r23du5f7g"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -33,6 +37,7 @@ enemy=""
 enemyhitbox=""
 tutorialLabel=""
 world=""
+blockInputMenu=""
 
 [input]
 
