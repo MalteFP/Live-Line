@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://br3gin50ce5wn" path="res://scripts/level_up_screen.gd" id="1_qv302"]
 [ext_resource type="Texture2D" uid="uid://df2wfxecfcfqs" path="res://textures/sprites/UI/pixil-frame-0(5).png" id="2_i0opf"]
 [ext_resource type="Texture2D" uid="uid://lrreor1dsqqy" path="res://textures/sprites/UI/longRope.png" id="3_swos3"]
+[ext_resource type="Texture2D" uid="uid://ch7x16e8tpo6v" path="res://textures/sprites/powerUps/dmgDarkGreen.png" id="3_wwe45"]
 [ext_resource type="Texture2D" uid="uid://dlaeg1pt55ruu" path="res://textures/sprites/UI/pixil-frame-0(6).png" id="4_1bbjc"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="5_wwe45"]
 
@@ -15,6 +16,46 @@ position = Vector2(976, -133)
 
 [node name="wheel" type="Sprite2D" parent="Node2D" unique_id=475040511]
 texture = ExtResource("2_i0opf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/wheel" unique_id=1942338228]
+position = Vector2(16.25, 37.5)
+rotation = 2.7488935
+texture = ExtResource("3_wwe45")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/wheel" unique_id=1445202314]
+position = Vector2(37.5, 16.25)
+rotation = 1.9634954
+texture = ExtResource("3_wwe45")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/wheel" unique_id=1987832945]
+position = Vector2(37.5, -16.25)
+rotation = 1.1780972
+texture = ExtResource("3_wwe45")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/wheel" unique_id=1601765514]
+position = Vector2(16.25, -37.5)
+rotation = 0.3926991
+texture = ExtResource("3_wwe45")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D/wheel" unique_id=2049941449]
+position = Vector2(-16.25, -37.5)
+rotation = -0.3926991
+texture = ExtResource("3_wwe45")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D/wheel" unique_id=2083708569]
+position = Vector2(-37.5, -16.25)
+rotation = -1.1780972
+texture = ExtResource("3_wwe45")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Node2D/wheel" unique_id=2105546090]
+position = Vector2(-37.5, 16.25)
+rotation = -1.9634954
+texture = ExtResource("3_wwe45")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Node2D/wheel" unique_id=906441294]
+position = Vector2(-16.25, 37.5)
+rotation = -2.7488935
+texture = ExtResource("3_wwe45")
 
 [node name="arrow" type="Sprite2D" parent="Node2D" unique_id=1083847848]
 position = Vector2(0, 56)

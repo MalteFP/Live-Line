@@ -26,6 +26,7 @@ func open():
 
 
 func close():
+	$levelUpScreen.buildWheel()
 	isOpen = false
 	loading = true
 	var tween = get_tree().create_tween()
@@ -38,8 +39,6 @@ func close():
 	await tween.finished
 	if not isOpen:
 		loading = false
-	makeWheelArr()
-
 
 
 func _on_button_button_down() -> void:
@@ -55,7 +54,7 @@ func makeWheelArr():
 		if slot is Sprite2D or slot.wheelPos == -1:
 			continue
 		if slot.heldItem:
-			arr.append(slot.heldItem.itemTypes.keys()[slot.heldItem.itemType])
+			arr.append(slot.heldItem.itemType)
 		else:
-			arr.append(null)
-	print(arr)
+			arr.append(randi_range(0,4))
+	return arr
