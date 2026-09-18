@@ -2,8 +2,8 @@ extends Node2D
 @onready var label = $CanvasLayer2/Label
 @onready var sprite = $CanvasLayer/Node2D/Sprite2D
 func _ready():
-	sprite.global_position = Vector2(1152/2, 250)
-	label.global_position = Vector2(1152/2, 250)
+	sprite.global_position = Vector2(976.0, 400)
+	label.global_position = Vector2(976.0, 400)
 	label.visible = true
 
 

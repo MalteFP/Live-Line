@@ -12,7 +12,8 @@ script = ExtResource("1_qv302")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1525566017]
 z_index = 4
-position = Vector2(976, -133)
+position = Vector2(976, -266)
+scale = Vector2(2, 2)
 
 [node name="wheel" type="Sprite2D" parent="Node2D" unique_id=475040511]
 texture = ExtResource("2_i0opf")

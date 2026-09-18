@@ -17,7 +17,7 @@ var propDic = {
 1: "bonusScalingMult",
 2: "fuseMult",
 3: "texture_scale",
-4: "scale.x"
+4: "scale"
 }
 
 var colorMulti = {
@@ -98,4 +98,4 @@ func _on_spin_button_down() -> void:
 		return
 	else:
 		var tweenBack = get_tree().create_tween()
-		tweenBack.tween_property($Node2D, "global_position",Vector2(976,-133),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		tweenBack.tween_property($Node2D, "global_position",Vector2(976,-266.0),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
