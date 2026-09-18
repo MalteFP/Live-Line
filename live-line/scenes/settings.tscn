@@ -1,15 +1,201 @@
 [gd_scene format=3 uid="uid://dwx6ussc64i48"]
 
-[node name="Control" type="Control" unique_id=1017073175]
+[ext_resource type="Script" uid="uid://6s5p7m2qbgwk" path="res://scenes/settings.gd" id="1_5p8wc"]
+[ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="2_r6d6q"]
+
+[node name="settings" type="Control" unique_id=1017073175]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5p8wc")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=119805114]
 layout_mode = 0
 offset_right = 1148.0
 offset_bottom = 651.0
-color = Color(0, 0, 0, 1)
+color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+
+[node name="audio" type="HSlider" parent="." unique_id=1823281866]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.007
+offset_left = 74.0
+offset_top = 240.0
+offset_right = 465.936
+offset_bottom = 408.0
+
+[node name="Label" type="Label" parent="audio" unique_id=1225520278]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 400.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 32
+text = "Global Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="backToMainMenu" type="Button" parent="." unique_id=451797142]
+custom_minimum_size = Vector2(200, 50)
+custom_maximum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 476.0
+offset_top = 598.0
+offset_right = 676.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 32
+text = "Back to main menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=841967493]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 126.0
+offset_right = 1066.0
+offset_bottom = 522.0
+
+[node name="up" type="HBoxContainer" parent="VBoxContainer" unique_id=665599200]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/up" unique_id=873948113]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "Up"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/up" unique_id=462596968]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "W"
+
+[node name="down" type="HBoxContainer" parent="VBoxContainer" unique_id=1870433545]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/down" unique_id=1313124028]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "Down"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/down" unique_id=1869875768]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "S"
+
+[node name="left" type="HBoxContainer" parent="VBoxContainer" unique_id=1082580997]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/left" unique_id=980075819]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "Left"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/left" unique_id=248347525]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "A"
+
+[node name="right" type="HBoxContainer" parent="VBoxContainer" unique_id=2104641137]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/right" unique_id=2099411099]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "Right"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/right" unique_id=788206694]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "D"
+
+[node name="attack" type="HBoxContainer" parent="VBoxContainer" unique_id=1852614234]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/attack" unique_id=790900362]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "Attack"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/attack" unique_id=138423594]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 64
+text = "SPACE"
+
+[node name="info" type="ColorRect" parent="." unique_id=1600714266]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1156.0
+offset_bottom = 656.0
+color = Color(0.1254902, 0.1254902, 0.1254902, 0.49019608)
+
+[node name="Label" type="Label" parent="info" unique_id=1171211619]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 271.5
+offset_right = 922.0
+offset_bottom = 376.5
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 100
+text = "Please make an input"
+
+[node name="Label2" type="Label" parent="info" unique_id=1341290361]
+layout_mode = 0
+offset_left = 506.5
+offset_top = 378.0
+offset_right = 645.5
+offset_bottom = 410.0
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 30
+text = "ESC to cancel"
+
+[connection signal="changed" from="audio" to="." method="_on_audio_changed"]
+[connection signal="value_changed" from="audio" to="." method="_on_audio_value_changed"]
+[connection signal="button_down" from="backToMainMenu" to="." method="_on_back_to_main_menu_button_down"]
+[connection signal="pressed" from="VBoxContainer/up/Button" to="." method="_on_button_pressed" binds= ["up"]]
+[connection signal="pressed" from="VBoxContainer/down/Button" to="." method="_on_button_pressed" binds= ["down"]]
+[connection signal="pressed" from="VBoxContainer/left/Button" to="." method="_on_button_pressed" binds= ["left"]]
+[connection signal="pressed" from="VBoxContainer/right/Button" to="." method="_on_button_pressed" binds= ["right"]]
+[connection signal="pressed" from="VBoxContainer/attack/Button" to="." method="_on_button_pressed" binds= ["attack"]]

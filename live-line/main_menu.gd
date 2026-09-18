@@ -25,3 +25,7 @@ func _on_start_game_button_down() -> void:
 func _on_acheivments_pressed() -> void:
 	Saver.loadGame()
 	get_tree().change_scene_to_file("res://scenes/Achievements.tscn") # Replace with function body.
+
+
+func _on_settings_button_down() -> void:
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")

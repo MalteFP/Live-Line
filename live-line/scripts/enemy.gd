@@ -23,7 +23,7 @@ var playerblock: Vector2
 @onready var passiveSounds = $EnemyPassiveSound
 @onready var attackSounds = $EnemyAttackSound
 func _ready() -> void:
-	pass
+	print(AudioServer.get_bus_volume_db(0))
 
 func setup(spd: int, hp: float, dmg: float, dropRange: Vector2, sightRange: int, spriteFrames: SpriteFrames, passiveSoundEffect: AudioStreamMP3, attackSoundEffect: AudioStreamMP3) -> void:
 	self.speed = 1
