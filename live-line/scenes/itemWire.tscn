@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hd7bvt7h8vri" path="res://textures/sprites/Fuse/itemWire.png" id="1_xfvd5"]
 [ext_resource type="Script" uid="uid://b5jw3vnrpwprh" path="res://scripts/itemWireArea.gd" id="2_i70ab"]
+[ext_resource type="AudioStream" uid="uid://cgvl5dpnbi1x3" path="res://Audio/freesound_community-item-pickup-37089.mp3" id="3_14dew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgr0v"]
 size = Vector2(8, 8)
@@ -35,5 +36,9 @@ position = Vector2(8, 8)
 color = Color(1, 1, 0.2901961, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_y2bgg")
+
+[node name="ItemPickUp" type="AudioStreamPlayer2D" parent="." unique_id=549670221]
+stream = ExtResource("3_14dew")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
