@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 		xpTowardsLevel -= xpForLevel
 		level += 1
 		$"../Node2D/levelUpScreen".levelUp()
-		xpForLevel += 10
+		xpForLevel += 25
 		print("Level up: " + str(level))
 	if damage < 1:
 		damage = 1
