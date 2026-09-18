@@ -197,6 +197,17 @@ theme_override_font_sizes/font_size = 32
 text = "Start game"
 icon_alignment = 1
 
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/start game" unique_id=20316942]
+custom_minimum_size = Vector2(-1, -1)
+layout_mode = 0
+offset_left = 44.0
+offset_top = 67.0
+offset_right = 160.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("5_c3jr6")
+button_pressed = true
+text = "Tutorial?"
+
 [node name="quit" type="Button" parent="CanvasLayer" unique_id=286022892]
 custom_minimum_size = Vector2(200, 100)
 custom_maximum_size = Vector2(200, 100)
