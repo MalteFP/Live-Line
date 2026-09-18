@@ -26,7 +26,7 @@ func _ready() -> void:
 	print(AudioServer.get_bus_volume_db(0))
 
 func setup(spd: int, hp: float, dmg: float, dropRange: Vector2, sightRange: int, spriteFrames: SpriteFrames, passiveSoundEffect: AudioStreamMP3, attackSoundEffect: AudioStreamMP3) -> void:
-	self.speed = 1
+	self.speed = spd
 	self.health = hp
 	self.drop = dropRange
 	self.detectRange = sightRange

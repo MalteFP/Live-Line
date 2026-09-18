@@ -14,7 +14,7 @@ func _ready() -> void:
 		var ev = eventFromKeycode(Saver.settings["controls"][action])
 		InputMap.action_add_event(action, ev)
 
-		$VBoxContainer.get_node(action).get_node("Button").text = ev.as_text()
+		$VBoxContainer.get_node(action).get_node("Button").text = ev.as_text().split(" ")[0]
 
 func _on_back_to_main_menu_button_down() -> void:
 	Saver.settings = exportSettings()
@@ -42,7 +42,6 @@ func _input(event: InputEvent) -> void:
 		InputMap.action_erase_event(waitingForAction, InputMap.action_get_events(waitingForAction)[0])
 		
 		InputMap.action_add_event(waitingForAction, event)
-		
 		$VBoxContainer.get_node(waitingForAction).get_node("Button").text = str(event.as_text())
 	
 		waitingForAction = null
@@ -56,6 +55,7 @@ func exportSettings() -> Dictionary:
 
 	for action in ["up", "down", "right", "left", "attack"]:
 		var event = InputMap.action_get_events(action)[0]
+		dic["controls"][action] = event.physical_keycode
 
 	return dic
 
