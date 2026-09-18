@@ -4,9 +4,15 @@ var maxEnemeies = 10
 var movesSinceSpawn = 0
 var bonusScalingMult = 1
 
+var tutorial: bool = false
+
+
 @onready var player = get_tree().get_first_node_in_group("player")
 
-
+func _ready():
+	if tutorial:
+		$Node2D/Button.visible = false
+	
 
 func spawnZombie():
 	if get_tree().get_node_count_in_group("enemy") >= maxEnemeies:
