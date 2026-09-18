@@ -45,8 +45,9 @@ func playerMoved(direction: String):
 			fireTween = tween
 			await get_tree().create_timer(0.1).timeout
 			fire.visible = true
-			if fuseArr.front():
-				fuseArr.pop_front().queue_free()
+			if fuseArr.size() > 0:
+				if fuseArr.front():
+					fuseArr.pop_front().queue_free()
 		elif fuseArr.size() == 0:
 			fire.visible = false
 			print("Explode")
@@ -110,8 +111,9 @@ func takeDamage(damage):
 			fireTween = tween
 			await get_tree().create_timer(0.1).timeout
 			fire.visible = true
-			if fuseArr.front():
-				fuseArr.pop_front().queue_free()
+			if fuseArr.size() > 0:
+				if fuseArr.front():
+					fuseArr.pop_front().queue_free()
 		elif fuseArr.size() == 0:
 			fire.visible = false
 			get_parent().explode()

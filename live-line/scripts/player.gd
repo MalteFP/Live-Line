@@ -27,7 +27,7 @@ func _ready() -> void:
 	$"..".bonusScalingMult = 1
 	ScoreHolder.totalFuse = 0
 	ScoreHolder.timeSpent = 0
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if xpTowardsLevel >= xpForLevel:
 		var label = get_tree().get_first_node_in_group("tutorialLabel")
 		var settings = LabelSettings.new()
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 	if $player/BackgroundMusic.playing == false:
 		$player/BackgroundMusic.play()
 	
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if movementBlocked or not isMoveReady:
 		return
 	

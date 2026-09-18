@@ -6,7 +6,7 @@ var speed = 1
 var drop = Vector2(1000, 1000)
 var grid := AStarGrid2D.new()
 var cell_size := Vector2i(16, 16)
-var range := 30
+var detectRange := 30
 var movementTween: Tween
 var debug = false
 var damage = 2
@@ -25,12 +25,12 @@ var playerblock: Vector2
 func _ready() -> void:
 	pass
 
-func setup(speed: int, health: float, damage: float, dropRange: Vector2, range: int, spriteFrames: SpriteFrames, passiveSoundEffect: AudioStreamMP3, attackSoundEffect: AudioStreamMP3) -> void:
-	self.speed = speed
-	self.health = health
+func setup(spd: int, hp: float, dmg: float, dropRange: Vector2, sightRange: int, spriteFrames: SpriteFrames, passiveSoundEffect: AudioStreamMP3, attackSoundEffect: AudioStreamMP3) -> void:
+	self.speed = spd
+	self.health = hp
 	self.drop = dropRange
-	self.range = range
-	self.damage = damage
+	self.detectRange = sightRange
+	self.damage = dmg
 	self.sprite.set_sprite_frames(spriteFrames)
 	self.passiveSounds.stream = passiveSoundEffect
 	self.attackSounds.stream = attackSoundEffect
@@ -52,8 +52,8 @@ func build_grid():
 	notblocks = []
 	
 	var center_tile := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
-	grid.region = Rect2i(center_tile - Vector2i(range, range),
-						 Vector2i(range * 2 + 1, range * 2 + 1))
+	grid.region = Rect2i(center_tile - Vector2i(detectRange, detectRange),
+						 Vector2i(detectRange * 2 + 1, detectRange * 2 + 1))
 
 	grid.cell_size = cell_size
 	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER

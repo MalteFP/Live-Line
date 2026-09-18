@@ -10,21 +10,21 @@ var heldItem: item
 @export var bin: bool = false
 @export var wheelPos: int = -1
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
+func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and not event.pressed and not refill:
 		get_parent().get_parent().emit_signal("droppedInSlot", self)
 
-func _process(delta: float):
+func _process(_delta: float):
 	resetPosition()
 
 func _ready():
 	if refill:
 		var scene := preload("res://item.tscn")
-		var item := scene.instantiate()
-		get_parent().get_parent().add_child.call_deferred(item)
-		call_deferred("setItem", item)
-		item.setItemType(itemType)
-		permItem = item.duplicate()
+		var items := scene.instantiate()
+		get_parent().get_parent().add_child.call_deferred(items)
+		call_deferred("setItem", items)
+		items.setItemType(itemType)
+		permItem = items.duplicate()
 	if bin:
 		$Area2D/Sprite2D.texture = load("res://textures/menu/trash.png")
 	else:

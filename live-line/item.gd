@@ -8,13 +8,12 @@ var storedIn: itemSlot = null
 var isMouseInArea: bool = false
 var isAreaPressed: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if isAreaPressed:
 		position = get_viewport().get_mouse_position()
 
 
 func _ready():
-	input_pickable
 	get_parent().droppedInSlot.connect(_droppedInArea)
 	
 func _on_mouse_entered() -> void:
@@ -26,7 +25,7 @@ func _on_mouse_exited() -> void:
 
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		isAreaPressed = true
 		
@@ -43,5 +42,5 @@ func reloadTexture():
 	$Sprite2D.texture = load("res://textures/sprites/powerUps/noArrow/" + str(itemTypes.keys()[itemType]) + ".png")
 
 func setItemType(type: int):
-	itemType = type
+	itemType = type as itemTypes
 	reloadTexture()
