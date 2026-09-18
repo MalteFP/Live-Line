@@ -1,6 +1,9 @@
 extends Area2D
 class_name item
 
+
+var itemType: itemTypes
+enum itemTypes { dmg, enemy, fuse, light, size}
 var storedIn: itemSlot = null
 var isMouseInArea: bool = false
 var isAreaPressed: bool = false
@@ -8,6 +11,7 @@ var isAreaPressed: bool = false
 func _process(delta: float) -> void:
 	if isAreaPressed:
 		position = get_viewport().get_mouse_position()
+
 
 func _ready():
 	input_pickable
@@ -35,3 +39,9 @@ func _droppedInArea(which: itemSlot):
 	isAreaPressed = false
 	which.setItem(self)
 	
+func reloadTexture():
+	$Sprite2D.texture = load("res://textures/sprites/powerUps/noArrow/" + str(itemTypes.keys()[itemType]) + ".png")
+
+func setItemType(type: int):
+	itemType = type
+	reloadTexture()

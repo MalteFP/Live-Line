@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2j6n"]
 size = Vector2(48, 48)
 
-[node name="itemslot" type="Node2D" unique_id=395159366]
+[node name="itemSlot" type="Node2D" unique_id=582194590]
 script = ExtResource("1_i2iwp")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=738704866]
@@ -18,5 +18,3 @@ shape = SubResource("RectangleShape2D_q2j6n")
 texture = ExtResource("2_j4i1f")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
