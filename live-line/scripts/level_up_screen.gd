@@ -2,6 +2,8 @@ extends Node2D
 
 var degreePerSlice = 360/8
 
+var spinsLeft = 0
+
 @onready var p = preload("res://scenes/powerup.tscn")
 @onready var powerupObject = p.instantiate()
 
@@ -45,18 +47,34 @@ func _ready() -> void:
 	add_child(powerupObject)
 
 func levelUp():
-	$CanvasLayer/Node2D/wheel.rotation = 0
-	var spin = randf_range(0, 360)
-	var color = colors[floori(spin/degreePerSlice)]
-	var tween = get_tree().create_tween()
-	tween.tween_property($CanvasLayer/Node2D, "global_position",Vector2(1152/2,-50),1)
-	tween.chain().tween_property($CanvasLayer/Node2D/wheel, "rotation", deg_to_rad(3600 + spin), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	spinsLeft += 1
+	if spinsLeft > 0:
+		var tween = get_tree().create_tween()
+		tween.tween_property($Node2D,"global_position",Vector2(976,150),2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		
+		await tween.finished
+		$Node2D/spin.disabled = false
 	
-	await get_tree().create_timer(10).timeout
-	powerup(color)
-	var tweenBack = get_tree().create_tween()
-	tweenBack.tween_property($CanvasLayer/Node2D, "global_position",Vector2(1152/2,-300),1)
-
 func powerup(colorArr):
 	var power = colorArr[randi_range(0, colorArr.size() - 1)]
 	power.call()
+
+
+
+
+func _on_spin_button_down() -> void:
+	$Node2D/wheel.rotation = 0
+	$Node2D/spin.disabled = true
+	spinsLeft -= 1
+	var spin = randf_range(0, 360)
+	var color = colors[floori(spin/degreePerSlice)]
+	var tween = get_tree().create_tween()
+	tween.tween_property($Node2D/wheel, "rotation", deg_to_rad(3600 + spin), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	await get_tree().create_timer(10).timeout
+	powerup(color)
+	if spinsLeft > 0:
+		$Node2D/spin.disabled = false
+		return
+	else:
+		var tweenBack = get_tree().create_tween()
+		tweenBack.tween_property($Node2D, "global_position",Vector2(976,-133),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)

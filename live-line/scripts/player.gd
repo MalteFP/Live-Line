@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	if xpTowardsLevel >= xpForLevel:
 		xpTowardsLevel -= xpForLevel
 		level += 1
-		$"../CanvasLayer/Control".levelUp()
+		$"../Node2D/levelUpScreen".levelUp()
 		xpForLevel += 10
 		print("Level up: " + str(level))
 	if damage < 1:

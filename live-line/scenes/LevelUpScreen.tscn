@@ -2,35 +2,44 @@
 
 [ext_resource type="Script" uid="uid://br3gin50ce5wn" path="res://scripts/level_up_screen.gd" id="1_qv302"]
 [ext_resource type="Texture2D" uid="uid://df2wfxecfcfqs" path="res://textures/sprites/UI/pixil-frame-0(5).png" id="2_i0opf"]
+[ext_resource type="Texture2D" uid="uid://lrreor1dsqqy" path="res://textures/sprites/UI/longRope.png" id="3_swos3"]
 [ext_resource type="Texture2D" uid="uid://dlaeg1pt55ruu" path="res://textures/sprites/UI/pixil-frame-0(6).png" id="4_1bbjc"]
+[ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="5_wwe45"]
 
-[sub_resource type="Gradient" id="Gradient_1bbjc"]
-offsets = PackedFloat32Array(0.06626506, 0.6566265)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0bqs"]
-gradient = SubResource("Gradient_1bbjc")
-fill = 1
-fill_from = Vector2(0.5043478, 0.5521739)
-
-[node name="Control" type="Node2D" unique_id=2001080130]
+[node name="levelUpScreen" type="Node2D" unique_id=2001080130]
 script = ExtResource("1_qv302")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=629608998]
+[node name="Node2D" type="Node2D" parent="." unique_id=1525566017]
+z_index = 4
+position = Vector2(976, -133)
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1525566017]
-position = Vector2(576, -300)
-
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/Node2D" unique_id=719647778]
-scale = Vector2(2.8297527, 2.8297527)
-texture = SubResource("GradientTexture2D_l0bqs")
-texture_scale = 2.4
-
-[node name="wheel" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=475040511]
-scale = Vector2(4, 4)
+[node name="wheel" type="Sprite2D" parent="Node2D" unique_id=475040511]
 texture = ExtResource("2_i0opf")
 
-[node name="arrow" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1083847848]
-position = Vector2(4, 228)
-scale = Vector2(3, 3)
+[node name="arrow" type="Sprite2D" parent="Node2D" unique_id=1083847848]
+position = Vector2(0, 56)
 texture = ExtResource("4_1bbjc")
+
+[node name="spin" type="Button" parent="Node2D" unique_id=1459832759]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+offset_left = -32.0
+offset_top = 66.0
+offset_right = 32.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("5_wwe45")
+theme_override_font_sizes/font_size = 32
+text = "Spin!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=2099462796]
+z_index = -1
+position = Vector2(-1, -101)
+texture = ExtResource("3_swos3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Sprite2D" unique_id=971125366]
+z_index = -1
+position = Vector2(0, -96)
+texture = ExtResource("3_swos3")
+
+[connection signal="button_down" from="Node2D/spin" to="." method="_on_spin_button_down"]

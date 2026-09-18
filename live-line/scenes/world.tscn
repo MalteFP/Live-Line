@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://con3xmyd77eu3"]
+
+[ext_resource type="Script" uid="uid://bn7gt8c4s08vd" path="res://scripts/zombieSpawn.gd" id="1_k0juu"]
+[ext_resource type="PackedScene" uid="uid://bmty08oq61a1y" path="res://scenes/noisemap.tscn" id="2_71j4m"]
+[ext_resource type="PackedScene" uid="uid://dqeg3uaiqbybh" path="res://scenes/player.tscn" id="3_qfnet"]
+[ext_resource type="PackedScene" uid="uid://6a8605njlreu" path="res://wheelMenu.tscn" id="4_k0juu"]
+
+[node name="world" type="Node2D" unique_id=812723244]
+script = ExtResource("1_k0juu")
+
+[node name="Noisemap" parent="." unique_id=1594300032 instance=ExtResource("2_71j4m")]
+position = Vector2(-4096, -4096)
+
+[node name="Player" parent="." unique_id=168672461 instance=ExtResource("3_qfnet")]
+
+[node name="lossScene" parent="Player" index="2" unique_id=1262105243]
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1834684355]
+modulate = Color(0.5137255, 0, 0, 0)
+self_modulate = Color(0.46607313, 0, 0, 0)
+color = Color(0, 0, 0, 1)
+
+[node name="Node2D" parent="." unique_id=1796563416 instance=ExtResource("4_k0juu")]
+
+[editable path="Player"]
