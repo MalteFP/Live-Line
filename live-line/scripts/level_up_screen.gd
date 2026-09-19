@@ -54,7 +54,7 @@ var wheelArr = []
 var colors = ["Yellow", "Green", "Red", "DarkGreen", "Yellow", "Green", "Red", "Green"]
 
 var last_rotation = 0
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if spinning:
 		var r = $Node2D/wheel.rotation
 		
