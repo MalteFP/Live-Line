@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://gsxmvum5oh0x" path="res://scenes/pause_menu.tscn" id="19_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://lrreor1dsqqy" path="res://textures/sprites/UI/longRope.png" id="20_60mlk"]
 [ext_resource type="Texture2D" uid="uid://cy1p50pi24nn0" path="res://textures/sprites/Fuse/kot.png" id="21_i4ail"]
+[ext_resource type="AudioStream" uid="uid://du1coh25uor2r" path="res://Audio/levelup.mp3" id="22_a38lo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("5_urp6f")
@@ -296,3 +297,7 @@ texture = ExtResource("21_i4ail")
 position = Vector2(7.500008, 205)
 rotation = -1.5707964
 texture = ExtResource("21_i4ail")
+
+[node name="levelup" type="AudioStreamPlayer2D" parent="level" unique_id=1106048465]
+stream = ExtResource("22_a38lo")
+volume_db = 24.0
