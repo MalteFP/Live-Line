@@ -107,7 +107,11 @@ Customization"
 
 [node name="levelUpScreen" parent="." unique_id=1017339633 instance=ExtResource("5_lsvbm")]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1131862136]
+[node name="spinSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1131862136]
+stream = ExtResource("6_ogn28")
+volume_db = 10.0
+
+[node name="rewardPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1982443261]
 stream = ExtResource("6_ogn28")
 volume_db = 10.0
 

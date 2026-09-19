@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 		var r = $Node2D/wheel.rotation
 		
 		if floor(r / deg_to_rad(degreePerSlice)) > floor(last_rotation / deg_to_rad(degreePerSlice)):
-			$"../AudioStreamPlayer2D".play()
+			$"../spinSoundPlayer".play()
 		last_rotation = r
 
 func _ready() -> void:
@@ -117,6 +117,8 @@ func _on_spin_button_down() -> void:
 	await tween.finished
 	spinning = false
 	powerup(color)
+	$"../rewardPlayer".stream = load("res://Audio/rewardSounds/" + str(colors[color]) + ".mp3")
+	$"../rewardPlayer".play()
 	if spinsLeft > 0:
 		if $Node2D/spin/auto.button_pressed:
 			_on_spin_button_down()

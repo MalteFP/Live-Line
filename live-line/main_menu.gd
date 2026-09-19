@@ -12,8 +12,6 @@ func _ready() -> void:
 	for achievement in achievements:
 		if not Saver.achievements.has(achievement):
 			Saver.achievements[achievement] = false
-	
-	Saver.achievements["dark"] = false
 	Saver.saveGame()
 	
 	$CanvasLayer/MenuMusic.play()
