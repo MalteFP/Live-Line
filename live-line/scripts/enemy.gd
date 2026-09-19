@@ -22,8 +22,6 @@ var playerblock: Vector2
 @onready var sprite = $sprite
 @onready var passiveSounds = $EnemyPassiveSound
 @onready var attackSounds = $EnemyAttackSound
-func _ready() -> void:
-	print(AudioServer.get_bus_volume_db(0))
 
 func setup(spd: int, hp: float, dmg: float, dropRange: Vector2, sightRange: int, spriteFrames: SpriteFrames, passiveSoundEffect: AudioStreamMP3, attackSoundEffect: AudioStreamMP3) -> void:
 	self.speed = spd
@@ -165,6 +163,7 @@ func updateAnimation(vector: Vector2):
 
 func death():
 	var world = get_tree().get_first_node_in_group("world")
+	world.zombieKilled()
 	if world.hasAnyEnemyDied == false:
 		world.hasAnyEnemyDied = true
 		var settings = LabelSettings.new()

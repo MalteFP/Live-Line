@@ -5,12 +5,13 @@ var highScore = 0
 var completedAchievements = []
 var contentToSave = {}
 var settings
-
+var achievements = {}
 
 func saveGame():
 	
 	contentToSave["highScore"] = highScore
 	contentToSave["settings"] = settings
+	contentToSave["achievements"] = achievements
 	var file = FileAccess.open(save_location, FileAccess.WRITE)
 	file.store_var(contentToSave.duplicate())
 	file.close()
@@ -27,6 +28,7 @@ func loadGame():
 func unPackSave():
 	highScore = contentToSave["highScore"]
 	settings = contentToSave["settings"]
+	achievements = contentToSave["achievements"]
 	
 	
 	for action in settings["controls"].keys():

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://brsvaq6kgem6v"]
+
+[ext_resource type="Texture2D" uid="uid://ey47n2t000hm" path="res://textures/sprites/menuDeco/zombieBack.png" id="1_234ot"]
+[ext_resource type="Script" uid="uid://bnxdwp6cf4lyw" path="res://achievement.gd" id="2_m5h2u"]
+[ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="3_angbx"]
+
+[node name="Achievement" type="TextureRect" unique_id=1068141827]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -25.0
+offset_right = -1128.0
+offset_bottom = -625.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_234ot")
+expand_mode = 5
+stretch_mode = 4
+script = ExtResource("2_m5h2u")
+
+[node name="Label" type="Label" parent="." unique_id=2018106735]
+custom_minimum_size = Vector2(128, 64)
+custom_maximum_size = Vector2(128, 64)
+layout_mode = 0
+offset_top = 127.0
+offset_right = 128.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("3_angbx")
+theme_override_font_sizes/font_size = 16
+text = "???"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1270973190]
+custom_minimum_size = Vector2(128, 64)
+custom_maximum_size = Vector2(128, 64)
+layout_mode = 0
+offset_top = 128.0
+offset_right = 64.0
+offset_bottom = 192.0

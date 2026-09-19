@@ -3,35 +3,85 @@
 [ext_resource type="Script" uid="uid://bkogghxiq7gp1" path="res://scenes/achievements.gd" id="1_83ncu"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="2_n7c2d"]
 [ext_resource type="AudioStream" uid="uid://yysvp510d2k6" path="res://Audio/leberch-dark-spooky-309318.mp3" id="3_n7c2d"]
+[ext_resource type="PackedScene" uid="uid://brsvaq6kgem6v" path="res://achievement.tscn" id="4_yyq2o"]
+[ext_resource type="Texture2D" uid="uid://bghmx0wv53p4v" path="res://textures/achievements/trapped.png" id="5_e1e6k"]
+[ext_resource type="Texture2D" uid="uid://bd2m4g5tfccoo" path="res://textures/achievements/explosive.png" id="6_jvlvk"]
+[ext_resource type="Texture2D" uid="uid://crrr63xfviyhk" path="res://textures/achievements/runner.png" id="7_0qry7"]
+[ext_resource type="Texture2D" uid="uid://ssh1augtlf28" path="res://textures/achievements/zombieSide.png" id="8_ydd0u"]
 
-[node name="Node2D" type="Node2D" unique_id=2016033427]
+[sub_resource type="Gradient" id="Gradient_0qry7"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4r5pv"]
+gradient = SubResource("Gradient_0qry7")
+
+[node name="Achievements" type="Node2D" unique_id=2016033427]
 script = ExtResource("1_83ncu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1887341168]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1868904427]
-offset_right = 1157.0
-offset_bottom = 651.0
+offset_right = 1154.0
+offset_bottom = 647.0
 color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1143784023]
-offset_left = 440.0
-offset_top = 134.0
-offset_right = 740.0
-offset_bottom = 269.0
-theme_override_fonts/font = ExtResource("2_n7c2d")
-theme_override_font_sizes/font_size = 48
-
-[node name="MainMenuButton" type="Button" parent="CanvasLayer" unique_id=1858993044]
-offset_left = 480.0
-offset_top = 420.0
-offset_right = 672.0
-offset_bottom = 506.0
-theme_override_fonts/font = ExtResource("2_n7c2d")
-theme_override_font_sizes/font_size = 32
-text = "Main Menu"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=1774413249]
 stream = ExtResource("3_n7c2d")
+
+[node name="achievements" type="CenterContainer" parent="CanvasLayer" unique_id=959510876]
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="FlowContainer" type="FlowContainer" parent="CanvasLayer/achievements" unique_id=813491575]
+layout_mode = 2
+vertical = true
+
+[node name="trap" parent="CanvasLayer/achievements/FlowContainer" unique_id=1068141827 instance=ExtResource("4_yyq2o")]
+layout_mode = 2
+texture = ExtResource("5_e1e6k")
+achievementName = "Nice and Safe: Trap yourself..."
+achievementImage = ExtResource("5_e1e6k")
+
+[node name="zombieKiller" parent="CanvasLayer/achievements/FlowContainer" unique_id=1331975537 instance=ExtResource("4_yyq2o")]
+layout_mode = 2
+texture = ExtResource("8_ydd0u")
+achievementName = "Killer: Kill 10 zombies"
+achievementImage = ExtResource("8_ydd0u")
+
+[node name="runner" parent="CanvasLayer/achievements/FlowContainer" unique_id=1446720021 instance=ExtResource("4_yyq2o")]
+layout_mode = 2
+texture = ExtResource("7_0qry7")
+achievementName = "Runner: Run 1000 tiles"
+achievementImage = ExtResource("7_0qry7")
+
+[node name="explosive" parent="CanvasLayer/achievements/FlowContainer" unique_id=371585860 instance=ExtResource("4_yyq2o")]
+layout_mode = 2
+texture = ExtResource("6_jvlvk")
+achievementName = "Emotionaly explosive: Give up"
+achievementImage = ExtResource("6_jvlvk")
+
+[node name="dark" parent="CanvasLayer/achievements/FlowContainer" unique_id=1838505978 instance=ExtResource("4_yyq2o")]
+layout_mode = 2
+texture = SubResource("GradientTexture1D_4r5pv")
+achievementName = "Lights out: turn off the players light"
+achievementImage = SubResource("GradientTexture1D_4r5pv")
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer" unique_id=1858993044]
+offset_left = 476.0
+offset_top = 598.0
+offset_right = 676.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("2_n7c2d")
+theme_override_font_sizes/font_size = 32
+text = "Back to main menu"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1143784023]
+offset_left = 426.0
+offset_top = 29.0
+offset_right = 726.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("2_n7c2d")
+theme_override_font_sizes/font_size = 48
 
 [connection signal="pressed" from="CanvasLayer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

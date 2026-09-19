@@ -7,6 +7,10 @@ func _on_continue_pressed() -> void:
 
 
 func _on_giveup_pressed() -> void:
+	if not Saver.achievements["explosive"]:
+		Saver.achievements["explosive"] = true
+		Saver.saveGame()
+	
 	$"..".paused = false
 	visible = false
 	for i in range($"../FuseController".fuseArr.size()):

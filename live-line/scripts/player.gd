@@ -16,6 +16,8 @@ var isMoveReady = true
 var fuseMult 
 var hasMoved = false
 var paused = false
+var timesMoved = 0
+
 
 func _ready() -> void:
 	level = 0
@@ -41,6 +43,11 @@ func _process(_delta: float) -> void:
 		print("Level up: " + str(level))
 	if damage < 1:
 		damage = 1
+	if $AnimatedSprite2D/PointLight2D.texture_scale < 0:
+		if not Saver.achievements["dark"]:
+			Saver.achievements["dark"] = true
+			Saver.saveGame()
+		$AnimatedSprite2D/PointLight2D.texture_scale = 0
 	if $player/BackgroundMusic.playing == false:
 		$player/BackgroundMusic.play()
 	
@@ -138,6 +145,10 @@ func attack():
 	fuseController.playerAttacked()
 	
 func do_move(vector: Vector2, dir: String):
+	timesMoved += 1
+	if timesMoved >= 1000 and not Saver.achievements["runner"]:
+		Saver.achievements["runner"] = true
+		Saver.saveGame()
 	if hasMoved == false:
 		hasMoved = true
 		var settings = LabelSettings.new()
@@ -173,4 +184,9 @@ func do_move(vector: Vector2, dir: String):
 		enemy.process()
 	get_parent().spawnZombie()
 	isMoveReady = true
+	
+	if not Saver.achievements["trap"]:
+		if is_point_inside(body.global_position + Vector2(16, 0)) and is_point_inside(body.global_position + Vector2(-16, 0)) and is_point_inside(body.global_position + Vector2(0, 16)) and is_point_inside(body.global_position + Vector2(0, -16)):
+			Saver.achievements["trap"] = true
+			Saver.saveGame()
 	

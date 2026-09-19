@@ -5,8 +5,13 @@ extends Node2D
 func _ready() -> void:
 	$CanvasLayer/MenuMusic.play()
 	$CanvasLayer/Label.text = "High Score: " + str(Saver.highScore)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
+	var achievements = Saver.achievements.keys()
+	
+	for achievement in achievements:
+		if Saver.achievements[achievement]:
+			$CanvasLayer/achievements/FlowContainer.get_node(achievement).unlock()
+	print("done")
 
 
 

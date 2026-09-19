@@ -8,6 +8,7 @@ var anyFusePickedUp = false
 var hasAnyEnemyDied = false
 var tutorial: bool = false
 
+var zombiesKill = 0
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
@@ -63,3 +64,9 @@ func is_point_inside(point: Vector2) -> bool:
 	var result = space_state.intersect_point(paras)
 	
 	return result.size() > 0
+
+func zombieKilled():
+	zombiesKill += 1
+	if zombiesKill >= 100 and not Saver.achievements["zombieKiller"]:
+		Saver.achievements["zombieKiller"] = true
+		Saver.saveGame()

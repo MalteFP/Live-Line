@@ -32,7 +32,7 @@ var colorMulti = {
 var typeMulti = {
 0: 1,
 1: -0.1,
-2: 0.4,
+2: 0.25,
 3: 1,
 4: Vector2(0.25, 0.25)
 }
@@ -69,7 +69,10 @@ func levelUp():
 		tween.tween_property($Node2D,"global_position",Vector2(976,150),2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		
 		await tween.finished
-		$Node2D/spin.disabled = false
+		if $Node2D/spin/auto.button_pressed:
+			_on_spin_button_down()
+		else:
+			$Node2D/spin.disabled = false
 	
 func powerup(slice):
 	var type = wheelArr[slice]
@@ -100,11 +103,15 @@ func _on_spin_button_down() -> void:
 	var color = floori(spin/degreePerSlice)
 	var tween = get_tree().create_tween()
 	tween.tween_property($Node2D/wheel, "rotation", deg_to_rad(3600 + spin), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	await get_tree().create_timer(10).timeout
+	await tween.finished
 	powerup(color)
 	if spinsLeft > 0:
-		$Node2D/spin.disabled = false
+		if $Node2D/spin/auto.button_pressed:
+			_on_spin_button_down()
+		else:
+			$Node2D/spin.disabled = false
 		return
 	else:
 		var tweenBack = get_tree().create_tween()
-		tweenBack.tween_property($Node2D, "global_position",Vector2(976,-266.0),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		tweenBack.tween_property($Node2D, "global_position",Vector2(976,-304.0),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		$Node2D/spin.disabled = true

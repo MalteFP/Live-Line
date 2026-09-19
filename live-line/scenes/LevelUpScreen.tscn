@@ -12,7 +12,7 @@ script = ExtResource("1_qv302")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1525566017]
 z_index = 4
-position = Vector2(976, -266)
+position = Vector2(976, -304)
 scale = Vector2(2, 2)
 
 [node name="wheel" type="Sprite2D" parent="Node2D" unique_id=475040511]
@@ -63,16 +63,28 @@ position = Vector2(0, 56)
 texture = ExtResource("4_1bbjc")
 
 [node name="spin" type="Button" parent="Node2D" unique_id=1459832759]
-custom_minimum_size = Vector2(64, 64)
-custom_maximum_size = Vector2(64, 64)
-offset_left = -32.0
-offset_top = 66.0
-offset_right = 32.0
-offset_bottom = 130.0
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+offset_left = -40.0
+offset_top = 69.0
+offset_right = 40.0
+offset_bottom = 149.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("5_wwe45")
 theme_override_font_sizes/font_size = 32
+disabled = true
 text = "Spin!"
+metadata/_edit_use_anchors_ = true
+
+[node name="auto" type="CheckButton" parent="Node2D/spin" unique_id=1181102205]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 56.5
+offset_right = 78.0
+offset_bottom = 82.5
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_wwe45")
+text = "Auto"
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=2099462796]

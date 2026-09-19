@@ -17,10 +17,10 @@ position = Vector2(32, 32)
 scale = Vector2(3, 3)
 texture = ExtResource("2_feuux")
 
-[node name="tooltip" type="ColorRect" parent="CanvasLayer/Node2D" unique_id=1146787110]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 56.0
-offset_bottom = 56.0
+[node name="tooltip" type="ColorRect" parent="CanvasLayer/Node2D/Sprite2D" unique_id=1146787110]
+offset_left = -10.666668
+offset_top = -10.666668
+offset_right = 8.333334
+offset_bottom = 7.666668
 color = Color(1, 1, 1, 0)
 script = ExtResource("3_r0pis")

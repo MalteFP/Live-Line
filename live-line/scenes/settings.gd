@@ -19,6 +19,7 @@ func _ready() -> void:
 func _on_back_to_main_menu_button_down() -> void:
 	Saver.settings = exportSettings()
 	Saver.saveGame()
+	print(Saver.settings)
 	get_tree().change_scene_to_file("res://mainMenu.tscn")
 
 
