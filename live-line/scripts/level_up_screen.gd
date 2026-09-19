@@ -3,7 +3,7 @@ extends Node2D
 var degreePerSlice = 360/8
 enum itemTypes { dmg, enemy, fuse, light, size}
 var spinsLeft = 0
-
+var spinning = false
 var everLeveledUp = false
 
 @onready var objectDic = {
@@ -52,6 +52,16 @@ var wheelArr = []
 
 
 var colors = ["Yellow", "Green", "Red", "DarkGreen", "Yellow", "Green", "Red", "Green"]
+
+var last_rotation = 0
+func _process(delta: float) -> void:
+	if spinning:
+		var r = $Node2D/wheel.rotation
+		
+		if floor(r / deg_to_rad(degreePerSlice)) > floor(last_rotation / deg_to_rad(degreePerSlice)):
+			$"../AudioStreamPlayer2D".play()
+		last_rotation = r
+
 func _ready() -> void:
 	add_child(powerupObject)
 	buildWheel()
@@ -92,7 +102,6 @@ func powerup(slice):
 		label.label_settings = settings
 		label.text = "You have now unlocked the power\nto control your own future \n click the customization button"
 		$"../Button".visible = true
-		var tween = get_tree().create_tween()
 
 
 
@@ -103,8 +112,10 @@ func _on_spin_button_down() -> void:
 	var spin = randf_range(0, 360)
 	var color = floori(spin/degreePerSlice)
 	var tween = get_tree().create_tween()
+	spinning = true
 	tween.tween_property($Node2D/wheel, "rotation", deg_to_rad(3600 + spin), 7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	await tween.finished
+	spinning = false
 	powerup(color)
 	if spinsLeft > 0:
 		if $Node2D/spin/auto.button_pressed:

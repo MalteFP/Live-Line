@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://df2wfxecfcfqs" path="res://textures/sprites/UI/pixil-frame-0(5).png" id="3_ogn28"]
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="4_ueqx8"]
 [ext_resource type="PackedScene" uid="uid://dvve2clv3cv14" path="res://scenes/LevelUpScreen.tscn" id="5_lsvbm"]
+[ext_resource type="AudioStream" uid="uid://bvbec2plo8pf5" path="res://Audio/wheelspintick.mp3" id="6_ogn28"]
 
 [node name="wheelMenu" type="CanvasLayer" unique_id=1796563416 groups=["blockInputMenu"]]
 script = ExtResource("1_au5ci")
@@ -105,5 +106,9 @@ Customization"
 [node name="Control" parent="." unique_id=2001080130 instance=ExtResource("5_lsvbm")]
 
 [node name="levelUpScreen" parent="." unique_id=1017339633 instance=ExtResource("5_lsvbm")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1131862136]
+stream = ExtResource("6_ogn28")
+volume_db = 10.0
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
