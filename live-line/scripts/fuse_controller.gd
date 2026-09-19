@@ -63,9 +63,9 @@ func playerAttacked():
 	label.text = str(fuseArr.size() + notLayedWire)
 
 func takeDamage(damage):
-	var tweenHue = $"../../CanvasModulate".create_tween().set_parallel(true)
-	tweenHue.tween_property($"../../CanvasModulate", "color", Color.RED, 0.3,)
-	tweenHue.chain().tween_property($"../../CanvasModulate", "color", Color.BLACK, 0.3)
+	var tweenHue = $"../AnimatedSprite2D/PointLight2D".create_tween().set_parallel(true)
+	tweenHue.tween_property($"../AnimatedSprite2D/PointLight2D", "color", Color.RED, 0.3,)
+	tweenHue.chain().tween_property($"../AnimatedSprite2D/PointLight2D", "color", Color.WHITE, 0.3)
 	
 	for i in range(damage):
 		removeFuse()
