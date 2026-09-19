@@ -30,17 +30,20 @@ func _ready() -> void:
 	ScoreHolder.totalFuse = 0
 	ScoreHolder.timeSpent = 0
 func _process(_delta: float) -> void:
+	$level/xpBar.value = xpTowardsLevel
 	if xpTowardsLevel >= xpForLevel:
-		var label = get_tree().get_first_node_in_group("tutorialLabel")
-		var settings = LabelSettings.new()
-		settings.font_size = 20
-		label.label_settings = settings
-		label.text = "When you level up you get to spin the wheel,\n click spin and get a random power up"
+		if level == 1:
+			var label = get_tree().get_first_node_in_group("tutorialLabel")
+			var settings = LabelSettings.new()
+			settings.font_size = 20
+			label.label_settings = settings
+			label.text = "When you level up you get to spin the wheel,\n click spin and get a random power up"
 		xpTowardsLevel -= xpForLevel
 		level += 1
 		$"../Node2D/levelUpScreen".levelUp()
 		xpForLevel += 25
 		print("Level up: " + str(level))
+		$level/xpBar.max_value = xpForLevel
 	if damage < 1:
 		damage = 1
 	if $AnimatedSprite2D/PointLight2D.texture_scale < 0:
