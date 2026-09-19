@@ -4,6 +4,15 @@ var loadID = 0
 
 func _ready() -> void:
 	Saver.loadGame()
+	
+	if not Saver.settings.has("audio"):
+		Saver.settings["audio"] = 50
+		
+	var achievements = ["trap", "zombieKiller", "runner", "explosive", "dark"]
+	for achievement in achievements:
+		if not Saver.achievements.has(achievement):
+			Saver.achievements[achievement] = false
+	
 	Saver.achievements["dark"] = false
 	Saver.saveGame()
 	
