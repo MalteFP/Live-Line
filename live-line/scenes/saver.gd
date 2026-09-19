@@ -4,7 +4,8 @@ const save_location = "user://Savefile.json"
 var highScore = 0
 var completedAchievements = []
 var contentToSave = {}
-var settings
+var controls = {}
+var settings = {"controls": controls}
 var achievements = {}
 
 func saveGame():
@@ -26,6 +27,7 @@ func loadGame():
 
 
 func unPackSave():
+	
 	highScore = contentToSave["highScore"]
 	settings = contentToSave["settings"]
 	achievements = contentToSave["achievements"]

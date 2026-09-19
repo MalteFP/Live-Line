@@ -4,7 +4,6 @@ var loadID = 0
 
 func _ready() -> void:
 	Saver.loadGame()
-	
 	if not Saver.settings.has("audio"):
 		Saver.settings["audio"] = 50
 		
@@ -19,6 +18,11 @@ func _ready() -> void:
 	var db = linear_to_db(linear)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
 	
+	if not Saver.settings.has("controls"):
+		var actions = ["up", "down", "left", "right", "attack"]
+		for action in actions:
+			Saver.settings["controls"][action] = InputMap.action_get_events(action)[0]
+		
 	for action in Saver.settings["controls"].keys():
 		InputMap.action_erase_event(
 			action,
