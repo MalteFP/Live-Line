@@ -21,7 +21,12 @@ func _ready():
 		var settings = LabelSettings.new()
 		settings.font_size = 24
 		$tutorial/tutorialRect/Label.label_settings = settings
-		$tutorial/tutorialRect/Label.text = "A bomb is strapped to your back \n Use WASD to move \n and SPACE to attack"
+		var up = InputMap.action_get_events("up")[0].as_text().split(" ")[0]
+		var down = InputMap.action_get_events("down")[0].as_text().split(" ")[0]
+		var left = InputMap.action_get_events("left")[0].as_text().split(" ")[0]
+		var right = InputMap.action_get_events("right")[0].as_text().split(" ")[0]
+		var attack = InputMap.action_get_events("attack")[0].as_text().split(" ")[0]
+		$tutorial/tutorialRect/Label.text = "A bomb is strapped to your back \n Use " + up + left + down + right  + " to move \n and " + attack + " to attack"
 
 func spawnZombie():
 	if get_tree().get_node_count_in_group("enemy") >= maxEnemeies:

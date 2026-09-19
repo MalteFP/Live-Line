@@ -90,8 +90,9 @@ func powerup(slice):
 		var settings = LabelSettings.new()
 		settings.font_size = 24
 		label.label_settings = settings
-		label.text = "You have now unlocked the power\nto control your own future"
+		label.text = "You have now unlocked the power\nto control your own future \n click the customization button"
 		$"../Button".visible = true
+		var tween = get_tree().create_tween()
 
 
 

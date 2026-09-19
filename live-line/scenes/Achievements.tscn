@@ -46,13 +46,13 @@ achievementImage = ExtResource("5_e1e6k")
 [node name="zombieKiller" parent="CanvasLayer/achievements/FlowContainer" unique_id=1331975537 instance=ExtResource("4_yyq2o")]
 layout_mode = 2
 texture = ExtResource("8_ydd0u")
-achievementName = "Killer: Kill 10 zombies"
+achievementName = "Killer: Kill 100 zombies in one life"
 achievementImage = ExtResource("8_ydd0u")
 
 [node name="runner" parent="CanvasLayer/achievements/FlowContainer" unique_id=1446720021 instance=ExtResource("4_yyq2o")]
 layout_mode = 2
 texture = ExtResource("7_0qry7")
-achievementName = "Runner: Run 1000 tiles"
+achievementName = "Runner: Run 1000 tiles in one life"
 achievementImage = ExtResource("7_0qry7")
 
 [node name="explosive" parent="CanvasLayer/achievements/FlowContainer" unique_id=371585860 instance=ExtResource("4_yyq2o")]
