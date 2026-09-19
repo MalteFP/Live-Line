@@ -18,8 +18,9 @@ var hasMoved = false
 var paused = false
 var timesMoved = 0
 
-
+var xpTween: Tween
 func _ready() -> void:
+	
 	level = 0
 	xpForLevel = 10
 	xpTowardsLevel = 0
@@ -30,7 +31,10 @@ func _ready() -> void:
 	ScoreHolder.totalFuse = 0
 	ScoreHolder.timeSpent = 0
 func _process(_delta: float) -> void:
-	$level/xpBar.value = xpTowardsLevel
+	if xpTween and xpTween.is_running():
+		xpTween.kill()
+	xpTween = get_tree().create_tween()
+	xpTween.chain().tween_property($level/xpBar, "value", xpTowardsLevel, 0.1)
 	if xpTowardsLevel >= xpForLevel:
 		if level == 1:
 			var label = get_tree().get_first_node_in_group("tutorialLabel")
@@ -38,11 +42,13 @@ func _process(_delta: float) -> void:
 			settings.font_size = 20
 			label.label_settings = settings
 			label.text = "When you level up you get to spin the wheel,\n click spin and get a random power up"
+		$level/levelup.play()
 		xpTowardsLevel -= xpForLevel
 		level += 1
 		$"../Node2D/levelUpScreen".levelUp()
 		xpForLevel += 25
 		print("Level up: " + str(level))
+		$level/xpBar.value = xpTowardsLevel
 		$level/xpBar.max_value = xpForLevel
 	if damage < 1:
 		damage = 1
