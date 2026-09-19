@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bk6x3si0lxcdc" path="res://scenes/lossScene.tscn" id="16_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://svk426jex0x5" path="res://scenes/playerWeapon.tscn" id="17_fulsm"]
 [ext_resource type="PackedScene" uid="uid://gsxmvum5oh0x" path="res://scenes/pause_menu.tscn" id="19_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://lrreor1dsqqy" path="res://textures/sprites/UI/longRope.png" id="20_60mlk"]
+[ext_resource type="Texture2D" uid="uid://cy1p50pi24nn0" path="res://textures/sprites/Fuse/kot.png" id="21_i4ail"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("5_urp6f")
@@ -268,3 +270,29 @@ texture_scale = 6.0
 
 [node name="pauseMenu" parent="." unique_id=306940651 instance=ExtResource("19_4r5pv")]
 visible = false
+
+[node name="level" type="CanvasLayer" parent="." unique_id=1423156107]
+
+[node name="xpBar" type="TextureProgressBar" parent="level" unique_id=1104410777]
+custom_minimum_size = Vector2(16, 200)
+custom_maximum_size = Vector2(16, 200)
+offset_left = 752.0
+offset_top = 16.0
+offset_right = 768.0
+offset_bottom = 216.0
+rotation = 1.5707964
+scale = Vector2(2, 2)
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("20_60mlk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="level/xpBar" unique_id=561749007]
+position = Vector2(7.5, -5)
+rotation = 3.1415925
+texture = ExtResource("21_i4ail")
+
+[node name="Sprite2D" type="Sprite2D" parent="level/xpBar" unique_id=1731227665]
+position = Vector2(7.500008, 205)
+rotation = -1.5707964
+texture = ExtResource("21_i4ail")
