@@ -205,7 +205,6 @@ offset_top = 67.0
 offset_right = 160.0
 offset_bottom = 98.0
 theme_override_fonts/font = ExtResource("5_c3jr6")
-button_pressed = true
 text = "Tutorial?"
 
 [node name="settings" type="Button" parent="CanvasLayer" unique_id=1289017439]
