@@ -143,6 +143,7 @@ func explode():
 	$lossScene.death()
 
 func attack():
+	$player/SwordSwing.pitch_scale = randf_range(0.9,1.1)
 	$player/SwordSwing.play()
 	get_node("Sword/Sprite2D").timeInAttack = 0
 	get_node("Sword/Sprite2D").isAttacking = true

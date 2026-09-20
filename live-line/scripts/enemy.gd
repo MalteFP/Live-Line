@@ -108,7 +108,8 @@ func walk():
 	if dead:
 		return
 	var doSoundEffect = randf_range(0,1)
-	if doSoundEffect > 0.8:
+	if doSoundEffect > 0.85:
+		$EnemyPassiveSound.pitch_scale = randf_range(0.8,1.2)
 		$EnemyPassiveSound.play()
 	var player := get_tree().get_first_node_in_group("player").get_node("player")
 	playerblock = player.global_position
@@ -117,6 +118,7 @@ func walk():
 	var center_tile := Vector2i(body.global_position.x / 16, body.global_position.y / 16)
 	if (goal-center_tile).length() <= 1.5:
 			$"../Player/FuseController".takeDamage(damage)
+			$EnemyAttackSound.pitch_scale = randf_range(0.75,1.25)
 			$EnemyAttackSound.play()
 	if not grid.region.has_point(goal):
 		print("respawn")

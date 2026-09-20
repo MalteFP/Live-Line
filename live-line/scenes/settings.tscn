@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="2_r6d6q"]
 [ext_resource type="Texture2D" uid="uid://ssh1augtlf28" path="res://textures/achievements/zombieSide.png" id="3_gis3k"]
 [ext_resource type="Texture2D" uid="uid://ey47n2t000hm" path="res://textures/sprites/menuDeco/zombieBack.png" id="4_83j8s"]
+[ext_resource type="AudioStream" uid="uid://btuyopeqbv0ql" path="res://Audio/leberch-survival-horror-263069.mp3" id="6_gis3k"]
 
 [node name="settings" type="Control" unique_id=1017073175]
 layout_mode = 3
@@ -208,6 +209,9 @@ offset_bottom = 410.0
 theme_override_fonts/font = ExtResource("2_r6d6q")
 theme_override_font_sizes/font_size = 30
 text = "ESC to cancel"
+
+[node name="SettingsMusic" type="AudioStreamPlayer2D" parent="." unique_id=1713011447]
+stream = ExtResource("6_gis3k")
 
 [connection signal="changed" from="audio" to="." method="_on_audio_changed"]
 [connection signal="value_changed" from="audio" to="." method="_on_audio_value_changed"]
