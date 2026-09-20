@@ -13,10 +13,12 @@ func _on_giveup_pressed() -> void:
 	
 	$"..".paused = false
 	visible = false
-	for i in range($"../FuseController".fuseArr.size()):
-		$"../FuseController".takeDamage(1)
-		await get_tree().create_timer(0).timeout
-		
+	
+	var fuse = $"../FuseController".fuseArr.size() + $"../FuseController".notLayedWire
+	for i in range(60):
+		$"../FuseController".takeDamage(fuse / 60)
+		await get_tree().create_timer(0.05).timeout
+	$"../FuseController".takeDamage($"../FuseController".fuseArr.size() + $"../FuseController".notLayedWire)
 		
 func _on_quit_game_pressed() -> void:
 	Saver.saveGame()
