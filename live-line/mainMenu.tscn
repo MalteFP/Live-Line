@@ -270,6 +270,7 @@ frame_progress = 0.20217563
 stream = ExtResource("7_hvu0j")
 
 [connection signal="button_down" from="CanvasLayer/start game" to="." method="_on_start_game_button_down"]
+[connection signal="toggled" from="CanvasLayer/start game/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="button_down" from="CanvasLayer/settings" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="CanvasLayer/quit" to="." method="_on_quit_button_down"]
 [connection signal="pressed" from="CanvasLayer/acheivments" to="." method="_on_acheivments_pressed"]
