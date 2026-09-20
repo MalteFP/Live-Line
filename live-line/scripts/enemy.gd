@@ -171,7 +171,7 @@ func death():
 		var settings = LabelSettings.new()
 		settings.font_size = 30
 		get_tree().get_first_node_in_group("tutorialLabel").label_settings = settings
-		get_tree().get_first_node_in_group("tutorialLabel").text = "Killing enemies drops fuse, walk over them to pick it up."
+		get_tree().get_first_node_in_group("tutorialLabel").text = "Killing enemies drops fuse, walk over it to pick it up."
 	dead = true
 	$Node2D/explosionParticles.emitting = true
 	var drops = preload("res://scenes/itemWire.tscn")
