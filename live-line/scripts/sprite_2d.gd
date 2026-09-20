@@ -5,11 +5,13 @@ var timeInAttack = 0
 func _ready() -> void:
 	pass# Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if isAttacking:
-		global_position = $"../../player".global_position + Vector2(sin(timeInAttack*20),cos(timeInAttack*20))*16
+		print(str(scale.y))
+		print(str($"..".scale.y))
+		global_position = $"../../player/CollisionShape2D".global_position + Vector2((8+8*$"..".scale.y)*sin(20*timeInAttack),(8+8*$"..".scale.y)*cos(20*timeInAttack))
 		timeInAttack += delta
 		rotate(get_angle_to($"../../player".global_position)-PI)
 		
