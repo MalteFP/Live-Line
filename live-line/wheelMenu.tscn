@@ -11,33 +11,33 @@
 script = ExtResource("1_au5ci")
 
 [node name="menu" type="ColorRect" parent="." unique_id=1521298724]
-offset_left = 1024.0
+offset_left = 984.0
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0.20751238, 0.20751238, 0.20751238, 1)
 
 [node name="itemslot3" parent="menu" unique_id=1484602190 instance=ExtResource("2_lsvbm")]
-position = Vector2(32, 32)
+position = Vector2(45, 45)
 refill = true
 
 [node name="itemslot5" parent="menu" unique_id=582194590 instance=ExtResource("2_lsvbm")]
-position = Vector2(96, 32)
+position = Vector2(122, 45)
 refill = true
 itemType = 4
 
 [node name="itemslot6" parent="menu" unique_id=2049080506 instance=ExtResource("2_lsvbm")]
-position = Vector2(32, 96)
+position = Vector2(45, 122)
 refill = true
 itemType = 1
 
 [node name="itemslot7" parent="menu" unique_id=1796270539 instance=ExtResource("2_lsvbm")]
-position = Vector2(96, 96)
+position = Vector2(122, 122)
 refill = true
 itemType = 2
 
 [node name="itemslot8" parent="menu" unique_id=905354186 instance=ExtResource("2_lsvbm")]
-position = Vector2(64, 160)
+position = Vector2(84, 200)
 refill = true
 itemType = 3
 
@@ -93,10 +93,10 @@ wheelPos = 7
 [node name="Button" type="Button" parent="." unique_id=1602502472]
 custom_minimum_size = Vector2(128, 128)
 custom_maximum_size = Vector2(128, 128)
-offset_left = 1024.0
-offset_top = 520.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 1004.0
+offset_top = 500.0
+offset_right = 1132.0
+offset_bottom = 628.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("4_ueqx8")
 theme_override_font_sizes/font_size = 25
