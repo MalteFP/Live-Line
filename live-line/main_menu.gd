@@ -6,7 +6,9 @@ func _ready() -> void:
 	Saver.loadGame()
 	if not Saver.settings.has("audio"):
 		Saver.settings["audio"] = 50
-		
+	$"CanvasLayer/start game/CheckButton".button_pressed = !Saver.tutorialComplete
+
+	
 	var achievements = ["trap", "zombieKiller", "runner", "explosive", "dark"]
 	for achievement in achievements:
 		if not Saver.achievements.has(achievement):
@@ -42,6 +44,8 @@ func _on_start_game_button_down() -> void:
 	var scene = preload("res://scenes/world.tscn")
 	var world = scene.instantiate()
 	world.tutorial = $"CanvasLayer/start game/CheckButton".button_pressed
+	if $"CanvasLayer/start game/CheckButton".button_pressed == true:
+		$"CanvasLayer/start game/CheckButton".button_pressed = false
 	get_tree().change_scene_to_node(world)
 	
 	

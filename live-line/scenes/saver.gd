@@ -7,12 +7,14 @@ var contentToSave = {}
 var controls = {}
 var settings = {"controls": controls}
 var achievements = {}
+var tutorialComplete = false
 
 func saveGame():
 	
 	contentToSave["highScore"] = highScore
 	contentToSave["settings"] = settings
 	contentToSave["achievements"] = achievements
+	contentToSave["tutorialComplete"] = tutorialComplete
 	var file = FileAccess.open(save_location, FileAccess.WRITE)
 	file.store_var(contentToSave.duplicate())
 	file.close()
@@ -31,7 +33,7 @@ func unPackSave():
 	highScore = contentToSave["highScore"]
 	settings = contentToSave["settings"]
 	achievements = contentToSave["achievements"]
-	
+	tutorialComplete = contentToSave["tutorialComplete"]
 	
 	for action in settings["controls"].keys():
 		InputMap.action_erase_event(

@@ -15,6 +15,7 @@ func _ready() -> void:
 	
 func open():
 	if everOpened == false:
+		Saver.tutorialComplete = true
 		everOpened = true
 		var label = get_tree().get_first_node_in_group("tutorialLabel")
 		var settings = LabelSettings.new()
