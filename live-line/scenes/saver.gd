@@ -33,7 +33,8 @@ func unPackSave():
 	highScore = contentToSave["highScore"]
 	settings = contentToSave["settings"]
 	achievements = contentToSave["achievements"]
-	tutorialComplete = contentToSave["tutorialComplete"]
+	if contentToSave.has("tutorialComplete"):
+		tutorialComplete = contentToSave["tutorialComplete"]
 	
 	for action in settings["controls"].keys():
 		InputMap.action_erase_event(

@@ -4,6 +4,10 @@ var loadID = 0
 
 func _ready() -> void:
 	Saver.loadGame()
+	if not Saver.tutorialComplete:
+		Saver.tutorialComplete = false
+	
+	
 	if not Saver.settings.has("audio"):
 		Saver.settings["audio"] = 50
 	$"CanvasLayer/start game/CheckButton".button_pressed = !Saver.tutorialComplete
