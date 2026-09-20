@@ -20,7 +20,7 @@ func open():
 		var settings = LabelSettings.new()
 		settings.font_size = 24
 		label.label_settings = settings
-		label.text = "Drag and drop the powerups\nto the wheel, to control which\npowerups you are able to get."
+		label.text = "Drag and drop the powerups to the wheel, to control which powerups you are able to get."
 		$"Button".visible = true
 	
 	isOpen = true

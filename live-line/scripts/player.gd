@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 			var settings = LabelSettings.new()
 			settings.font_size = 20
 			label.label_settings = settings
-			label.text = "When you level up you get to spin the wheel,\n click spin and get a random power up"
+			label.text = "When you level up you get to spin the wheel, click spin and get a random power up"
 		$level/levelup.play()
 		xpTowardsLevel -= xpForLevel
 		level += 1
@@ -164,7 +164,7 @@ func do_move(vector: Vector2, dir: String):
 		var settings = LabelSettings.new()
 		settings.font_size = 24
 		$"../tutorial/tutorialRect/Label".label_settings = settings
-		$"../tutorial/tutorialRect/Label".text = "But watch out, each time \n you move your fuse burns \n and mosters attack"
+		$"../tutorial/tutorialRect/Label".text = "But watch out, each time you move your fuse burns and mosters attack"
 	if dir != "none":
 		var tween = get_tree().create_tween()
 		if movementTween and movementTween.is_running():

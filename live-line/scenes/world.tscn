@@ -16,8 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://drmge6tjj8d37" path="res://Audio/freesound_community-fiery-explosion-86199.mp3" id="13_o8fc1"]
 [ext_resource type="AudioStream" uid="uid://bgtlbc0njogr2" path="res://Audio/data_pion-st3-footstep-sfx-323056.mp3" id="14_7t5mc"]
 [ext_resource type="AudioStream" uid="uid://crppmxl7y81hk" path="res://Audio/data_pion-st2-footstep-sfx-323055.mp3" id="15_lakw3"]
-[ext_resource type="FontFile" uid="uid://ckupb6bl4gcir" path="res://textures/MainFont.ttf" id="15_xo05s"]
 [ext_resource type="AudioStream" uid="uid://6vkuc0srf8qk" path="res://Audio/data_pion-st1-footstep-sfx-323053.mp3" id="16_pm21f"]
+[ext_resource type="FontFile" uid="uid://c62ix16nm4gra" path="res://textures/SmallFont.ttf" id="18_lakw3"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7t5mc"]
 streams_count = 6
@@ -99,12 +99,13 @@ custom_maximum_size = Vector2(300, 100)
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 100.0
-theme_override_fonts/font = ExtResource("15_xo05s")
+theme_override_fonts/font = ExtResource("18_lakw3")
 theme_override_font_sizes/font_size = 24
 text = "Drag and drop the powerups
 to the wheel, to control which
 powerups you are able to get."
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [editable path="Player"]

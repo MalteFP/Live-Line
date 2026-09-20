@@ -12,7 +12,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			var settings = LabelSettings.new()
 			settings.font_size = 20
 			label.label_settings = settings
-			label.text = "Fuse acts both to extend your\ndoomed life, but also acts as experience \n collect XXX to level up"
+			label.text = "Fuse acts both to extend your doomed life, but also acts as experience collect 25 to level up"
 			
 		
 		body.get_parent().get_node("FuseController").notLayedWire += int(amount * get_tree().get_first_node_in_group("player").fuseMult)
