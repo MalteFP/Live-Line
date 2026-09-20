@@ -3,6 +3,7 @@ extends Control
 var waitingForAction = null
 
 func _ready() -> void:
+	$SettingsMusic.play()
 	Saver.unPackSave()
 	$audio.value = Saver.settings["audio"]
 	for action in Saver.settings["controls"].keys():
