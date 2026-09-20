@@ -29,7 +29,7 @@ func open():
 	
 	tween.tween_property(wheel, "global_position",Vector2(128 * PI,324),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.parallel().tween_property(wheel, "rotation", deg_to_rad(360),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
-	tween.parallel().tween_property(menu, "global_position", Vector2(1152-128,0),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+	tween.parallel().tween_property(menu, "global_position", Vector2(1152-168.0,0),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.parallel().tween_property($levelUpScreen/Node2D, "global_position",Vector2(976,-304.0),0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	await tween.finished
 	if isOpen:
@@ -46,7 +46,7 @@ func close():
 	
 	tween.tween_property(wheel, "global_position",Vector2(-256,324),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.parallel().tween_property(wheel, "rotation", deg_to_rad(180),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
-	tween.parallel().tween_property(menu, "global_position", Vector2(1152 + 128, 0),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+	tween.parallel().tween_property(menu, "global_position", Vector2(1152 + 168.0, 0),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	if $levelUpScreen.spinsLeft > 0:
 		tween.parallel().tween_property($levelUpScreen/Node2D, "global_position",Vector2(976,150),1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	await tween.finished
