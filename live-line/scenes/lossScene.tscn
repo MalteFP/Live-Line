@@ -33,11 +33,13 @@ script = ExtResource("1_6aqur")
 visible = false
 
 [node name="bg" type="Sprite2D" parent="CanvasLayer" unique_id=462582335]
+z_index = 10
 position = Vector2(576, 326.25)
 scale = Vector2(9.61875, 9.549999)
 texture = SubResource("NoiseTexture2D_bgr0v")
 
 [node name="border" type="Sprite2D" parent="CanvasLayer" unique_id=1360351598]
+z_index = 10
 texture = ExtResource("1_8ee38")
 centered = false
 offset = Vector2(176, 74)

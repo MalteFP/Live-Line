@@ -253,8 +253,6 @@ amount = 100
 texture = ExtResource("14_bwjto")
 process_material = SubResource("ParticleProcessMaterial_tw8ou")
 
-[node name="lossScene" parent="." unique_id=1262105243 instance=ExtResource("16_a8ls1")]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1220077435]
 position = Vector2(8, 3)
 sprite_frames = SubResource("SpriteFrames_bgr0v")
@@ -301,3 +299,5 @@ texture = ExtResource("21_i4ail")
 [node name="levelup" type="AudioStreamPlayer2D" parent="level" unique_id=1106048465]
 stream = ExtResource("22_a38lo")
 volume_db = 24.0
+
+[node name="lossScene" parent="." unique_id=1262105243 instance=ExtResource("16_a8ls1")]
