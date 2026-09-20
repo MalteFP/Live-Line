@@ -48,8 +48,7 @@ func _on_start_game_button_down() -> void:
 	var scene = preload("res://scenes/world.tscn")
 	var world = scene.instantiate()
 	world.tutorial = $"CanvasLayer/start game/CheckButton".button_pressed
-	if $"CanvasLayer/start game/CheckButton".button_pressed == true:
-		$"CanvasLayer/start game/CheckButton".button_pressed = false
+	
 	get_tree().change_scene_to_node(world)
 	
 	
@@ -68,3 +67,7 @@ func eventFromKeycode(keycode: int) -> InputEventKey:
 	var ev = InputEventKey.new()
 	ev.physical_keycode = keycode
 	return ev
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	Saver.tutorialComplete = !toggled_on # Replace with function body.
