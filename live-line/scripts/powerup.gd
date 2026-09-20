@@ -14,6 +14,6 @@ func apply(object: Object, property: String, value, absolute: bool, description:
 	var power = icon.instantiate()
 	add_child(power)
 	power.setVisuals(description, Icon)
-	power.moveTo(Vector2((collectedPowerups.size() % 8) * 48 + 32,floori(collectedPowerups.size() / 8) * 48 + 32))
+	power.moveTo(Vector2((collectedPowerups.size() % 6) * 64 + 32,floori(collectedPowerups.size() / 6) * 64 + 32))
 	collectedPowerups.append(power)
 	
