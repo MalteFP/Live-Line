@@ -15,9 +15,9 @@ func _on_giveup_pressed() -> void:
 	visible = false
 	
 	var fuse = $"../FuseController".fuseArr.size() + $"../FuseController".notLayedWire
-	for i in range(60):
-		$"../FuseController".takeDamage(fuse / 60)
-		await get_tree().create_timer(0.05).timeout
+	for i in range(ceil(fuse / 10)):
+		$"../FuseController".takeDamage(10)
+		await get_tree().create_timer(0).timeout
 	$"../FuseController".takeDamage($"../FuseController".fuseArr.size() + $"../FuseController".notLayedWire)
 		
 func _on_quit_game_pressed() -> void:
